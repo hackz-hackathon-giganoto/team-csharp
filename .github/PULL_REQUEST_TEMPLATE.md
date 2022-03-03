@@ -42,7 +42,6 @@
 - [ ] **早期リターン（ガード節）** を適用することで条件分岐の簡略化している → [参考](https://zenn.dev/media_engine/articles/early_return)
 - [ ] if文では「調査対象」を左側に、「比較対象」を右側に配置している → [参考](https://twitter.com/yuuuma_11/status/1347374986160340992/photo/2)
 - [ ] 値のパターンによって分岐する場合は `is/else文` ではなく、`switch文` を使う → [参考](https://blog.senseshare.jp/if-switch.html)
-- [ ] ゲームロジックの実装はUpdateではなく、FixedUpdateで行っている → [参考](https://qiita.com/ogawa-to/items/c9988f45516c0d331354)
 
 ### 共通 (コメント系)
 - [ ] コメントには適切なアノテーションコメントが記載されている → [参考](https://qiita.com/taka-kawa/items/673716d77795c937d422)
@@ -58,6 +57,7 @@
 - [ ] `Find` や `GetComponent` は極力使用せずに、`SerializeField` などを使うようにしている → [参考](https://northprint.net/?p=92)
 - [ ] クラス内で完結する変数には `Public変数` ではなく `Private変数` を使っている → [参考](https://qiita.com/makopo/items/8ef280b00f1cc18aec91)
 - [ ] アタッチするオブジェクトのクラスが明確な場合は `Prefabのシリアライズ` に `GameObject` を使わず,<br>アタッチするオブジェクトのクラスを明示的に指定している → [参考](https://r-ngtm.hatenablog.com/entry/2018/02/22/200320)
+- [ ] ゲームロジックの実装はUpdateではなく、FixedUpdateで行っている → [参考](https://qiita.com/ogawa-to/items/c9988f45516c0d331354)
 
 ### 共通 (その他)
 - [ ] フォーマット差分などは PR 上に一言 `インラインコメント` を付けて、レビュワーが省エネできるように → [参考](https://docs.github.com/ja/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/commenting-on-a-pull-request)
