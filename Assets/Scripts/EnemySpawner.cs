@@ -4,12 +4,12 @@ using UnityEngine;
 
 public class EnemySpawner : MonoBehaviour
 {
-    public GameObject enemy;
-    public float x;
-    public float y;
-    public float z;
-    public float appear;
-    public float wait;
+    [SerializeField] private GameObject enemy;
+    [SerializeField] private float x;
+    [SerializeField] private float y;
+    [SerializeField] private float z;
+    [SerializeField] private float wait;
+    [SerializeField] private float appear;
     // Start is called before the first frame update
     void Start()
     {
