@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 /// <summary>
 /// ピッチの高さを取得するクラス
@@ -14,6 +15,9 @@ public class GetterPitchNumber : MonoBehaviour
 
     [SerializeField]
     private AudioSource aud;
+
+    [SerializeField]
+    Text text;
 
     void Start()
     {
@@ -46,6 +50,7 @@ public class GetterPitchNumber : MonoBehaviour
         }
         freq = maxIndex * AudioSettings.outputSampleRate / 2 / spectrum.Length;
         pitchNumber = calculateNoteNumberFromFrequency(freq);
+        text.text = pitchNumber.ToString();
     }
 
     /// <summary>
