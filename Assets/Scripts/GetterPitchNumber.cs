@@ -8,57 +8,59 @@ using UnityEngine.UI;
 /// </summary>
 public class GetterPitchNumber : MonoBehaviour
 {
-    private int maxIndex = 0;
-    private int freq;// 周波数
-    private int pitchNumber;
-    private float maxValue = 0.0f;
+    private readonly int SampleNum = (2 << 9); // サンプリング数は2のN乗(N=5-12)
+
+    [SerializeField, Range(0f, 1000f)] float m_gain = 200f; // 倍率
 
     [SerializeField]
-    private AudioSource aud;
+    AudioSource m_source;
+
+    [SerializeField]
+    LineRenderer m_lineRenderer;
+
+    Vector3 m_sttPos;
+    Vector3 m_endPos;
+    float[] currentValues;
 
     [SerializeField]
     Text text;
 
     void Start()
     {
-        // マイク名、ループするかどうか、AudioClipの秒数、サンプリングレート を指定する
-        aud.clip = Microphone.Start(null, true, 10, 44100);
-        aud.Play();
-    }
-    void FixedUpdate()
-    {
-        GetPitchNumber();
-    }
-
-    /// <summary>
-    /// ピッチの高さを数字として取得する
-    /// </summary>
-    private void GetPitchNumber()
-    {
-        float[] spectrum = new float[8192];
-        AudioListener.GetSpectrumData(spectrum, 0, FFTWindow.Rectangular);
-        maxIndex = 0;
-        maxValue = 0.0f;
-        for (int i = 0; i < spectrum.Length; i++)
+        m_sttPos = m_lineRenderer.GetPosition(0);
+        m_endPos = m_lineRenderer.GetPosition(m_lineRenderer.positionCount - 1);
+        currentValues = new float[SampleNum];
+        if ((m_source != null) && (Microphone.devices.Length > 0)) // オーディオソースとマイクがある
         {
-            var val = spectrum[i];
-            if (val > maxValue)
+            if (m_source.clip == null) // クリップがなければマイクにする
             {
-                maxValue = val;
-                maxIndex = i;
+                string devName = Microphone.devices[0]; // 複数見つかってもとりあえず0番目のマイクを使用
+                int minFreq, maxFreq;
+                Microphone.GetDeviceCaps(devName, out minFreq, out maxFreq); // 最大最小サンプリング数を得る
+                int ms = minFreq / SampleNum; // サンプリング時間を適切に取る
+                m_source.loop = true; // ループにする
+                m_source.clip = Microphone.Start(devName, true, ms, minFreq); // clipをマイクに設定
+                while (!(Microphone.GetPosition(devName) > 0)) { } // きちんと値をとるために待つ
+                Microphone.GetPosition(null);
+                m_source.Play();
             }
         }
-        freq = maxIndex * AudioSettings.outputSampleRate / 2 / spectrum.Length;
-        pitchNumber = calculateNoteNumberFromFrequency(freq);
-        text.text = pitchNumber.ToString();
     }
 
-    /// <summary>
-    /// MIDI Tuning Standard数字を変換する
-    /// See https://en.wikipedia.org/wiki/MIDI_tuning_standard
-    /// </summary>
-    private int calculateNoteNumberFromFrequency(float freq)
+    // Update is called once per frame
+    void Update()
     {
-        return Mathf.FloorToInt(69 + 12 * Mathf.Log(freq / 440, 2));
+        m_source.GetSpectrumData(currentValues, 0, FFTWindow.Hamming);
+        int levelCount = currentValues.Length / 8; // 高周波数帯は取らない
+        Vector3[] positions = new Vector3[levelCount];
+        for (int i = 0; i < levelCount; i++)
+        {
+            positions[i] = m_sttPos + (m_endPos - m_sttPos) * (float)i / (float)(levelCount - 1);
+            positions[i].y += currentValues[i] * m_gain;
+        }
+
+        m_lineRenderer.positionCount = levelCount;
+        m_lineRenderer.SetPositions(positions);
+        text.text = "pos :" + Utils.GetHighestNumber(positions).ToString() + " high :" + Utils.GetHighest(positions).ToString();
     }
 }
