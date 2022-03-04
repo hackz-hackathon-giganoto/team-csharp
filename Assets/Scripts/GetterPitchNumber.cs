@@ -1,7 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 
 /// <summary>
 /// ピッチの高さを取得するクラス
@@ -20,10 +19,13 @@ public class GetterPitchNumber : MonoBehaviour
 
     Vector3 m_sttPos;
     Vector3 m_endPos;
-    float[] currentValues;
 
-    [SerializeField]
-    Text text;
+    [System.NonSerialized]
+    public float pitchHighest;
+    [System.NonSerialized]
+    public int pitchHighestNumber;
+
+    float[] currentValues;
 
     void Start()
     {
@@ -66,6 +68,7 @@ public class GetterPitchNumber : MonoBehaviour
             positions[i] = m_sttPos + (m_endPos - m_sttPos) * (float)i / (float)(levelCount - 1);
             positions[i].y += currentValues[i] * m_gain;
         }
-        text.text = "pos :" + Utils.GetHighestNumber(positions).ToString() + " high :" + Utils.GetHighest(positions).ToString();
+        pitchHighest = Utils.GetHighest(positions);
+        pitchHighestNumber = Utils.GetHighestNumber(positions);
     }
 }
