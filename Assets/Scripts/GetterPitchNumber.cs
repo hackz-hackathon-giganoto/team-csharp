@@ -47,8 +47,15 @@ public class GetterPitchNumber : MonoBehaviour
         }
     }
 
-    // Update is called once per frame
-    void Update()
+    void FixedUpdate()
+    {
+        GetCurrentPitch();
+    }
+
+    /// <summary>
+    /// 現在のピッチを取得する
+    /// </summary>
+    void GetCurrentPitch()
     {
         m_source.GetSpectrumData(currentValues, 0, FFTWindow.Hamming);
         int levelCount = currentValues.Length / 8; // 高周波数帯は取らない
@@ -58,9 +65,6 @@ public class GetterPitchNumber : MonoBehaviour
             positions[i] = m_sttPos + (m_endPos - m_sttPos) * (float)i / (float)(levelCount - 1);
             positions[i].y += currentValues[i] * m_gain;
         }
-
-        m_lineRenderer.positionCount = levelCount;
-        m_lineRenderer.SetPositions(positions);
         text.text = "pos :" + Utils.GetHighestNumber(positions).ToString() + " high :" + Utils.GetHighest(positions).ToString();
     }
 }
