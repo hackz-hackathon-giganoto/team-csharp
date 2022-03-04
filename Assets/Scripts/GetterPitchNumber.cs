@@ -54,6 +54,7 @@ public class GetterPitchNumber : MonoBehaviour
 
     /// <summary>
     /// 現在のピッチを取得する
+    /// TODO:コメントアウトは適切にする
     /// </summary>
     void GetCurrentPitch()
     {
