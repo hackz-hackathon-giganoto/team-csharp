@@ -2,6 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// unityの便利メソッドまとめ
+/// </summary>
 public class Utils : MonoBehaviour
 {
     /// <summary>
