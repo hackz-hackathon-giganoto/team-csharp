@@ -24,4 +24,13 @@ public class PlayerBulletMove : MonoBehaviour
         var playerShot = Instantiate(highPitchPlayerBullet, playerTransform.position, Quaternion.identity);
         playerShot.GetComponent<Rigidbody2D>().velocity = playerTransform.up * highPitchPlayerBulletSpeed;
     }
+
+    /// <summary>
+    /// ピッチが高い時の弾を生成、発射するメソッド
+    /// </summary>
+    public void CreatLowPitchPlayerBullet(GameObject lowPitchPlayerBullet, Transform playerTransform, float lowPitchPlayerBulletSpeed)
+    {
+        var playerShot = Instantiate(lowPitchPlayerBullet, playerTransform.position, Quaternion.identity);
+        playerShot.GetComponent<Rigidbody2D>().velocity = playerTransform.up * lowPitchPlayerBulletSpeed;
+    }
 }

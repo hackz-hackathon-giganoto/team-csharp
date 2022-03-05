@@ -12,9 +12,11 @@ public class PlayerShot : MonoBehaviour
     private float normalBulletSpeed;
     [SerializeField]
     private float highPitchPlayerBulletSpeed;
+    [SerializeField]
+    private float lowPitchPlayerBulletSpeed;
 
     [SerializeField]
-    private float normalShotIntervalTime;
+    private float shotIntervalTime;
     [SerializeField]
     private float lowestVolume;
 
@@ -22,6 +24,8 @@ public class PlayerShot : MonoBehaviour
     private GameObject normalPlayerBullet;
     [SerializeField]
     private GameObject highPitchPlayerBullet;
+    [SerializeField]
+    private GameObject lowPitchPlayerBullet;
 
     [SerializeField]
     private int highPlayerPitch;
@@ -50,20 +54,26 @@ public class PlayerShot : MonoBehaviour
         while (true)
         {
             text.text = getterPitch.pitchHighestNumber.ToString();
-            yield return new WaitForSeconds(normalShotIntervalTime);
+            yield return new WaitForSeconds(shotIntervalTime);
+
             if (getterPitch.pitchHighest < lowestVolume)
             {
                 continue;
             }
 
-            if (getterPitch.pitchHighestNumber < highPlayerPitch && getterPitch.pitchHighestNumber > lowPlayerPitch)
-            {
-                playerBulletMove.CreatNormalPlayerBullet(normalPlayerBullet, this.transform, normalBulletSpeed);
-            }
-            else if (getterPitch.pitchHighestNumber > highPlayerPitch)
+            if (getterPitch.pitchHighestNumber > highPlayerPitch)
             {
                 
                 playerBulletMove.CreatHighPitchPlayerBullet(highPitchPlayerBullet, this.transform, highPitchPlayerBulletSpeed);
+            }
+            else if (getterPitch.pitchHighestNumber < lowPlayerPitch)
+            {
+
+                playerBulletMove.CreatHighPitchPlayerBullet(lowPitchPlayerBullet, this.transform, lowPitchPlayerBulletSpeed);
+            }
+            else
+            {
+                playerBulletMove.CreatNormalPlayerBullet(normalPlayerBullet, this.transform, normalBulletSpeed);
             }
         }
     }
