@@ -717,7 +717,7 @@ AudioSource:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1843331505}
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: a02a9da5cd6b4414683c02a4948ab225, type: 3}
@@ -932,9 +932,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   normalBulletSpeed: 10
+  highPitchPlayerBulletSpeed: 5
   normalShotIntervalTime: 0.1
   lowestVolume: 0.5
   normalPlayerBullet: {fileID: 1323815346398037257, guid: 00ed22dc9af87455a8d97dd159f74082, type: 3}
+  highPitchPlayerBullet: {fileID: 1664842391608761928, guid: 5cdbf108061d7423ba49954bc36332ce, type: 3}
   highPlayerPitch: 30
   lowPlayerPitch: 15
   getterPitch: {fileID: 1202354742}

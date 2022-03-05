@@ -11,12 +11,17 @@ public class PlayerShot : MonoBehaviour
     [SerializeField]
     private float normalBulletSpeed;
     [SerializeField]
+    private float highPitchPlayerBulletSpeed;
+
+    [SerializeField]
     private float normalShotIntervalTime;
     [SerializeField]
     private float lowestVolume;
 
     [SerializeField]
     private GameObject normalPlayerBullet;
+    [SerializeField]
+    private GameObject highPitchPlayerBullet;
 
     [SerializeField]
     private int highPlayerPitch;
@@ -37,11 +42,6 @@ public class PlayerShot : MonoBehaviour
         StartCoroutine("PlayerShotInterval");
     }
 
-    private void Update()
-    {
-        text.text = "num:" + getterPitch.pitchHighestNumber.ToString() + " high:" + getterPitch.pitchHighest.ToString();
-    }
-
     /// <summary>
     /// プレイヤーの弾を打つ間隔
     /// </summary>
@@ -49,16 +49,21 @@ public class PlayerShot : MonoBehaviour
     {
         while (true)
         {
+            text.text = getterPitch.pitchHighestNumber.ToString();
             yield return new WaitForSeconds(normalShotIntervalTime);
-
             if (getterPitch.pitchHighest < lowestVolume)
             {
                 continue;
             }
 
-            if(getterPitch.pitchHighestNumber < highPlayerPitch && getterPitch.pitchHighestNumber > lowPlayerPitch)
+            if (getterPitch.pitchHighestNumber < highPlayerPitch && getterPitch.pitchHighestNumber > lowPlayerPitch)
             {
-                playerBulletMove.CreatPlayerNormalBullet(normalPlayerBullet, this.transform, normalBulletSpeed);
+                playerBulletMove.CreatNormalPlayerBullet(normalPlayerBullet, this.transform, normalBulletSpeed);
+            }
+            else if (getterPitch.pitchHighestNumber > highPlayerPitch)
+            {
+                
+                playerBulletMove.CreatHighPitchPlayerBullet(highPitchPlayerBullet, this.transform, highPitchPlayerBulletSpeed);
             }
         }
     }
