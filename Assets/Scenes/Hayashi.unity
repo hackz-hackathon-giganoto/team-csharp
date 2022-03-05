@@ -931,9 +931,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 91cffd83e50984f90925931459fd2a5d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  normalBulletSpeed: 10
-  highPitchPlayerBulletSpeed: 15
-  lowPitchPlayerBulletSpeed: 5
+  normalBulletSpeed: 15
+  highPitchPlayerBulletSpeed: 25
+  lowPitchPlayerBulletSpeed: 10
   shotIntervalTime: 0.1
   lowestVolume: 0.5
   normalPlayerBullet: {fileID: 1323815346398037257, guid: 00ed22dc9af87455a8d97dd159f74082, type: 3}
