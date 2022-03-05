@@ -2,6 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// 敵の水平方向のみの移動をさせるクラス
+/// </summary>
 public class EnemyMoveHorizontal : MonoBehaviour
 {
     [SerializeField]
