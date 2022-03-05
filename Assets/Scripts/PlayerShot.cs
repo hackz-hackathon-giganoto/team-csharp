@@ -53,7 +53,7 @@ public class PlayerShot : MonoBehaviour
     {
         while (true)
         {
-            text.text = getterPitch.pitchHighestNumber.ToString();
+            text.text = "high : " + getterPitch.pitchHighest + " num : " + getterPitch.pitchHighestNumber.ToString();
             yield return new WaitForSeconds(shotIntervalTime);
 
             if (getterPitch.pitchHighest < lowestVolume)
@@ -61,15 +61,13 @@ public class PlayerShot : MonoBehaviour
                 continue;
             }
 
-            if (getterPitch.pitchHighestNumber > highPlayerPitch)
+            if (getterPitch.pitchHighestNumber < lowPlayerPitch)
             {
-                
-                playerBulletMove.CreatHighPitchPlayerBullet(highPitchPlayerBullet, this.transform, highPitchPlayerBulletSpeed);
+                playerBulletMove.CreatLowPitchPlayerBullet(lowPitchPlayerBullet, this.transform, lowPitchPlayerBulletSpeed);
             }
-            else if (getterPitch.pitchHighestNumber < lowPlayerPitch)
+            else if (getterPitch.pitchHighestNumber > highPlayerPitch)
             {
-
-                playerBulletMove.CreatHighPitchPlayerBullet(lowPitchPlayerBullet, this.transform, lowPitchPlayerBulletSpeed);
+                playerBulletMove.CreatHighPitchPlayerBullet(highPitchPlayerBullet, this.transform, highPitchPlayerBulletSpeed);
             }
             else
             {

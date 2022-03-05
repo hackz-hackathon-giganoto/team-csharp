@@ -18,15 +18,30 @@ public class PlayerBulletMove : MonoBehaviour
 
     /// <summary>
     /// ピッチが高い時の弾を生成、発射するメソッド
+    /// TODO:より良い実装がないか探す
     /// </summary>
     public void CreatHighPitchPlayerBullet(GameObject highPitchPlayerBullet, Transform playerTransform, float highPitchPlayerBulletSpeed)
     {
-        var playerShot = Instantiate(highPitchPlayerBullet, playerTransform.position, Quaternion.identity);
-        playerShot.GetComponent<Rigidbody2D>().velocity = playerTransform.up * highPitchPlayerBulletSpeed;
+        int bulletCount = 3;
+        var playerForward = playerTransform.up;
+
+        GameObject[] playerShot = new GameObject[bulletCount];
+
+        playerForward.x -= 1;
+
+        float aliquotCount = (bulletCount - 1) / 2f;//弾の飛ぶ方向の分割数
+
+        for (int i = 0; i < bulletCount; ++i)
+        {
+            playerShot[i] = Instantiate(highPitchPlayerBullet, playerTransform.position, Quaternion.identity);
+            playerShot[i].GetComponent<Rigidbody2D>().velocity = playerForward * highPitchPlayerBulletSpeed;
+
+            playerForward.x += 1 / aliquotCount;
+        }
     }
 
     /// <summary>
-    /// ピッチが高い時の弾を生成、発射するメソッド
+    /// ピッチがい時の弾を生成、発射するメソッド
     /// </summary>
     public void CreatLowPitchPlayerBullet(GameObject lowPitchPlayerBullet, Transform playerTransform, float lowPitchPlayerBulletSpeed)
     {
