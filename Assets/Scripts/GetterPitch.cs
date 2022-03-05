@@ -5,10 +5,10 @@ using UnityEngine;
 /// <summary>
 /// ピッチの高さを取得するクラス
 /// </summary>
-public class GetterPitchNumber : MonoBehaviour
+public class GetterPitch : MonoBehaviour
 {
     private readonly int SampleNum = (2 << 9); // サンプリング数は2のN乗(N=5-12)
-
+    
     [SerializeField, Range(0f, 1000f)] float m_gain = 200f; // 倍率
 
     [SerializeField]

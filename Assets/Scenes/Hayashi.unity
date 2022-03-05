@@ -460,9 +460,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1202354743}
-  - component: {fileID: 1202354742}
   - component: {fileID: 1202354741}
   - component: {fileID: 1202354744}
+  - component: {fileID: 1202354742}
   m_Layer: 0
   m_Name: GameObject
   m_TagString: Untagged
@@ -709,7 +709,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!82 &1843331506
 AudioSource:
   m_ObjectHideFlags: 0
@@ -722,7 +722,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: a02a9da5cd6b4414683c02a4948ab225, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.1
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -832,6 +832,7 @@ GameObject:
   - component: {fileID: 2024091101}
   - component: {fileID: 2024091100}
   - component: {fileID: 2024091103}
+  - component: {fileID: 2024091104}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -912,7 +913,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2024091099}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -3.04, z: 0}
+  m_LocalPosition: {x: 0, y: -3, z: 0}
   m_LocalScale: {x: 0.8, y: 0.8, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -932,7 +933,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   normalBulletSpeed: 10
   normalShotIntervalTime: 0.1
-  lowestVolume: 0.1
+  lowestVolume: 0.5
   normalPlayerBullet: {fileID: 1323815346398037257, guid: 00ed22dc9af87455a8d97dd159f74082, type: 3}
-  getterPitchNumber: {fileID: 1202354742}
+  highPlayerPitch: 30
+  lowPlayerPitch: 15
+  getterPitch: {fileID: 1202354742}
+  playerBulletMove: {fileID: 2024091104}
   text: {fileID: 498171126}
+--- !u!114 &2024091104
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2024091099}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bd58aad33f1964703ad73a5e72971b90, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

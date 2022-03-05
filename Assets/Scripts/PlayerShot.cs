@@ -18,10 +18,16 @@ public class PlayerShot : MonoBehaviour
     [SerializeField]
     private GameObject normalPlayerBullet;
 
+    [SerializeField]
+    private int highPlayerPitch;
+    [SerializeField]
+    private int lowPlayerPitch;
 
     [SerializeField]
-    GetterPitchNumber getterPitchNumber;
+    GetterPitch getterPitch;
 
+    [SerializeField]
+    PlayerBulletMove playerBulletMove;
 
     [SerializeField]
     Text text;
@@ -33,7 +39,7 @@ public class PlayerShot : MonoBehaviour
 
     private void Update()
     {
-        text.text = getterPitchNumber.pitchHighest.ToString();
+        text.text = "num:" + getterPitch.pitchHighestNumber.ToString() + " high:" + getterPitch.pitchHighest.ToString();
     }
 
     /// <summary>
@@ -43,12 +49,16 @@ public class PlayerShot : MonoBehaviour
     {
         while (true)
         {
-            
             yield return new WaitForSeconds(normalShotIntervalTime);
-            if (getterPitchNumber.pitchHighest > lowestVolume)
+
+            if (getterPitch.pitchHighest < lowestVolume)
             {
-                var playerShot = Instantiate(normalPlayerBullet, transform.position, Quaternion.identity);
-                playerShot.GetComponent<Rigidbody2D>().velocity = transform.up * normalBulletSpeed;
+                continue;
+            }
+
+            if(getterPitch.pitchHighestNumber < highPlayerPitch && getterPitch.pitchHighestNumber > lowPlayerPitch)
+            {
+                playerBulletMove.CreatPlayerNormalBullet(normalPlayerBullet, this.transform, normalBulletSpeed);
             }
         }
     }
