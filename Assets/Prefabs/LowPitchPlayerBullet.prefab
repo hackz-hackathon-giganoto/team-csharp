@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 9097354701096124927}
   - component: {fileID: 6847417503347593814}
   - component: {fileID: 2364731793520977240}
+  - component: {fileID: 535898338887685621}
   m_Layer: 0
   m_Name: LowPitchPlayerBullet
   m_TagString: Untagged
@@ -104,3 +105,17 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &535898338887685621
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7337490745922369863}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 05154374fe98b46fa93b33916617b422, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  finalPosition: 5
+  finalSize: 2.5

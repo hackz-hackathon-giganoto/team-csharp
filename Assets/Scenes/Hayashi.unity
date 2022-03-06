@@ -913,7 +913,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2024091099}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -3, z: 0}
+  m_LocalPosition: {x: 0, y: -3.88, z: 0}
   m_LocalScale: {x: 0.8, y: 0.8, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -934,7 +934,9 @@ MonoBehaviour:
   normalBulletSpeed: 15
   highPitchPlayerBulletSpeed: 25
   lowPitchPlayerBulletSpeed: 10
-  shotIntervalTime: 0.1
+  normalShotIntervalTime: 0.1
+  highShotIntervalTime: 0.05
+  lowShotIntervalTime: 1
   lowestVolume: 0.5
   normalPlayerBullet: {fileID: 1323815346398037257, guid: 00ed22dc9af87455a8d97dd159f74082, type: 3}
   highPitchPlayerBullet: {fileID: 1664842391608761928, guid: 5cdbf108061d7423ba49954bc36332ce, type: 3}
