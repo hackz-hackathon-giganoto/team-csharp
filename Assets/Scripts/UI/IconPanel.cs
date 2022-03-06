@@ -1,24 +1,27 @@
- using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
- 
+
+    ///<summary>
+    ///アイコンを表示するクラスです
+    ///</summary>
 public class IconPanel : MonoBehaviour
 {
-    [SerializeField]private GameObject IconObj;
-    [SerializeField]private int firstSetNum;
+    [SerializeField]private GameObject iconObj;
+    [SerializeField]private int firstCount;
     private void Start(){
-        SetIcon(firstSetNum);
+        SetIcon(firstCount);
     }
-    
+
     ///<summary>
     ///渡した引数分のアイコンを表示します
     ///</summary>
-    public void SetIcon(int setNum) {
+    public void SetIcon(int count) {
         for (int i = 0; i < transform.childCount; i++) {
             Destroy(transform.GetChild(i).gameObject);
         }
-        for (int i = 0; i < setNum; i++) {
-            Instantiate<GameObject>(IconObj, transform);
+        for (int i = 0; i < count; i++) {
+            Instantiate<GameObject>(iconObj, transform);
         }
     }
 }
