@@ -15,8 +15,14 @@ public class PlayerShot : MonoBehaviour
     [SerializeField]
     private float lowPitchPlayerBulletSpeed;
 
+    private float currentShotIntervalTime;
     [SerializeField]
-    private float shotIntervalTime;
+    private float normalShotIntervalTime;
+    [SerializeField]
+    private float highShotIntervalTime;
+    [SerializeField]
+    private float lowShotIntervalTime;
+
     [SerializeField]
     private float lowestVolume;
 
@@ -43,6 +49,7 @@ public class PlayerShot : MonoBehaviour
 
     void Start()
     {
+        currentShotIntervalTime = normalShotIntervalTime;
         StartCoroutine("PlayerShotInterval");
     }
 
@@ -54,24 +61,27 @@ public class PlayerShot : MonoBehaviour
         while (true)
         {
             text.text = "high : " + getterPitch.pitchHighest + " num : " + getterPitch.pitchHighestNumber.ToString();
-            yield return new WaitForSeconds(shotIntervalTime);
+            yield return new WaitForSeconds(currentShotIntervalTime);
 
             if (getterPitch.pitchHighest < lowestVolume)
             {
                 continue;
             }
 
-            if (getterPitch.pitchHighestNumber < lowPlayerPitch)
-            {
-                playerBulletMove.CreatLowPitchPlayerBullet(lowPitchPlayerBullet, this.transform, lowPitchPlayerBulletSpeed);
-            }
-            else if (getterPitch.pitchHighestNumber > highPlayerPitch)
+            if (getterPitch.pitchHighestNumber > highPlayerPitch)
             {
                 playerBulletMove.CreatHighPitchPlayerBullet(highPitchPlayerBullet, this.transform, highPitchPlayerBulletSpeed);
+                currentShotIntervalTime = highShotIntervalTime;
+            }
+            else if (getterPitch.pitchHighestNumber < lowPlayerPitch)
+            {
+                playerBulletMove.CreatLowPitchPlayerBullet(lowPitchPlayerBullet, this.transform, lowPitchPlayerBulletSpeed);
+                currentShotIntervalTime = lowShotIntervalTime;
             }
             else
             {
                 playerBulletMove.CreatNormalPlayerBullet(normalPlayerBullet, this.transform, normalBulletSpeed);
+                currentShotIntervalTime = normalShotIntervalTime;
             }
         }
     }
