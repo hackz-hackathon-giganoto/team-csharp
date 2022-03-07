@@ -25,6 +25,10 @@ public class GetterPitch : MonoBehaviour
     [System.NonSerialized]
     public int pitchHighestNumber;
 
+    private string deviceName;
+
+    public string DeviceName { set { deviceName = value; } }
+
     float[] currentValues;
 
     void Start()
@@ -36,13 +40,13 @@ public class GetterPitch : MonoBehaviour
         {
             if (m_source.clip == null) // クリップがなければマイクにする
             {
-                string devName = Microphone.devices[0]; // 複数見つかってもとりあえず0番目のマイクを使用
+                deviceName = Microphone.devices[0]; // 複数見つかってもとりあえず0番目のマイクを使用
                 int minFreq, maxFreq;
-                Microphone.GetDeviceCaps(devName, out minFreq, out maxFreq); // 最大最小サンプリング数を得る
+                Microphone.GetDeviceCaps(deviceName, out minFreq, out maxFreq); // 最大最小サンプリング数を得る
                 int ms = minFreq / SampleNum; // サンプリング時間を適切に取る
                 m_source.loop = true; // ループにする
-                m_source.clip = Microphone.Start(devName, true, ms, minFreq); // clipをマイクに設定
-                while (!(Microphone.GetPosition(devName) > 0)) { } // きちんと値をとるために待つ
+                m_source.clip = Microphone.Start(deviceName, true, ms, minFreq); // clipをマイクに設定
+                while (!(Microphone.GetPosition(deviceName) > 0)) { } // きちんと値をとるために待つ
                 Microphone.GetPosition(null);
                 m_source.Play();
             }
