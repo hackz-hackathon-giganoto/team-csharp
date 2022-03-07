@@ -40,7 +40,7 @@ public class MicDeviceManager : MonoBehaviour
     /// Scene移行時pItchManagerタグの付いたオブジェクトにmicDeviceを渡す
     /// </summary>
     private void SetMicDevice(Scene next,LoadSceneMode mode){
-        //GetterPitchNumber pitchManager = GameObject.FindWithTag("PitchManager").GetComponent<GetterPitchNumber>();
-        //pitchManager.MicDevice = micDevice;
+        GetterPitch pitchManager = GameObject.FindWithTag("PitchManager").GetComponent<GetterPitch>();
+        pitchManager.DeviceName = micDevice;
     }
 }
