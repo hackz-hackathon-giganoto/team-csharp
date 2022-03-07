@@ -80,6 +80,9 @@ public class PlayerShot : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// ホーミング弾を打つ間隔
+    /// </summary>
     IEnumerator PlayerHomingShotInterval()
     {
         while (true)

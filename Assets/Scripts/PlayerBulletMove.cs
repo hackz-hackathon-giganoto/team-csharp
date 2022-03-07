@@ -28,7 +28,7 @@ public class PlayerBulletMove : MonoBehaviour
     /// 普通の弾を生成、発射するメソッド
     /// </summary>
     public void CreatNormalPlayerBullet()
-    {
+    { 
         Transform playerTransform = this.transform;
         var playerShot = Instantiate(normalPlayerBullet, playerTransform.position, Quaternion.identity);
         playerShot.GetComponent<Rigidbody2D>().velocity = playerTransform.up * normalBulletSpeed;
@@ -54,6 +54,9 @@ public class PlayerBulletMove : MonoBehaviour
         playerShot.GetComponent<Rigidbody2D>().velocity = playerTransform.up * lowPitchPlayerBulletSpeed;
     }
 
+    /// <summary>
+    /// 複数の弾を生成するときのスクリプト
+    /// </summary>
     public void CreateMultipleBullet(GameObject multiplePlayerBullet,float bulletSpeed)
     {
         Transform playerTransform = this.transform;

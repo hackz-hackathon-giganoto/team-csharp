@@ -2,6 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+///  プレイヤーのホーミング弾を管理するクラス
+/// </summary>
 public class HomingPlayerBullet : MonoBehaviour
 {
     private Vector3 enemyDirection;
@@ -13,11 +16,14 @@ public class HomingPlayerBullet : MonoBehaviour
     void Start()
     {
         rigid2D = GetComponent<Rigidbody2D>();
-        StartCoroutine("EnemyShotHoming");
+        StartCoroutine("WaitEnemyShotHoming");
     }
 
 
-    IEnumerator EnemyShot()
+    /// <summary>
+    /// 常にエネミーの方向を向いて進み続ける（ホーミングする）
+    /// </summary>
+    IEnumerator ShotEnemyHoming()
     {
         while (true)
         {
@@ -38,9 +44,12 @@ public class HomingPlayerBullet : MonoBehaviour
 
     }
 
-    IEnumerator EnemyShotHoming()
+    /// <summary>
+    /// ホーミングし始めるまでの待機時間
+    /// </summary>
+    IEnumerator WaitEnemyShotHoming()
     {
         yield return new WaitForSeconds(0.5f);
-        StartCoroutine("EnemyShot");
+        StartCoroutine("ShotEnemyHoming  ");
     }
 }
