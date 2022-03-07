@@ -96,7 +96,7 @@ public class PlayerShot : MonoBehaviour
                 continue;
             }
 
-            if (getterPitch.pitchHighestNumber > highPlayerPitch)
+            if (getterPitch.pitchHighestNumber < highPlayerPitch && getterPitch.pitchHighestNumber > lowPlayerPitch)
             {
                 playerBulletMove.CreateMultipleBullet(homingPlayerBullet, homingPlayerBulletFirstSpeed);
             }
