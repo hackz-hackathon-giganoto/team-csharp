@@ -11,23 +11,29 @@ public class HomingPlayerBullet : MonoBehaviour
 
     private GameObject enemyObject;
 
-    Rigidbody2D rigid2D;
+    private Rigidbody2D rigid2D;
+
+    private float homingPlayerBulletSpeed = 5f;
+
+    private float startHomingShotWaitingTime = 0.5f;
+
+    private float playerHomingShotInterval = 0.2f; 
 
     void Start()
     {
         rigid2D = GetComponent<Rigidbody2D>();
-        StartCoroutine("WaitEnemyShotHoming");
+        StartCoroutine("WaitPlayerShotHomingBullet");
     }
 
 
     /// <summary>
     /// 常にエネミーの方向を向いて進み続ける（ホーミングする）
     /// </summary>
-    IEnumerator ShotEnemyHoming()
+    IEnumerator ShotPlayerHomingBullet()
     {
         while (true)
         {
-            this.rigid2D.velocity = transform.up * 5;
+            this.rigid2D.velocity = transform.up * homingPlayerBulletSpeed;
 
             if (enemyObject == null)
             {
@@ -39,7 +45,7 @@ public class HomingPlayerBullet : MonoBehaviour
                 enemyDirection = (enemyObject.transform.position - this.transform.position);
                 this.transform.rotation = Quaternion.FromToRotation(Vector3.up, enemyDirection);
             }
-            yield return new WaitForSeconds(0.2f);
+            yield return new WaitForSeconds(playerHomingShotInterval);
         }
 
     }
@@ -47,9 +53,9 @@ public class HomingPlayerBullet : MonoBehaviour
     /// <summary>
     /// ホーミングし始めるまでの待機時間
     /// </summary>
-    IEnumerator WaitEnemyShotHoming()
+    IEnumerator WaitPlayerShotHomingBullet()
     {
-        yield return new WaitForSeconds(0.5f);
-        StartCoroutine("ShotEnemyHoming  ");
+        yield return new WaitForSeconds(startHomingShotWaitingTime);
+        StartCoroutine("ShotPlayerHomingBullet");
     }
 }

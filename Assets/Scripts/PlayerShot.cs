@@ -21,6 +21,8 @@ public class PlayerShot : MonoBehaviour
 
     [SerializeField]
     private float lowestVolume;
+    [SerializeField]
+    private float homingPlayerBulletFirstSpeed;
 
     [SerializeField]
     private int highPlayerPitch;
@@ -96,7 +98,7 @@ public class PlayerShot : MonoBehaviour
 
             if (getterPitch.pitchHighestNumber > highPlayerPitch)
             {
-                playerBulletMove.CreateMultipleBullet(homingPlayerBullet, 3);
+                playerBulletMove.CreateMultipleBullet(homingPlayerBullet, homingPlayerBulletFirstSpeed);
             }
 
         }
