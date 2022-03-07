@@ -30,7 +30,7 @@ public class Utils : MonoBehaviour
         float currentWidest = Mathf.Infinity * -1;
         int currentWidestNumber = 0;
 
-        for (int i = 0; i < vecs.Length; ++i)
+        for (int i = 0; i < vecs.Length; i++)
         {
             if (currentWidest < vecs[i].x)
             {
@@ -65,7 +65,7 @@ public class Utils : MonoBehaviour
         float currentHighest = Mathf.Infinity * -1;
         int currentHighestNumber = 0;
 
-        for (int i = 0; i < vecs.Length; ++i)
+        for (int i = 0; i < vecs.Length; i++)
         {
             if (currentHighest < vecs[i].y)
             {
@@ -100,7 +100,7 @@ public class Utils : MonoBehaviour
         float currentDeepest = Mathf.Infinity * -1;
         int currentDeepestNumber = 0;
 
-        for (int i = 0; i < vecs.Length; ++i)
+        for (int i = 0; i < vecs.Length; i++)
         {
             if (currentDeepest < vecs[i].z)
             {

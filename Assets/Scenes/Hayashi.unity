@@ -931,18 +931,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 91cffd83e50984f90925931459fd2a5d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  normalBulletSpeed: 15
-  highPitchPlayerBulletSpeed: 25
-  lowPitchPlayerBulletSpeed: 10
-  normalShotIntervalTime: 0.1
-  highShotIntervalTime: 0.05
+  normalShotIntervalTime: 0.2
+  highShotIntervalTime: 0.1
   lowShotIntervalTime: 1
+  homingShotIntervalTime: 0.5
   lowestVolume: 0.5
-  normalPlayerBullet: {fileID: 1323815346398037257, guid: 00ed22dc9af87455a8d97dd159f74082, type: 3}
-  highPitchPlayerBullet: {fileID: 1664842391608761928, guid: 5cdbf108061d7423ba49954bc36332ce, type: 3}
-  lowPitchPlayerBullet: {fileID: 7337490745922369863, guid: 282b9e271844f4de8983b477fb4e0fe4, type: 3}
   highPlayerPitch: 30
   lowPlayerPitch: 15
+  homingPlayerBullet: {fileID: 5439049718126398807, guid: 29d4ceb04b3f745368c73d64b93044b5, type: 3}
   getterPitch: {fileID: 1202354742}
   playerBulletMove: {fileID: 2024091104}
   text: {fileID: 498171126}
@@ -958,3 +954,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bd58aad33f1964703ad73a5e72971b90, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  normalBulletSpeed: 15
+  highPitchPlayerBulletSpeed: 20
+  lowPitchPlayerBulletSpeed: 10
+  normalPlayerBullet: {fileID: 1323815346398037257, guid: 00ed22dc9af87455a8d97dd159f74082, type: 3}
+  highPitchPlayerBullet: {fileID: 1664842391608761928, guid: 5cdbf108061d7423ba49954bc36332ce, type: 3}
+  lowPitchPlayerBullet: {fileID: 7337490745922369863, guid: 282b9e271844f4de8983b477fb4e0fe4, type: 3}
+  bulletCount: 3
