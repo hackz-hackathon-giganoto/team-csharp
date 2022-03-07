@@ -2,6 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// 
+/// </summary>
 public class LowPitchPlayerBulletBigger : MonoBehaviour
 {
     Vector3 changeSize;
@@ -21,11 +24,7 @@ public class LowPitchPlayerBulletBigger : MonoBehaviour
 
     void Start()
     {
-        bulletFirstTransform = gameObject.transform;
-        changeSize = bulletFirstTransform.localScale;
-        aliquotBiggerSize = (finalPosition - bulletFirstTransform.position.y) * 5f;
-        finalSize -= bulletFirstTransform.localScale.x;
-        amountIncrease = finalSize / aliquotBiggerSize;
+        SetAmountIncrease();
     }
 
     void FixedUpdate()
@@ -34,5 +33,17 @@ public class LowPitchPlayerBulletBigger : MonoBehaviour
         changeSize.y += amountIncrease;
 
         gameObject.transform.localScale = changeSize;
+    }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    void SetAmountIncrease()
+    {
+        bulletFirstTransform = gameObject.transform;
+        changeSize = bulletFirstTransform.localScale;
+        aliquotBiggerSize = (finalPosition - bulletFirstTransform.position.y) * 5f;
+        finalSize -= bulletFirstTransform.localScale.x;
+        amountIncrease = finalSize / aliquotBiggerSize;
     }
 }

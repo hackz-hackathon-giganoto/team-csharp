@@ -7,11 +7,29 @@ using UnityEngine;
 /// </summary>
 public class PlayerBulletMove : MonoBehaviour
 {
+    [SerializeField]
+    private float normalBulletSpeed;
+    [SerializeField]
+    private float highPitchPlayerBulletSpeed;
+    [SerializeField]
+    private float lowPitchPlayerBulletSpeed;
+
+    [SerializeField]
+    private GameObject normalPlayerBullet;
+    [SerializeField]
+    private GameObject highPitchPlayerBullet;
+    [SerializeField]
+    private GameObject lowPitchPlayerBullet;
+
+    [SerializeField]
+    int bulletCount;
+
     /// <summary>
     /// 普通の弾を生成、発射するメソッド
     /// </summary>
-    public void CreatNormalPlayerBullet(GameObject normalPlayerBullet, Transform playerTransform, float normalBulletSpeed)
+    public void CreatNormalPlayerBullet()
     {
+        Transform playerTransform = this.transform;
         var playerShot = Instantiate(normalPlayerBullet, playerTransform.position, Quaternion.identity);
         playerShot.GetComponent<Rigidbody2D>().velocity = playerTransform.up * normalBulletSpeed;
     }
@@ -20,10 +38,26 @@ public class PlayerBulletMove : MonoBehaviour
     /// ピッチが高い時の弾を生成、発射するメソッド
     /// TODO:より良い実装がないか探す
     /// </summary>
-    public void CreatHighPitchPlayerBullet(GameObject highPitchPlayerBullet, Transform playerTransform, float highPitchPlayerBulletSpeed)
+    public void CreatHighPitchPlayerBullet()
     {
-        int bulletCount = 3;
-        var playerForward = playerTransform.up;
+        Transform playerTransform = this.transform;
+        CreateMultipleBullet(highPitchPlayerBullet, highPitchPlayerBulletSpeed);
+    }
+
+    /// <summary>
+    /// ピッチがい時の弾を生成、発射するメソッド
+    /// </summary>
+    public void CreatLowPitchPlayerBullet()
+    {
+        Transform playerTransform = this.transform;
+        var playerShot = Instantiate(lowPitchPlayerBullet, playerTransform.position, Quaternion.identity);
+        playerShot.GetComponent<Rigidbody2D>().velocity = playerTransform.up * lowPitchPlayerBulletSpeed;
+    }
+
+    public void CreateMultipleBullet(GameObject multiplePlayerBullet,float bulletSpeed)
+    {
+        Transform playerTransform = this.transform;
+        Vector3 playerForward = playerTransform.up;
 
         GameObject[] playerShot = new GameObject[bulletCount];
 
@@ -31,21 +65,12 @@ public class PlayerBulletMove : MonoBehaviour
 
         float aliquotCount = (bulletCount - 1) / 2f;//弾の飛ぶ方向の分割数
 
-        for (int i = 0; i < bulletCount; ++i)
+        for (int i = 0; i < bulletCount; i++)
         {
-            playerShot[i] = Instantiate(highPitchPlayerBullet, playerTransform.position, Quaternion.identity);
-            playerShot[i].GetComponent<Rigidbody2D>().velocity = playerForward * highPitchPlayerBulletSpeed;
+            playerShot[i] = Instantiate(multiplePlayerBullet, playerTransform.position, Quaternion.identity);
+            playerShot[i].GetComponent<Rigidbody2D>().velocity = playerForward * bulletSpeed;
 
             playerForward.x += 1 / aliquotCount;
         }
-    }
-
-    /// <summary>
-    /// ピッチがい時の弾を生成、発射するメソッド
-    /// </summary>
-    public void CreatLowPitchPlayerBullet(GameObject lowPitchPlayerBullet, Transform playerTransform, float lowPitchPlayerBulletSpeed)
-    {
-        var playerShot = Instantiate(lowPitchPlayerBullet, playerTransform.position, Quaternion.identity);
-        playerShot.GetComponent<Rigidbody2D>().velocity = playerTransform.up * lowPitchPlayerBulletSpeed;
     }
 }
