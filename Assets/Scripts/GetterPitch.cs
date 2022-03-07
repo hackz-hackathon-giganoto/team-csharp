@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -20,9 +21,9 @@ public class GetterPitch : MonoBehaviour
     Vector3 m_sttPos;
     Vector3 m_endPos;
 
-    [System.NonSerialized]
+    [NonSerialized]
     public float pitchHighest;
-    [System.NonSerialized]
+    [NonSerialized]
     public int pitchHighestNumber;
 
     private string deviceName;
