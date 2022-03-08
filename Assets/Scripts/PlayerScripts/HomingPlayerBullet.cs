@@ -47,7 +47,6 @@ public class HomingPlayerBullet : MonoBehaviour
             }
             yield return new WaitForSeconds(playerHomingShotInterval);
         }
-
     }
 
     /// <summary>
