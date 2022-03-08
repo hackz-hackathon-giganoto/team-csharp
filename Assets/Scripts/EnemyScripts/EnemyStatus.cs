@@ -10,12 +10,9 @@ public class EnemyStatus : MonoBehaviour
     [SerializeField]
     private float enemyHitPoint;
 
+    [SerializeField]
     private EnemyDestroy enemyDestroy;
 
-    private void Start()
-    {
-        enemyDestroy = gameObject.GetComponent<EnemyDestroy>();
-    }
 
     private void FixedUpdate()
     {

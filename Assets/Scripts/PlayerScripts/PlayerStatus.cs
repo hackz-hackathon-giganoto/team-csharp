@@ -42,6 +42,7 @@ public class PlayerStatus : MonoBehaviour
     public void DecreasePlayerHitPoint(int point = 1)
     {
         CurrentPlayerHitPoint -= point;
+        Debug.Log(CurrentPlayerHitPoint);
     }
 
     /// <summary>
