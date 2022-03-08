@@ -10,12 +10,12 @@ public class EnemyBulletCollision : MonoBehaviour
     /// <summary>
     /// エネミーの弾の衝突時処理
     /// </summary>
-    private void OnTriggerEnter2D(Collider2D other)
+    private void OnTriggerExit2D(Collider2D other)
     {
-        /*if (other.gameObject.CompareTag("Wall"))
+        if (other.gameObject.CompareTag("Wall"))
         {
             Destroy(this.gameObject);
-        }*/
+        }
         if (other.gameObject.CompareTag("Player"))
         {
             Destroy(this.gameObject);
