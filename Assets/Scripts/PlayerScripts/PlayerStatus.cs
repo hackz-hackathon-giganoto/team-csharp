@@ -20,10 +20,21 @@ public class PlayerStatus : MonoBehaviour
     [NonSerialized]
     public int CurrentPlayerBombCount;
 
+    [SerializeField]
+    PlayerDestroy playerDestroy;
+
     private void Start()
     {
         CurrentPlayerHitPoint = firstPlayerHitPoint;
         CurrentPlayerBombCount = firstplayerBombCount;
+    }
+
+    private void FixedUpdate()
+    {
+        if (CurrentPlayerHitPoint <= 0)
+        {
+            playerDestroy.DestroyPlayer();
+        }
     }
 
     /// <summary>
