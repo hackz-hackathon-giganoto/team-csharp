@@ -11,6 +11,8 @@ GameObject:
   - component: {fileID: 8387133091067365725}
   - component: {fileID: 7733442740346718492}
   - component: {fileID: -468507050284914541}
+  - component: {fileID: -7447009652662379930}
+  - component: {fileID: 6831318216713890263}
   m_Layer: 0
   m_Name: NormalPlayerBullet
   m_TagString: Untagged
@@ -104,3 +106,32 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!58 &-7447009652662379930
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1323815346398037257}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 0.5
+--- !u!114 &6831318216713890263
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1323815346398037257}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 48165369c1a644109ad10d170b73e583, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  amountDamageDone: 1

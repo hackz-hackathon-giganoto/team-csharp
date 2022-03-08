@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 4247502079216109788}
   - component: {fileID: 3339627151693644140}
   - component: {fileID: 8479815916426920254}
-  - component: {fileID: 6857871937014652557}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Enemy
@@ -99,19 +98,3 @@ MonoBehaviour:
   enemyBullet: {fileID: 3856148216445526295, guid: 7c810c74afabdd049bb7c3e1f230bf01, type: 3}
   enemyBulletCount: 8
   enemyBulletGenerationWatingTime: 1
---- !u!54 &6857871937014652557
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4085351243843135202}
-  serializedVersion: 2
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_UseGravity: 1
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
