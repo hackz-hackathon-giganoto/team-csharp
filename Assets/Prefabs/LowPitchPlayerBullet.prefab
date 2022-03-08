@@ -12,6 +12,8 @@ GameObject:
   - component: {fileID: 6847417503347593814}
   - component: {fileID: 2364731793520977240}
   - component: {fileID: 535898338887685621}
+  - component: {fileID: -7116158995085189452}
+  - component: {fileID: -8864907380027320435}
   m_Layer: 0
   m_Name: LowPitchPlayerBullet
   m_TagString: Untagged
@@ -119,3 +121,32 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   finalPosition: 5
   finalSize: 2.5
+--- !u!58 &-7116158995085189452
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7337490745922369863}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 0.5
+--- !u!114 &-8864907380027320435
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7337490745922369863}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 48165369c1a644109ad10d170b73e583, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  amountDamageDone: 3
