@@ -12,7 +12,7 @@ public class PlayerStatus : MonoBehaviour
     private int firstPlayerHitPoint;
 
     [SerializeField]
-    private int firstplayerBombCount;
+    private int firstPlayerBombCount;
 
     [NonSerialized]
     public int CurrentPlayerHitPoint;
@@ -26,7 +26,7 @@ public class PlayerStatus : MonoBehaviour
     private void Start()
     {
         CurrentPlayerHitPoint = firstPlayerHitPoint;
-        CurrentPlayerBombCount = firstplayerBombCount;
+        CurrentPlayerBombCount = firstPlayerBombCount;
     }
 
     private void FixedUpdate()
