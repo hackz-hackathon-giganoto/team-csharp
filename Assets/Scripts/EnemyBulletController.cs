@@ -14,14 +14,18 @@ public class EnemyBulletController : MonoBehaviour
     void Start()
     {
         Quaternion quaternion = this.transform.rotation;
-        float _Rotation_z = quaternion.eulerAngles.z;
-        _Rotation_z = _Rotation_z / 180 * Mathf.PI;
-        positionX = Mathf.Cos(_Rotation_z) * enemyBulletSpeed;
-        positionY = Mathf.Sin(_Rotation_z) * enemyBulletSpeed;
+        float rotationZ = quaternion.eulerAngles.z;
+        rotationZ = rotationZ / 180 * Mathf.PI;
+        positionX = Mathf.Cos(rotationZ) * enemyBulletSpeed;
+        positionY = Mathf.Sin(rotationZ) * enemyBulletSpeed;
     }
 
     void FixedUpdate()
     {
         this.transform.position += new Vector3(positionX, positionY, 0);
+        if (this.transform.position.x > 4.2 || this.transform.position.x < -4.2 || this.transform.position.y > 5 || this.transform.position.y < -5)
+        {
+            Destroy(gameObject);
+        }
     }
 }
