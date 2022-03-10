@@ -13,8 +13,7 @@ public class HomingEnemyBullet : MonoBehaviour
     private float bulletPositionY;
     private float playerPositionX;
     private float playerPositionY;
-    private float x;
-    private float y;
+    private float waitTime = 0;
     [SerializeField] private float homingPlayerBulletSpeed;
     [SerializeField] private float generateHomingBulletWait;
     [SerializeField] Rigidbody2D rb2D;
@@ -39,7 +38,12 @@ public class HomingEnemyBullet : MonoBehaviour
             playerDirection = (playerObject.transform.position - this.transform.position);
             this.transform.rotation = Quaternion.FromToRotation(Vector3.up, playerDirection);
             this.rb2D.velocity = transform.up * homingPlayerBulletSpeed;
+            waitTime += generateHomingBulletWait;
             yield return new WaitForSeconds(generateHomingBulletWait);
+            if(waitTime == 5)
+            {
+                yield break;
+            }
         }
         
     }
