@@ -23,9 +23,5 @@ public class EnemyBulletController : MonoBehaviour
     void FixedUpdate()
     {
         this.transform.position += new Vector3(positionX, positionY, 0);
-        if (this.transform.position.x > 4.2 || this.transform.position.x < -4.2 || this.transform.position.y > 5 || this.transform.position.y < -5)
-        {
-            Destroy(gameObject);
-        }
     }
 }

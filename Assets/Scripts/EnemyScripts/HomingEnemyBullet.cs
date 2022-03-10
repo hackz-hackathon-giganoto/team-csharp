@@ -39,10 +39,6 @@ public class HomingEnemyBullet : MonoBehaviour
             playerDirection = (playerObject.transform.position - this.transform.position);
             this.transform.rotation = Quaternion.FromToRotation(Vector3.up, playerDirection);
             this.rb2D.velocity = transform.up * homingPlayerBulletSpeed;
-            if(this.transform.position.x > 4.2 || this.transform.position.x < -4.2 || this.transform.position.y > 5 || this.transform.position.y < -5)
-            {
-                Destroy(gameObject);
-            }
             yield return new WaitForSeconds(generateHomingBulletWait);
         }
         
