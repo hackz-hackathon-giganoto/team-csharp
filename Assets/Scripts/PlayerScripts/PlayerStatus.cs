@@ -21,20 +21,21 @@ public class PlayerStatus : MonoBehaviour
     public int CurrentPlayerBombCount;
 
     [SerializeField]
+    private float invincibleTime;
+
+    [SerializeField]
     PlayerDestroy playerDestroy;
+
+    [SerializeField]
+    PlayerRespawn playerRespawn;
+
+    private bool isInvincibleTime;
 
     private void Start()
     {
         CurrentPlayerHitPoint = firstPlayerHitPoint;
         CurrentPlayerBombCount = firstPlayerBombCount;
-    }
-
-    private void FixedUpdate()
-    {
-        if (CurrentPlayerHitPoint <= 0)
-        {
-            playerDestroy.DestroyPlayer();
-        }
+        isInvincibleTime = false;
     }
 
     /// <summary>
@@ -52,7 +53,20 @@ public class PlayerStatus : MonoBehaviour
     /// </summary>
     public void DecreasePlayerHitPoint(int point = 1)
     {
-        CurrentPlayerHitPoint -= point;
+        if (!isInvincibleTime)
+        {
+            CurrentPlayerHitPoint -= point;
+
+            playerRespawn.RespawnPlayer();
+
+            StartCoroutine("PlaeyrInvincibleTime");
+        }
+
+        if (CurrentPlayerHitPoint <= 0)
+        {
+            playerDestroy.DestroyPlayer();
+            Debug.Log("Destroy!!");
+        }
     }
 
     /// <summary>
@@ -71,5 +85,17 @@ public class PlayerStatus : MonoBehaviour
     public void DecreasePlayerBombCount(int count = 1)
     {
         CurrentPlayerBombCount -= count;
+    }
+
+    /// <summary>
+    /// プレイヤーの無敵時間の実装をしました
+    /// </summary>
+    IEnumerator PlaeyrInvincibleTime()
+    {
+        isInvincibleTime = true;
+
+        yield return new WaitForSeconds(invincibleTime);
+
+        isInvincibleTime = false;
     }
 }

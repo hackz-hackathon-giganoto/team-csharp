@@ -14,14 +14,6 @@ public class EnemyStatus : MonoBehaviour
     private EnemyDestroy enemyDestroy;
 
 
-    private void FixedUpdate()
-    {
-        if(enemyHitPoint <= 0)
-        {
-            enemyDestroy.DestroyEnemy();
-        }
-    }
-
     /// <summary>
     /// ヒットポイントを減らすメソッド
     /// 引数を設定するとその引数分減らす
@@ -29,5 +21,10 @@ public class EnemyStatus : MonoBehaviour
     public void DecreaseEnemyHitPoint(float point = 1f)
     {
         enemyHitPoint -= point;
+
+        if (enemyHitPoint <= 0)
+        {
+            enemyDestroy.DestroyEnemy();
+        }
     }
 }
