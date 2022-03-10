@@ -29,14 +29,6 @@ public class PlayerStatus : MonoBehaviour
         CurrentPlayerBombCount = firstPlayerBombCount;
     }
 
-    private void FixedUpdate()
-    {
-        if (CurrentPlayerHitPoint <= 0)
-        {
-            playerDestroy.DestroyPlayer();
-        }
-    }
-
     /// <summary>
     /// ヒットポイントを増やすメソッド
     /// 引数を設定するとその引数分増やす
@@ -53,6 +45,11 @@ public class PlayerStatus : MonoBehaviour
     public void DecreasePlayerHitPoint(int point = 1)
     {
         CurrentPlayerHitPoint -= point;
+
+        if (CurrentPlayerHitPoint <= 0)
+        {
+            playerDestroy.DestroyPlayer();
+        }
     }
 
     /// <summary>
