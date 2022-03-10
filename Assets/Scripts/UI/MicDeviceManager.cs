@@ -5,22 +5,24 @@ using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
 /// <summary>
-/// 音声入力デバイスを選択、Scene移行時にGetterPitchNumberに渡します
+/// 音声入力デバイスを選択、Scene移行時にGetterPitchNumberに渡すクラス
 /// </summary>
 public class MicDeviceManager : MonoBehaviour
 {
-    [SerializeField] private Dropdown micDropdown;
+    [SerializeField] Dropdown micDropdown;
     private string micDevice;
 
     public void Awake(){
-        GetMicDevices();
+        createMicDevicesList();
+        micDropdown.onValueChanged.AddListener((value) => SelectMicDevice());
         SceneManager.sceneLoaded += SetMicDevice;
     }
 
     /// <summary>
     /// 音声入力デバイスを取得、ドロップダウンリストに追加
+    /// TODO:Microphone.devices.Lengthが0の時警告モーダルを出す
     /// </summary>
-    private void GetMicDevices()
+    private void createMicDevicesList()
     {
         for (int i = 0; i < Microphone.devices.Length; i++)
         {
@@ -28,19 +30,24 @@ public class MicDeviceManager : MonoBehaviour
         }
         micDevice =  Microphone.devices[0];
     }
+
     /// <summary>
-    /// OnValueChangedで呼び出し
     /// micDeviceに選択したデバイス名を代入
     /// </summary>
     public void SelectMicDevice()
     {
         micDevice = micDropdown.captionText.text;
+
     }
     /// <summary>
     /// Scene移行時pItchManagerタグの付いたオブジェクトにmicDeviceを渡す
     /// </summary>
     private void SetMicDevice(Scene next,LoadSceneMode mode){
+        if(next.name != "Main"){
+            return;
+            }
         GetterPitch pitchManager = GameObject.FindWithTag("PitchManager").GetComponent<GetterPitch>();
         pitchManager.DeviceName = micDevice;
     }
+
 }
