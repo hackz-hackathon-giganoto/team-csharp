@@ -13,7 +13,7 @@ public class MicDeviceManager : MonoBehaviour
     private string micDevice;
 
     public void Awake(){
-        createMicDevicesList();
+        CreateMicDevicesList();
         micDropdown.onValueChanged.AddListener((value) => SelectMicDevice());
         SceneManager.sceneLoaded += SetMicDevice;
     }
@@ -22,7 +22,7 @@ public class MicDeviceManager : MonoBehaviour
     /// 音声入力デバイスを取得、ドロップダウンリストに追加
     /// TODO:Microphone.devices.Lengthが0の時警告モーダルを出す
     /// </summary>
-    private void createMicDevicesList()
+    private void CreateMicDevicesList()
     {
         for (int i = 0; i < Microphone.devices.Length; i++)
         {
@@ -46,7 +46,7 @@ public class MicDeviceManager : MonoBehaviour
         if(next.name != "Main"){
             return;
             }
-        GetterPitch pitchManager = GameObject.FindWithTag("PitchManager").GetComponent<GetterPitch>();
+        GetterPitch pitchManager = GameObject.FindWithTag("pitchManager").GetComponent<GetterPitch>();
         pitchManager.DeviceName = micDevice;
     }
 
