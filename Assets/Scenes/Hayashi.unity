@@ -611,7 +611,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a8013635333a74056a816c219b0e18db, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyHitPoint: 15
+  enemyHitPoint: 20
   enemyDestroy: {fileID: 1138592213}
 --- !u!50 &1138592215
 Rigidbody2D:
@@ -1347,6 +1347,7 @@ GameObject:
   - component: {fileID: 2024091107}
   - component: {fileID: 2024091108}
   - component: {fileID: 2024091109}
+  - component: {fileID: 2024091110}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -1526,7 +1527,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   firstPlayerHitPoint: 3
-  firstPlayerBombCount: 0
+  firstPlayerBombCount: 1
+  invincibleTime: 3
   playerDestroy: {fileID: 2024091108}
   playerRespawn: {fileID: 2024091109}
 --- !u!114 &2024091108
@@ -1555,6 +1557,23 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   firstTranseform: {fileID: 2105864871}
   spriteRenderer: {fileID: 2024091101}
+  waitRespawnTime: 0.5
+--- !u!114 &2024091110
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2024091099}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 44a1bf2441e504d468b84cdfea7efdfe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bombIntervalTime: 3
+  playerStatus: {fileID: 2024091107}
+  getterPitch: {fileID: 1202354742}
+  useBombVolume: 5
 --- !u!1001 &2033713559
 PrefabInstance:
   m_ObjectHideFlags: 0
