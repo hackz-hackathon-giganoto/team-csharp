@@ -21,6 +21,9 @@ public class PlayerStatus : MonoBehaviour
     public int CurrentPlayerBombCount;
 
     [SerializeField]
+    private float invincibleTime;
+
+    [SerializeField]
     PlayerDestroy playerDestroy;
 
     [SerializeField]
@@ -84,11 +87,14 @@ public class PlayerStatus : MonoBehaviour
         CurrentPlayerBombCount -= count;
     }
 
+    /// <summary>
+    /// プレイヤーの無敵時間の実装をしました
+    /// </summary>
     IEnumerator PlaeyrInvincibleTime()
     {
         isInvincibleTime = true;
 
-        yield return new WaitForSeconds(3f);
+        yield return new WaitForSeconds(invincibleTime);
 
         isInvincibleTime = false;
     }
