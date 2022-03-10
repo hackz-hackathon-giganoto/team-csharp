@@ -23,10 +23,16 @@ public class PlayerStatus : MonoBehaviour
     [SerializeField]
     PlayerDestroy playerDestroy;
 
+    [SerializeField]
+    PlayerRespawn playerRespawn;
+
+    private bool isInvincibleTime;
+
     private void Start()
     {
         CurrentPlayerHitPoint = firstPlayerHitPoint;
         CurrentPlayerBombCount = firstPlayerBombCount;
+        isInvincibleTime = false;
     }
 
     /// <summary>
@@ -44,11 +50,19 @@ public class PlayerStatus : MonoBehaviour
     /// </summary>
     public void DecreasePlayerHitPoint(int point = 1)
     {
-        CurrentPlayerHitPoint -= point;
+        if (!isInvincibleTime)
+        {
+            CurrentPlayerHitPoint -= point;
+
+            playerRespawn.RespawnPlayer();
+
+            StartCoroutine("PlaeyrInvincibleTime");
+        }
 
         if (CurrentPlayerHitPoint <= 0)
         {
             playerDestroy.DestroyPlayer();
+            Debug.Log("Destroy!!");
         }
     }
 
@@ -68,5 +82,14 @@ public class PlayerStatus : MonoBehaviour
     public void DecreasePlayerBombCount(int count = 1)
     {
         CurrentPlayerBombCount -= count;
+    }
+
+    IEnumerator PlaeyrInvincibleTime()
+    {
+        isInvincibleTime = true;
+
+        yield return new WaitForSeconds(3f);
+
+        isInvincibleTime = false;
     }
 }
