@@ -95,6 +95,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fd3b3561d167ec847b84d0186185c08c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyBullet: {fileID: 3856148216445526295, guid: 7c810c74afabdd049bb7c3e1f230bf01, type: 3}
+  enemyBullet: {fileID: 1499264814600173674, guid: 3b3d7a7c2df832d44b83569df96458d5, type: 3}
   enemyBulletCount: 8
   enemyBulletGenerationWatingTime: 1
