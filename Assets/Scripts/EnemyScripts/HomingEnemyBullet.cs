@@ -14,6 +14,7 @@ public class HomingEnemyBullet : MonoBehaviour
     private float playerPositionX;
     private float playerPositionY;
     private float waitTime = 0;
+    [SerializeField] private float homingStopTime;
     [SerializeField] private float homingPlayerBulletSpeed;
     [SerializeField] private float generateHomingBulletWait;
     [SerializeField] Rigidbody2D rb2D;
@@ -40,7 +41,7 @@ public class HomingEnemyBullet : MonoBehaviour
             this.rb2D.velocity = transform.up * homingPlayerBulletSpeed;
             waitTime += generateHomingBulletWait;
             yield return new WaitForSeconds(generateHomingBulletWait);
-            if(waitTime == 5)
+            if(waitTime == homingStopTime)
             {
                 yield break;
             }

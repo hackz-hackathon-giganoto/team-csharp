@@ -98,6 +98,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 735b0be04e30b5d46a3a8338f4527909, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  homingStopTime: 5
   homingPlayerBulletSpeed: 5
   generateHomingBulletWait: 0.5
   rb2D: {fileID: 8167193496794176788}
