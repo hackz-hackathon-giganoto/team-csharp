@@ -8,12 +8,6 @@ using UnityEngine.UI;
 /// </summary>
 public class PlayerShot : MonoBehaviour
 {
-    [SerializeField]
-    private float normalBulletSpeed;
-    [SerializeField]
-    private float highPitchPlayerBulletSpeed;
-    [SerializeField]
-    private float lowPitchPlayerBulletSpeed;
 
     private float currentShotIntervalTime;
     [SerializeField]
@@ -22,21 +16,22 @@ public class PlayerShot : MonoBehaviour
     private float highShotIntervalTime;
     [SerializeField]
     private float lowShotIntervalTime;
+    [SerializeField]
+    private float homingShotIntervalTime;
 
     [SerializeField]
     private float lowestVolume;
-
     [SerializeField]
-    private GameObject normalPlayerBullet;
-    [SerializeField]
-    private GameObject highPitchPlayerBullet;
-    [SerializeField]
-    private GameObject lowPitchPlayerBullet;
+    private float homingPlayerBulletFirstSpeed;
 
     [SerializeField]
     private int highPlayerPitch;
     [SerializeField]
     private int lowPlayerPitch;
+
+
+    [SerializeField]
+    private GameObject homingPlayerBullet;
 
     [SerializeField]
     GetterPitch getterPitch;
@@ -51,6 +46,7 @@ public class PlayerShot : MonoBehaviour
     {
         currentShotIntervalTime = normalShotIntervalTime;
         StartCoroutine("PlayerShotInterval");
+        StartCoroutine("PlayerHomingShotInterval");
     }
 
     /// <summary>
@@ -70,19 +66,41 @@ public class PlayerShot : MonoBehaviour
 
             if (getterPitch.pitchHighestNumber > highPlayerPitch)
             {
-                playerBulletMove.CreatHighPitchPlayerBullet(highPitchPlayerBullet, this.transform, highPitchPlayerBulletSpeed);
+                playerBulletMove.CreatHighPitchPlayerBullet();
                 currentShotIntervalTime = highShotIntervalTime;
             }
             else if (getterPitch.pitchHighestNumber < lowPlayerPitch)
             {
-                playerBulletMove.CreatLowPitchPlayerBullet(lowPitchPlayerBullet, this.transform, lowPitchPlayerBulletSpeed);
+                playerBulletMove.CreatLowPitchPlayerBullet();
                 currentShotIntervalTime = lowShotIntervalTime;
             }
             else
             {
-                playerBulletMove.CreatNormalPlayerBullet(normalPlayerBullet, this.transform, normalBulletSpeed);
+                playerBulletMove.CreatNormalPlayerBullet();
                 currentShotIntervalTime = normalShotIntervalTime;
             }
+        }
+    }
+
+    /// <summary>
+    /// ホーミング弾を打つ間隔
+    /// </summary>
+    IEnumerator PlayerHomingShotInterval()
+    {
+        while (true)
+        {
+            yield return new WaitForSeconds(homingShotIntervalTime);
+
+            if (getterPitch.pitchHighest < lowestVolume)
+            {
+                continue;
+            }
+
+            if (getterPitch.pitchHighestNumber < highPlayerPitch && getterPitch.pitchHighestNumber > lowPlayerPitch)
+            {
+                playerBulletMove.CreateMultipleBullet(homingPlayerBullet, homingPlayerBulletFirstSpeed);
+            }
+
         }
     }
 }

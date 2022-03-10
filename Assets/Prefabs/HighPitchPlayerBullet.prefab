@@ -11,9 +11,11 @@ GameObject:
   - component: {fileID: 1395086282694710362}
   - component: {fileID: 7312576905467467594}
   - component: {fileID: -5411030999398969859}
+  - component: {fileID: -723468620693485048}
+  - component: {fileID: 5963116785984749651}
   m_Layer: 0
   m_Name: HighPitchPlayerBullet
-  m_TagString: Untagged
+  m_TagString: PlayerBullet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -104,3 +106,33 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!58 &-723468620693485048
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1664842391608761928}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 0.5
+--- !u!114 &5963116785984749651
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1664842391608761928}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 48165369c1a644109ad10d170b73e583, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  amountDamageDone: 0.2
+  lowPitchPlayerBulletAttackRangeField: {fileID: 0}
