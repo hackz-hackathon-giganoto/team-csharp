@@ -612,7 +612,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a8013635333a74056a816c219b0e18db, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyHitPoint: 20
+  enemyHitPoint: 10
   enemyDestroy: {fileID: 1138592213}
 --- !u!50 &1138592215
 Rigidbody2D:
@@ -1908,7 +1908,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ce4e4b9e94a794cb0accc3d846493507, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tweetText: "\u4F3A\u304B\u306F\u4ECA\u304C\u6625\uFF01\uFF01\uFF08\u8A3A\u65AD\u3082\u3042\u308B\u3088\uFF09"
+  tweetText: '"'
 --- !u!114 &2128966379
 MonoBehaviour:
   m_ObjectHideFlags: 0

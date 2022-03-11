@@ -10,6 +10,10 @@ public class AutomaticTweet : MonoBehaviour
 {
     [SerializeField]
     string tweetText;
+
+    /// <summary>
+    /// 自動でツイートをする
+    /// </summary>
     public void TweetAuto()
     {
         Dictionary<string, string> parameters = new Dictionary<string, string>();
