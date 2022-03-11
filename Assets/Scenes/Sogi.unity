@@ -278,7 +278,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   goalx: 0
   goaly: -10
-  time: 2
+  time: 1
   stopTime: 3
 --- !u!1 &1121902518 stripped
 GameObject:
