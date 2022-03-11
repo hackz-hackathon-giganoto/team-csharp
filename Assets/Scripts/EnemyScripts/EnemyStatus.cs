@@ -18,7 +18,7 @@ public class EnemyStatus : MonoBehaviour
     /// ヒットポイントを減らすメソッド
     /// 引数を設定するとその引数分減らす
     /// </summary>
-    public void DecreaseEnemyHitPoint(float  point = 1f)
+    public void DecreaseEnemyHitPoint(float point = 1f)
     {
         enemyHitPoint -= point;
 
