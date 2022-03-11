@@ -7,11 +7,18 @@ using UnityEngine;
 /// </summary>
 public class EnemyDestroy : MonoBehaviour
 {
+
     /// <summary>
     /// エネミーの破壊メソッド
     /// </summary>
+    void Start()
+    {
+        int rnd = Random.Range(0, 2);
+    }
+    
     public void DestroyEnemy()
     {
         Destroy(this.gameObject);
+        
     }
 }
