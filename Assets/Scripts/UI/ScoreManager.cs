@@ -22,7 +22,7 @@ using TMPro;
         scoreTMP =  scoreObject.GetComponent<TextMeshProUGUI>();
     }
 
-    public void increaseScore(int changeScore)
+    public void IncreaseScore(int changeScore)
     {
     score += changeScore;
     scoreTMP.text=score.ToString();
