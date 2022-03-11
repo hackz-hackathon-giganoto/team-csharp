@@ -2,6 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+    ///<summary>
+    ///スコアを管理し表示するクラス
+    ///</summay>
  public class ScoreManager : MonoBehaviour
  {
     public static ScoreManager instance = null;
@@ -21,7 +24,9 @@ using TMPro;
         }
         scoreTMP =  scoreObject.GetComponent<TextMeshProUGUI>();
     }
-
+    ///<summary>
+    ///渡された増分でスコアを増加しスコアテキストに代入するメソッド
+    ///</summary>
     public void IncreaseScore(int changeScore)
     {
     score += changeScore;
