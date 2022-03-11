@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using Twity.DataModels.Core;
 
+/// <summary>
+/// 自動ツイート機能のクラス
+/// </summary>
 public class AutomaticTweet : MonoBehaviour
 {
     [SerializeField]
@@ -14,6 +17,9 @@ public class AutomaticTweet : MonoBehaviour
         StartCoroutine(Twity.Client.Post("statuses/update", parameters, Callback));
     }
 
+    /// <summary>
+    /// ツイートの成功失敗をコールバックする
+    /// </summary>
     void Callback(bool success, string response)
     {
         if (success)

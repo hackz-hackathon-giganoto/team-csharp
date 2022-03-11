@@ -2,6 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// APIKeyを書くクラス
+/// TODO:Git側から見えないようにできないか確かめる
+/// </summary>
 public class EventHandler : MonoBehaviour
 {
     void Start()
