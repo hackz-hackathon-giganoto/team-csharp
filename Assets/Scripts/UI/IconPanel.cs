@@ -3,18 +3,15 @@ using System.Collections.Generic;
 using UnityEngine;
 
     ///<summary>
-    ///アイコンを表示するクラスです
+    ///アイコンを表示するクラス
     ///</summary>
 public class IconPanel : MonoBehaviour
 {
     [SerializeField]private GameObject iconObj;
     [SerializeField]private int firstCount;
-    private void Start(){
-        SetIcon(firstCount);
-    }
-
+    
     ///<summary>
-    ///渡した引数分のアイコンを表示します
+    ///引数分のアイコンを表示
     ///</summary>
     public void SetIcon(int count) {
         for (int i = 0; i < transform.childCount; i++) {
