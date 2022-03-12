@@ -12,12 +12,12 @@ public class EnemyBulletRotationLoopShot : MonoBehaviour
     [SerializeField] private float enemyBulletGenerationWaitingTimeAdd;
     [SerializeField] private float enemyBulletGenerationOnceRotationInterval;
 
-    bool hoge;
+    bool addEnemyAngle;
 
     void Start()
     {
         StartCoroutine("ShotBullet");
-        hoge = false;
+        addEnemyAngle = false;
     }
 
     /// <summary>
@@ -27,10 +27,10 @@ public class EnemyBulletRotationLoopShot : MonoBehaviour
     {
         while(true)
         {
-            if (enemyBulletRotationInterval < 10) hoge = true;
-            if (enemyBulletRotationInterval > 20) hoge = false;
-            if (!hoge) enemyBulletRotationInterval -= 1f;
-            if (hoge) enemyBulletRotationInterval += 1f;
+            if (enemyBulletRotationInterval < 10) addEnemyAngle = true;
+            if (enemyBulletRotationInterval > 20) addEnemyAngle = false;
+            if (!addEnemyAngle) enemyBulletRotationInterval -= 1f;
+            if (addEnemyAngle) enemyBulletRotationInterval += 1f;
 
             for (float j = 0; j < 360; j += enemyBulletRotationInterval, enemyBulletGenerationWaitingTime += enemyBulletGenerationWaitingTimeAdd)
             {

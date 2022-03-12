@@ -13,8 +13,6 @@ public class EnemyBulletRotationShot : MonoBehaviour
     [SerializeField] private float enemyBulletGenerationWaitingTimeAdd;
     [SerializeField] private float enemyBulletGenerationOnceRotationInterval;
 
-    bool hoge;
-
     void Start()
     {
         StartCoroutine("ShotBullet");
