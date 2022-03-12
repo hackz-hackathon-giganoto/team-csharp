@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 /// <summary>
-/// “G‚Ì’e‚ğ‰~ó‚É¶¬‚·‚éƒXƒNƒŠƒvƒg
+/// ?G???e???~?????????????X?N???v?g
 /// </summary>
 public class EnemyBulletRotationShot : MonoBehaviour
 {
@@ -13,19 +13,21 @@ public class EnemyBulletRotationShot : MonoBehaviour
     [SerializeField] private float enemyBulletGenerationWaitingTimeAdd;
     [SerializeField] private float enemyBulletGenerationOnceRotationInterval;
 
+    bool hoge;
+
     void Start()
     {
         StartCoroutine("ShotBullet");
     }
 
     /// <summary>
-    /// “G‚Ì’e‚ğ‰ñ“]‚·‚é‚æ‚¤‚É¶¬‚·‚éƒRƒ‹[ƒ`ƒ“
+    /// ?G???e?????]???????????????????R???[?`??
     /// </summary>
     private IEnumerator ShotBullet()
     {
         for(float i = 0; i < enemyBulletRotationCount; i++)
         {
-            for(float j = 0; j < 360; j += enemyBulletRotationInterval, enemyBulletGenerationWaitingTime += enemyBulletGenerationWaitingTimeAdd)
+            for (float j = 0; j < 360; j += enemyBulletRotationInterval, enemyBulletGenerationWaitingTime += enemyBulletGenerationWaitingTimeAdd)
             {
                 Instantiate(enemyBullet, this.transform.position, Quaternion.Euler(0, 0, j));
                 yield return new WaitForSeconds(enemyBulletGenerationWaitingTime);
