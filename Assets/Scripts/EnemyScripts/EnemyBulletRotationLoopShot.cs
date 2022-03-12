@@ -17,7 +17,6 @@ public class EnemyBulletRotationLoopShot : MonoBehaviour
     void Start()
     {
         StartCoroutine("ShotBullet");
-        addEnemyAngle = false;
     }
 
     /// <summary>
@@ -25,6 +24,7 @@ public class EnemyBulletRotationLoopShot : MonoBehaviour
     /// </summary>
     private IEnumerator ShotBullet()
     {
+        addEnemyAngle = false;
         while(true)
         {
             if (enemyBulletRotationInterval < 10) addEnemyAngle = true;
