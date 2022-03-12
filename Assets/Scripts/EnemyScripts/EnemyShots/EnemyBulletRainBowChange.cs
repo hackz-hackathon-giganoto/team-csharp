@@ -2,8 +2,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// 弾の色をちょっとずつ変えていくクラス
+/// </summary>
 public class EnemyBulletRainBowChange : MonoBehaviour
 {
+    /// <summary>
+    /// 色を変えるメソッド
+    /// TODO:色変わらない…
+    /// </summary>
     public void ChangeEnemyBullet(Renderer renderer)
     {
         switch (Time.time % 9)
