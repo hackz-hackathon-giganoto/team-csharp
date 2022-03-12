@@ -693,6 +693,7 @@ MonoBehaviour:
   enemyBulletRotationInterval: 20
   enemyBulletGenerationWaitingTimeAdd: -0.1
   enemyBulletGenerationOnceRotationInterval: 0
+  enemyBulletRainBowChange: {fileID: 0}
 --- !u!1 &1202354740
 GameObject:
   m_ObjectHideFlags: 0
@@ -1968,7 +1969,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ce4e4b9e94a794cb0accc3d846493507, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tweetText: https://vanitas-anime.com/
+  tweetText: "\u3084\u3063\u306F\u308D\u30FC"
 --- !u!114 &2128966379
 MonoBehaviour:
   m_ObjectHideFlags: 0

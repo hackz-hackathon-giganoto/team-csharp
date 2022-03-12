@@ -11,11 +11,14 @@ public class EnemyBulletRotationLoopShot : MonoBehaviour
     [SerializeField] private float enemyBulletRotationInterval;
     [SerializeField] private float enemyBulletGenerationWaitingTimeAdd;
     [SerializeField] private float enemyBulletGenerationOnceRotationInterval;
+    private Vector3 instancePosition;
 
     bool addEnemyAngle;
 
     void Start()
     {
+        instancePosition = this.transform.position;
+        instancePosition.z = 0.1f;
         StartCoroutine("ShotBullet");
     }
 
@@ -34,7 +37,7 @@ public class EnemyBulletRotationLoopShot : MonoBehaviour
 
             for (float j = 0; j < 360; j += enemyBulletRotationInterval, enemyBulletGenerationWaitingTime += enemyBulletGenerationWaitingTimeAdd)
             {
-                Instantiate(enemyBullet, this.transform.position, Quaternion.Euler(0, 0, j));
+                var bullet = Instantiate(enemyBullet, instancePosition, Quaternion.Euler(0, 0, j));
                 yield return new WaitForSeconds(enemyBulletGenerationWaitingTime);
             }
             yield return new WaitForSeconds(enemyBulletGenerationOnceRotationInterval);
