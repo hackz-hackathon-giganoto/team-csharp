@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 /// <summary>
-/// 敵の弾を円状に生成するスクリプト
+/// ??????????????
 /// </summary>
 public class EnemyBulletRotationShot : MonoBehaviour
 {
@@ -19,13 +19,13 @@ public class EnemyBulletRotationShot : MonoBehaviour
     }
 
     /// <summary>
-    /// 敵の弾を回転するように生成するコルーチン
+    /// ????????????????????
     /// </summary>
     private IEnumerator ShotBullet()
     {
         for(float i = 0; i < enemyBulletRotationCount; i++)
         {
-            for(float j = 0; j < 360; j += enemyBulletRotationInterval, enemyBulletGenerationWaitingTime += enemyBulletGenerationWaitingTimeAdd)
+            for (float j = 0; j < 360; j += enemyBulletRotationInterval, enemyBulletGenerationWaitingTime += enemyBulletGenerationWaitingTimeAdd)
             {
                 Instantiate(enemyBullet, this.transform.position, Quaternion.Euler(0, 0, j));
                 yield return new WaitForSeconds(enemyBulletGenerationWaitingTime);
