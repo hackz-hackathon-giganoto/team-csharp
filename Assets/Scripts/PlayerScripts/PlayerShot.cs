@@ -39,9 +39,6 @@ public class PlayerShot : MonoBehaviour
     [SerializeField]
     PlayerBulletMove playerBulletMove;
 
-    [SerializeField]
-    Text text;
-
     void Start()
     {
         currentShotIntervalTime = normalShotIntervalTime;
@@ -56,7 +53,6 @@ public class PlayerShot : MonoBehaviour
     {
         while (true)
         {
-            text.text = "high : " + getterPitch.pitchHighest + " num : " + getterPitch.pitchHighestNumber.ToString();
             yield return new WaitForSeconds(currentShotIntervalTime);
 
             if (getterPitch.pitchHighest < lowestVolume)
