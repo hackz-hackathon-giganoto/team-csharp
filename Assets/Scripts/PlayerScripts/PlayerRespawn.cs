@@ -11,9 +11,6 @@ public class PlayerRespawn : MonoBehaviour
     Transform firstTranseform;
 
     [SerializeField]
-    SpriteRenderer spriteRenderer;
-
-    [SerializeField]
     private float waitRespawnTime;
 
     /// <summary>
@@ -22,6 +19,7 @@ public class PlayerRespawn : MonoBehaviour
     public void RespawnPlayer()
     {
         StartCoroutine("WaitRespawnPlayer");
+        
     }
 
     /// <summary>
@@ -29,9 +27,19 @@ public class PlayerRespawn : MonoBehaviour
     /// </summary>
     IEnumerator WaitRespawnPlayer()
     {
-        spriteRenderer.enabled = false;
+        GameObject[] playerObjects = GameObject.FindGameObjectsWithTag("Player");
+
+        foreach (GameObject playerObject in playerObjects)
+        {
+            playerObject.GetComponent<SpriteRenderer>().enabled = false;
+        }
+
         yield return new WaitForSeconds(waitRespawnTime);
         this.gameObject.transform.position = firstTranseform.position;
-        spriteRenderer.enabled = true;
+
+        foreach (GameObject playerObject in playerObjects)
+        {
+            playerObject.GetComponent<SpriteRenderer>().enabled = true;
+        }
     }
 }
