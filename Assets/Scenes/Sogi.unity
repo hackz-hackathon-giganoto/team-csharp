@@ -140,7 +140,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac2512cb875d3ba4f8cc9035ae8564b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  time: 1
+  movementDuration: 0
 --- !u!1001 &119536118
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -318,6 +318,33 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 0.05
   isRight: 1
+--- !u!114 &1238295488
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1238295480}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bb3a5f693d28c4f6d85d1959022ebdd8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  generationItem: {fileID: 1238295489}
+--- !u!114 &1238295489
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1238295480}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4ffc222139dcc8642bbaa741e58c5177, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  scoreUpItem: {fileID: 3663363965182631798, guid: 70f23a130ef3443458eb2635c5ddf01c, type: 3}
+  powerUpItem: {fileID: 8619105072464826725, guid: b83558139568966479f458f794493a01, type: 3}
 --- !u!1 &1285236081
 GameObject:
   m_ObjectHideFlags: 0
