@@ -404,7 +404,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1837631105}
         m_TargetAssemblyTypeName: ScoreManager, Assembly-CSharp
-        m_MethodName: increaseScore
+        m_MethodName: IncreaseScore
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
