@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class GenerationItem : MonoBehaviour
 {
+    /// <summary>
+    /// スコアアップアイテムとパワーアップアイテムをランダムに生成する。
+    /// </summary>
     [SerializeField]
     private GameObject scoreUpItem;
     [SerializeField]
