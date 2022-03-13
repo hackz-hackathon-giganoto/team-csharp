@@ -5,8 +5,13 @@ using UnityEngine;
 
 public class IconAnimation : MonoBehaviour
 {
+    [SerializeField] RectTransform rectTransform;
     public void VanishIcon(){
-        
-        Destroy(this.gameObject);
+        rectTransform.DOScale(
+        new Vector3(0f, 0f),
+        3f
+        ).SetEase(Ease.OutBack).OnComplete(()=> 
+        Destroy(this.gameObject)
+        );
     }
 }

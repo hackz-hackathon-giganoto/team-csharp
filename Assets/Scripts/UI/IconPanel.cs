@@ -12,7 +12,7 @@ public class IconPanel : MonoBehaviour
         SetIcon(3);
     }
     ///<summary>
-    ///引数分のアイコンを表示
+    ///引数分のアイコンを表示するメソッド
     ///</summary>
     public void SetIcon(int count) {
         for (int i = 0; i < transform.childCount; i++) {
@@ -22,9 +22,11 @@ public class IconPanel : MonoBehaviour
             Instantiate<GameObject>(iconObj, transform);
         }
     }
+    /// <summary>
+    /// アイコンの表示が一つ消えるメソッド
+    /// </summary>
     public void DecreseCount(){
         int childNum = transform.childCount;
-        //Destroy(transform.GetChild(childNum-1).gameObject);
-        
+        transform.GetChild(childNum-1).GetComponent<IconAnimation>().VanishIcon();
     }
 }
