@@ -1,16 +1,19 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+/// <summary>
+/// スコアアップアイテムとパワーアップアイテムをランダムに生成するクラス。
+/// </summary>
 public class GenerationItem : MonoBehaviour
 {
-    /// <summary>
-    /// スコアアップアイテムとパワーアップアイテムをランダムに生成する。
-    /// </summary>
+    
     [SerializeField]
     private GameObject scoreUpItem;
     [SerializeField]
     private GameObject powerUpItem;
+    /// <summary>
+    /// スコアアップアイテムとパワーアップアイテムをランダムに生成する。
+    /// </summary>
     public void Generation() 
         {
             int rand = Random.Range(0, 2);
