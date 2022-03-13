@@ -9,7 +9,6 @@ public class IconPanel : MonoBehaviour
 {
     [SerializeField]private GameObject iconObj;
     [SerializeField]private int firstCount;
-    
     ///<summary>
     ///引数分のアイコンを表示
     ///</summary>
@@ -20,5 +19,10 @@ public class IconPanel : MonoBehaviour
         for (int i = 0; i < count; i++) {
             Instantiate<GameObject>(iconObj, transform);
         }
+    }
+    public void DecreseCount(){
+        int childNum = transform.childCount;
+        //Destroy(transform.GetChild(childNum-1).gameObject);
+        
     }
 }
