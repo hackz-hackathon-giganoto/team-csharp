@@ -2,6 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+
+/// <summary>
+/// ボスの最初の動きのスクリプト
+/// </summary>
 public class BossFirstMovement : MonoBehaviour
 {
     [SerializeField]
@@ -24,10 +28,15 @@ public class BossFirstMovement : MonoBehaviour
 
     private void Start()
     {
-        StartCoroutine("hoge");
+        StartCoroutine("DirectionDesignation");
     }
 
-    IEnumerator hoge()
+    /// <summary>
+    /// 方向を指定するスクリプト
+    /// TODO:力を加えるスクリプトもまとめて書いてあるが、あとで変える
+    /// TODO:条件式を書いて敵のライフがなくなったとき次の動きに移行するようにする
+    /// </summary>
+    IEnumerator DirectionDesignation()
     {
         Random.InitState(System.DateTime.Now.Millisecond);
         randomMoveStartNumber = Random.Range(0, 12);
