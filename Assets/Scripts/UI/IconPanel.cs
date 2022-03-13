@@ -8,7 +8,9 @@ using UnityEngine;
 public class IconPanel : MonoBehaviour
 {
     [SerializeField]private GameObject iconObj;
-    [SerializeField]private int firstCount;
+    private void Start() {
+        SetIcon(3);
+    }
     ///<summary>
     ///引数分のアイコンを表示
     ///</summary>
