@@ -8,11 +8,30 @@ using UnityEngine;
 public class RandomShotEnemyBullet : MonoBehaviour
 {
     [SerializeField] private GameObject enemyBullet;
+
     [SerializeField] private float enemyBulletGenerationWatingTime;
+
+    private int stopRandomShotEnemyBulletCount = 0;
 
     void Start()
     {
+        
+    }
+
+    /// <summary>
+    /// コルーチンを呼び出す関数
+    /// </summary>
+    public void CallRandomShot()
+    {
         StartCoroutine("RandomShot");
+    }
+
+    /// <summary>
+    /// 発射する弾を止める関数
+    /// </summary>
+    public void StopRandomEnemyBulletShot()
+    {
+        stopRandomShotEnemyBulletCount = 1;
     }
 
     /// <summary>
@@ -22,6 +41,10 @@ public class RandomShotEnemyBullet : MonoBehaviour
     {
         while (true)
         {
+            if(stopRandomShotEnemyBulletCount == 1)
+            {
+                yield break;
+            }
             GenerateRandomBullet();
             yield return new WaitForSeconds(enemyBulletGenerationWatingTime);
         }

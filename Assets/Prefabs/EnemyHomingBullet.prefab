@@ -86,6 +86,25 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+<<<<<<< HEAD
+--- !u!114 &-7628787349507321253
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1499264814600173674}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 735b0be04e30b5d46a3a8338f4527909, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  homingStopTime: 2
+  homingPlayerBulletSpeed: 5
+  generateHomingBulletWait: 0.5
+  rb2D: {fileID: 8167193496794176788}
+=======
+>>>>>>> adedf4de4c905600d02dc0a6bcfd54bef1e37a3c
 --- !u!50 &8167193496794176788
 Rigidbody2D:
   serializedVersion: 4

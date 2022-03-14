@@ -13,7 +13,25 @@ public class RandomThrowUpShotEnemyBullet : MonoBehaviour
 
     [SerializeField] private int enemyGravityBulletCount;
 
+    private int stopRandomThrowUpEnemyBulletShotCount = 0;
+
     void Start()
+    {
+        
+    }
+
+    /// <summary>
+    /// ”­Ë‚·‚é’e‚ğ~‚ß‚éŠÖ”
+    /// </summary>
+    public void StopRandomThrowUpEnemyBulletShot()
+    {
+        stopRandomThrowUpEnemyBulletShotCount = 1;
+    }
+
+    /// <summary>
+    /// ƒRƒ‹[ƒ`ƒ“‚ğŒÄ‚Ño‚·ŠÖ”
+    /// </summary>
+    public void CallRandomThrowUpShot()
     {
         StartCoroutine("RandomGravityBulletShot");
     }
@@ -24,11 +42,16 @@ public class RandomThrowUpShotEnemyBullet : MonoBehaviour
     private IEnumerator RandomGravityBulletShot()
     {
         while (true)
-        {
+        {   
+            if(stopRandomThrowUpEnemyBulletShotCount == 1)
+            {
+                yield break;
+            }
             GenerateRandomGravityBullet();
             yield return new WaitForSeconds(enemyBulletGenerationWaitTime);
         }
     }
+
     /// <summary>
     /// “G‚Ì’e‚ğã•ûŒü‚Éw’è‚µ‚½ŒÂ””­Ë‚·‚éŠÖ”
     /// </summary>

@@ -11,11 +11,28 @@ public class ShotEnemyBullet : MonoBehaviour
 
     [SerializeField] private float enemyBulletCount;
     [SerializeField] private float enemyBulletGenerationWatingTime;
-    [SerializeField] private float circleCount;
+
+    private int stopShotEnemyBulletCount = 0;
 
     void Start()
     {
+        
+    }
+
+    /// <summary>
+    /// コルーチンを呼び出す関数
+    /// </summary>
+    public void CallShot()
+    {
         StartCoroutine("Shot");
+    }
+
+    /// <summary>
+    /// 発射する弾を止める関数
+    /// </summary>
+    public void StopNormalEnemyBulletShot()
+    {
+        stopShotEnemyBulletCount = 1;
     }
 
     /// <summary>
@@ -25,6 +42,10 @@ public class ShotEnemyBullet : MonoBehaviour
     {
         while (true)
         {
+            if(stopShotEnemyBulletCount == 1)
+            {
+                yield break;
+            }
             GenerateBullet();
             yield return new WaitForSeconds(enemyBulletGenerationWatingTime);
         }
@@ -35,12 +56,9 @@ public class ShotEnemyBullet : MonoBehaviour
     /// </summary>
     void GenerateBullet()
     {
-        for(float i = 1; i <= circleCount; i++)
+        for(float j = 0; j < 360; j += 360/enemyBulletCount)
         {
-            for(float j = 0; j < 360; j += 360/enemyBulletCount)
-            {
-                Instantiate(enemyBullet,this.transform.position, Quaternion.Euler(0, 0, j));
-            }
+            Instantiate(enemyBullet,this.transform.position, Quaternion.Euler(0, 0, j));
         }
         
     }

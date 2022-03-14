@@ -10,17 +10,15 @@ public class StopFirstEnemyBullet : MonoBehaviour
     [SerializeField] Rigidbody2D rb2D;
 
     [SerializeField] private float bulletSpeed;
-    [SerializeField] private float waitTime;
-    [SerializeField] private float minusWaitTime;
+    [SerializeField] private float waitTime;    
+    [SerializeField] private float minusWaitTime;    
     private float positionX;
     private float positionY;
-
-    EnemyBulletRotationShot enemyBulletRotationShotScript;
 
     [SerializeField] private GameObject enemyObject;
     GameObject[] SubBossBulletCount;
 
-
+    EnemyBulletRotationShot enemyBulletRotationShotScript;
 
     void Start()
     {
@@ -41,7 +39,7 @@ public class StopFirstEnemyBullet : MonoBehaviour
     /// </summary>
     private IEnumerator MoveBullet()
     {
-        this.transform.position += new Vector3(positionX * 100, positionY * 100, 0);
+        this.transform.position += new Vector3(positionX * 200, positionY * 200, 0);
         yield return new WaitForSeconds(waitTime);
         while (true)
         {
