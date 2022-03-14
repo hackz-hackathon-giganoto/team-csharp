@@ -131,7 +131,7 @@ namespace Twity
                     yield return request.SendWebRequest();
             #endif
 
-            if (request.isNetworkError) callback(false);
+            //if (request.isNetworkError) callback(false);
 
             if (request.responseCode == 200 || request.responseCode == 201)
             {
@@ -169,7 +169,7 @@ namespace Twity
                     yield return request.SendWebRequest();
             #endif
 
-            if (request.isNetworkError)
+            /*if (request.isNetworkError)
             {
                 callback(false);
             }
@@ -194,7 +194,7 @@ namespace Twity
                 {
                     callback(false);
                 }
-            }
+            }*/
         }
 
         public static IEnumerator GenerateAccessToken(string pin, TwitterAuthenticationCallback callback)
@@ -217,7 +217,7 @@ namespace Twity
                     yield return request.SendWebRequest();
             #endif
 
-            if (request.isNetworkError)
+            /*if (request.isNetworkError)
             {
                 callback(false);
             }
@@ -242,7 +242,7 @@ namespace Twity
                 {
                     callback(false);
                 }
-            }
+            }*/
         }
 
         #endregion
@@ -267,7 +267,7 @@ namespace Twity
                     yield return request.SendWebRequest();
             #endif
 
-            if (request.isNetworkError)
+            /*if (request.isNetworkError)
             {
                 callback(false, JsonHelper.ArrayToObject(request.error));
             }
@@ -281,7 +281,7 @@ namespace Twity
                 {
                     callback(false, JsonHelper.ArrayToObject(request.downloadHandler.text));
                 }
-            }
+            }*/
         }
 
         private static void ClearTokens() {

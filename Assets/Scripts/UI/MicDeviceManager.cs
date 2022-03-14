@@ -37,7 +37,6 @@ public class MicDeviceManager : MonoBehaviour
     public void SelectMicDevice()
     {
         micDevice = micDropdown.captionText.text;
-
     }
     /// <summary>
     /// Scene移行時pItchManagerタグの付いたオブジェクトにmicDeviceを渡す
@@ -49,5 +48,4 @@ public class MicDeviceManager : MonoBehaviour
         GetterPitch pitchManager = GameObject.FindWithTag("pitchManager").GetComponent<GetterPitch>();
         pitchManager.DeviceName = micDevice;
     }
-
 }

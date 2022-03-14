@@ -480,7 +480,7 @@ Transform:
   m_GameObject: {fileID: 1118830293}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0.88144875, y: 0.77441055, z: 1.5048485}
-  m_LocalScale: {x: 1, y: 10, z: 1}
+  m_LocalScale: {x: 1, y: 15, z: 1}
   m_Children: []
   m_Father: {fileID: 1934718470}
   m_RootOrder: 0
@@ -612,7 +612,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a8013635333a74056a816c219b0e18db, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyHitPoint: 20
+  enemyHitPoint: 500
   enemyDestroy: {fileID: 1138592213}
 --- !u!50 &1138592215
 Rigidbody2D:
@@ -661,6 +661,39 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &1138592223
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1138592212}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 969a0d9bc51814e949162fbd98d8f663, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bulletSpeed: 5
+  intervalTime: 1
+  enemyBullet: {fileID: 3856148216445526295, guid: 7c810c74afabdd049bb7c3e1f230bf01, type: 3}
+--- !u!114 &1138592224
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1138592212}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ce6aee2e25bd644d38d1c9f645a68ed5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemyBullet: {fileID: 3856148216445526295, guid: 7c810c74afabdd049bb7c3e1f230bf01, type: 3}
+  enemyBulletGenerationWaitingTime: -1
+  enemyBulletRotationInterval: 20
+  enemyBulletGenerationWaitingTimeAdd: -0.1
+  enemyBulletGenerationOnceRotationInterval: 0
+  enemyBulletRainBowChange: {fileID: 0}
 --- !u!1 &1202354740
 GameObject:
   m_ObjectHideFlags: 0
@@ -1439,7 +1472,7 @@ Transform:
   m_GameObject: {fileID: 2010468629}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 10.481449, y: 0.77441055, z: 1.5048485}
-  m_LocalScale: {x: 1, y: 10, z: 1}
+  m_LocalScale: {x: 1, y: 15, z: 1}
   m_Children: []
   m_Father: {fileID: 1934718470}
   m_RootOrder: 1
@@ -1642,7 +1675,7 @@ Transform:
   m_GameObject: {fileID: 2024091099}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: -4, z: 0}
-  m_LocalScale: {x: 0.8, y: 0.8, z: 1}
+  m_LocalScale: {x: 0.3, y: 0.3, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 5
@@ -1663,7 +1696,7 @@ MonoBehaviour:
   highShotIntervalTime: 0.1
   lowShotIntervalTime: 1
   homingShotIntervalTime: 0.5
-  lowestVolume: 0.5
+  lowestVolume: 0.3
   homingPlayerBulletFirstSpeed: 3
   highPlayerPitch: 30
   lowPlayerPitch: 15
@@ -1794,6 +1827,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -3831186399699792895, guid: a1aa89bd4b481bd4b8460d6a4b7bee25, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4085351243843135202, guid: a1aa89bd4b481bd4b8460d6a4b7bee25, type: 3}
       propertyPath: m_Name
       value: Enemy
@@ -1842,9 +1879,33 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7286957906628487556, guid: a1aa89bd4b481bd4b8460d6a4b7bee25, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7286957906628487556, guid: a1aa89bd4b481bd4b8460d6a4b7bee25, type: 3}
+      propertyPath: enemyBulletRotationCount
+      value: 1000
+      objectReference: {fileID: 0}
+    - target: {fileID: 7286957906628487556, guid: a1aa89bd4b481bd4b8460d6a4b7bee25, type: 3}
+      propertyPath: enemyBulletRotationInterval
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 7286957906628487556, guid: a1aa89bd4b481bd4b8460d6a4b7bee25, type: 3}
+      propertyPath: enemyBulletGenerationWaitingTime
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7286957906628487556, guid: a1aa89bd4b481bd4b8460d6a4b7bee25, type: 3}
+      propertyPath: enemyBulletGenerationWaitingTimeAdd
+      value: -0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7286957906628487556, guid: a1aa89bd4b481bd4b8460d6a4b7bee25, type: 3}
+      propertyPath: enemyBulletGenerationOnceRotationInterval
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8479815916426920254, guid: a1aa89bd4b481bd4b8460d6a4b7bee25, type: 3}
       propertyPath: m_Enabled
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a1aa89bd4b481bd4b8460d6a4b7bee25, type: 3}
@@ -1908,7 +1969,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ce4e4b9e94a794cb0accc3d846493507, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tweetText: "\u4F3A\u304B\u306F\u4ECA\u304C\u6625\uFF01\uFF01\uFF08\u8A3A\u65AD\u3082\u3042\u308B\u3088\uFF09"
+  tweetText: "\u3084\u3063\u306F\u308D\u30FC"
 --- !u!114 &2128966379
 MonoBehaviour:
   m_ObjectHideFlags: 0

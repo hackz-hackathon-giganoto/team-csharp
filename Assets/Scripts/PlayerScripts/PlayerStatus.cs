@@ -62,7 +62,7 @@ public class PlayerStatus : MonoBehaviour
             StartCoroutine("PlaeyrInvincibleTime");
         }
 
-        if (CurrentPlayerHitPoint <= 0)
+        if (CurrentPlayerHitPoint < 0)
         {
             playerDestroy.DestroyPlayer();
             Debug.Log("Destroy!!");
