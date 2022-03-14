@@ -8,7 +8,13 @@ using UnityEngine;
 public class BossFirstMoveBulletInstance : MonoBehaviour
 {
     [SerializeField]
+    private float waitInstanceTime;
+
+    [SerializeField]
     private GameObject bossFirstBullet;
+
+    [SerializeField]
+    BossFirstMovement bossFirstMovement;
 
     /// <summary>
     /// 外からコルーチンを実行するメソッド
@@ -23,10 +29,10 @@ public class BossFirstMoveBulletInstance : MonoBehaviour
     /// </summary>
     IEnumerator InstanceBossFirstBullet()
     {
-        while (true)
+        while (bossFirstMovement.isFirstMove)
         {
             Instantiate(bossFirstBullet, this.gameObject.transform.position, Quaternion.identity);
-            yield return new WaitForSeconds(0.2f);
+            yield return new WaitForSeconds(waitInstanceTime);
         }
     }
 }

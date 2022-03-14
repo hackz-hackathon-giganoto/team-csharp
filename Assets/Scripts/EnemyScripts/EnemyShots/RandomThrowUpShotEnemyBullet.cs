@@ -12,6 +12,7 @@ public class RandomThrowUpShotEnemyBullet : MonoBehaviour
     [SerializeField] private float enemyBulletGenerationWaitTime;
 
     [SerializeField] private int enemyGravityBulletCount;
+
     private int stopRandomThrowUpEnemyBulletShotCount = 0;
 
     void Start()

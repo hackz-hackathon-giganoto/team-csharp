@@ -10,10 +10,10 @@ GameObject:
   m_Component:
   - component: {fileID: 4247502079216109788}
   - component: {fileID: 3339627151693644140}
-  - component: {fileID: 8479815916426920254}
   - component: {fileID: -3831186399699792895}
-  - component: {fileID: -8604489589114029147}
-  - component: {fileID: 7286957906628487556}
+  - component: {fileID: 2586161163691054239}
+  - component: {fileID: -7637262455574638927}
+  - component: {fileID: -7606638050212724210}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Enemy
@@ -86,6 +86,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+<<<<<<< HEAD
 --- !u!114 &8479815916426920254
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -102,6 +103,8 @@ MonoBehaviour:
   enemyBulletCount: 8
   enemyBulletGenerationWatingTime: 1
   circleCount: 3
+=======
+>>>>>>> adedf4de4c905600d02dc0a6bcfd54bef1e37a3c
 --- !u!114 &-3831186399699792895
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -116,7 +119,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyBullet: {fileID: 3856148216445526295, guid: 7c810c74afabdd049bb7c3e1f230bf01, type: 3}
   enemyBulletGenerationWatingTime: 1
---- !u!114 &-8604489589114029147
+--- !u!114 &2586161163691054239
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -125,24 +128,29 @@ MonoBehaviour:
   m_GameObject: {fileID: 4085351243843135202}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f52acf276c7e7184088c1ebb985e313b, type: 3}
+  m_Script: {fileID: 11500000, guid: 9fbd8c0211e3fe8499e53134200bd4ae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyGravityBullet: {fileID: 3504134023480279050, guid: 74da71389297ef54f962ab659369070f, type: 3}
-  enemyBulletGenerationWaitTime: 1
-  enemyGravityBulletCount: 5
---- !u!114 &7286957906628487556
+  enemyBullet: {fileID: 3377674105143614100, guid: 86fa2c1ff36dbee49b3693c100fa2f8e, type: 3}
+  enemyBulletGenerationWaitingTime: 0
+  enemyBulletRotationCount: 0
+  enemyBulletRotationInterval: 0
+  enemyBulletGenerationWaitingTimeAdd: 0
+  enemyBulletGenerationOnceRotationInterval: 0
+  totalTime: 0
+--- !u!114 &-7637262455574638927
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4085351243843135202}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a741a2b99fca8524a9187b9f7b594e60, type: 3}
+  m_Script: {fileID: 11500000, guid: 1d8b5d78dc9ab0b459efabed6b1656eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+<<<<<<< HEAD
   enemyBullet: {fileID: 3377674105143614100, guid: 86fa2c1ff36dbee49b3693c100fa2f8e, type: 3}
   stopFirstEnemyBullet: {fileID: 3377674105143614100, guid: 86fa2c1ff36dbee49b3693c100fa2f8e, type: 3}
   enemyBulletGenerationWaitingTime: 0.01
@@ -151,3 +159,24 @@ MonoBehaviour:
   enemyBulletGenerationWaitingTimeAdd: 0
   enemyBulletGenerationOnceRotationInterval: 0
   totalTime: 0
+=======
+  enemyBullet: {fileID: 3856148216445526295, guid: 7c810c74afabdd049bb7c3e1f230bf01, type: 3}
+  enemyBulletCount: 0
+  enemyBulletGenerationWatingTime: 0
+  circleCount: 0
+--- !u!114 &-7606638050212724210
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4085351243843135202}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 73ca9838224c0a84188516b0fdf75103, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemyGravityBullet: {fileID: 3856148216445526295, guid: 7c810c74afabdd049bb7c3e1f230bf01, type: 3}
+  enemyBulletGenerationWaitTime: 0
+  enemyGravityBulletCount: 0
+>>>>>>> adedf4de4c905600d02dc0a6bcfd54bef1e37a3c
