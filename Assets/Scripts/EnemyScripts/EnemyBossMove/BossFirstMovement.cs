@@ -11,52 +11,136 @@ public class BossFirstMovement : MonoBehaviour
     [SerializeField]
     List<GameObject> bossMovePositions;
 
+    private GameObject[] enemyBullets;
+
+    [SerializeField]
+    private Transform bossFirstTrans;
+
     private int randomMoveStartNumber;
 
     private int randomMoveEndNumber;
 
+    private int bossMoveCount;
+
     [SerializeField]
-    private float moveIntervalTime;
+    private int bossMoveMaxCount;
+
+    [SerializeField]
+    private float intervalTime;
+
+    [SerializeField]
+    private float moveStopTime;
+
+    [SerializeField]
+    private float nextBattleWaitTime;
 
     [SerializeField]
     private float bossMoveSpeed;
+
+    [SerializeField]
+    private float addUpPower;
+
+    [SerializeField]
+    private float bulletGravity;
 
     [SerializeField]
     private Rigidbody2D rigidBody;
 
     private Vector3 enemyDirection;
 
+    [System.NonSerialized]
+    public bool isFirstMove;
+
+    [SerializeField]
+    BossFirstMoveBulletInstance bossFirstMoveBulletInstance;
+
+    [SerializeField]
+    EnemyBulletRotationLoopShot enemyBulletRotationLoopShot;
+
     private void Start()
     {
+        CallDirectionDesignation();
+    }
+
+    private void CallDirectionDesignation()
+    {
+        isFirstMove = true;
+        bossMoveCount = 0;
         StartCoroutine("DirectionDesignation");
     }
 
     /// <summary>
     /// 方向を指定するスクリプト
-    /// TODO:力を加えるスクリプトもまとめて書いてあるが、あとで変える
     /// TODO:条件式を書いて敵のライフがなくなったとき次の動きに移行するようにする
     /// </summary>
     IEnumerator DirectionDesignation()
     {
-        Random.InitState(System.DateTime.Now.Millisecond);
-        randomMoveStartNumber = Random.Range(0, 12);
-
-        switch (randomMoveStartNumber/4)
+        bossFirstMoveBulletInstance.CallInstanceBossFirstBullet();
+        while (isFirstMove)
         {
-            case 0:
-                randomMoveEndNumber = Random.Range(8, 12);
-                break;
-            case 1:
-                randomMoveEndNumber = Random.Range(12, 16);
-                break;
-            case 2:
-                randomMoveEndNumber = Random.Range(0, 4);
-                break;
+            if(bossMoveCount == bossMoveMaxCount)
+            {
+                rigidBody.velocity = transform.up * 0;
+                this.gameObject.transform.position = bossFirstTrans.position;
+                this.gameObject.transform.rotation = bossFirstTrans.rotation;
+
+                enemyBullets = GameObject.FindGameObjectsWithTag("EnemyBullet");
+
+
+
+                foreach(GameObject enemyBullet in enemyBullets)
+                {
+                    Rigidbody2D enemyBulletRigidbody = enemyBullet.GetComponent<Rigidbody2D>();
+                    enemyBulletRigidbody.velocity = transform.up * addUpPower;
+                    enemyBulletRigidbody.gravityScale = bulletGravity;
+                }
+
+                yield return new WaitForSeconds(moveStopTime);
+
+                bossMoveCount = 0;
+            }
+
+            yield return new WaitForSeconds(intervalTime);
+
+            Random.InitState(System.DateTime.Now.Millisecond);
+            randomMoveStartNumber = Random.Range(0, 12);
+            this.gameObject.transform.position = bossMovePositions[randomMoveStartNumber].transform.position;
+
+            rigidBody.velocity = transform.up * 0;
+
+            switch (randomMoveStartNumber / 4)
+            {
+                case 0:
+                    randomMoveEndNumber = Random.Range(8, 12);
+                    break;
+                case 1:
+                    randomMoveEndNumber = Random.Range(12, 16);
+                    break;
+                case 2:
+                    randomMoveEndNumber = Random.Range(0, 4);
+                    break;
+            }
+            enemyDirection = (bossMovePositions[randomMoveStartNumber].transform.position - bossMovePositions[randomMoveEndNumber].transform.position);
+            this.gameObject.transform.rotation = Quaternion.FromToRotation(Vector3.up, enemyDirection);
+
+            rigidBody.velocity = transform.up * bossMoveSpeed * -1;
+
+            bossMoveCount++;
         }
-        this.gameObject.transform.position = bossMovePositions[randomMoveStartNumber].transform.position;
-        enemyDirection = (bossMovePositions[randomMoveStartNumber].transform.position - bossMovePositions[randomMoveEndNumber].transform.position);
-        this.gameObject.transform.rotation = Quaternion.FromToRotation(Vector3.up, enemyDirection);
-        yield return new WaitForSeconds(moveIntervalTime);
-        rigidBody.velocity = transform.up * bossMoveSpeed * -1;
+
+        rigidBody.velocity = transform.up * 0;
+        this.gameObject.transform.position = bossFirstTrans.position;
+        this.gameObject.transform.rotation = bossFirstTrans.rotation;
+
+        enemyBullets = GameObject.FindGameObjectsWithTag("EnemyBullet");
+
+        foreach (GameObject enemyBullet in enemyBullets)
+        {
+            Destroy(enemyBullet);
+        }
+
+        yield return new WaitForSeconds(nextBattleWaitTime);
+
+        enemyBulletRotationLoopShot.CallRotationLoopShotBullet();
     }
 }

@@ -13,6 +13,14 @@ public class EnemyStatus : MonoBehaviour
     [SerializeField]
     private EnemyDestroy enemyDestroy;
 
+    private float secondBossBattleHP = 100;
+
+    private bool isFirstBossButtle;
+
+    private void Start()
+    {
+        isFirstBossButtle = true;
+    }
 
     /// <summary>
     /// ヒットポイントを減らすメソッド
@@ -24,6 +32,13 @@ public class EnemyStatus : MonoBehaviour
 
         if (enemyHitPoint <= 0)
         {
+            if(this.gameObject.name == "Leucochloridium" && isFirstBossButtle)
+            {
+                this.gameObject.GetComponent<BossFirstMovement>().isFirstMove = false;
+                isFirstBossButtle = false;
+                enemyHitPoint = secondBossBattleHP;
+                return;
+            }
             enemyDestroy.DestroyEnemy();
         }
     }

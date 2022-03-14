@@ -15,17 +15,17 @@ public class EnemyBulletRotationLoopShot : MonoBehaviour
 
     bool addEnemyAngle;
 
-    void Start()
+    public void CallRotationLoopShotBullet()
     {
         instancePosition = this.transform.position;
         instancePosition.z = 0.1f;
-        StartCoroutine("ShotBullet");
+        StartCoroutine("RotationLoopShotBullet");
     }
 
     /// <summary>
     /// 敵の弾を回転するように生成するコルーチン（ループ）
     /// </summary>
-    private IEnumerator ShotBullet()
+    private IEnumerator RotationLoopShotBullet()
     {
         addEnemyAngle = false;
         while(true)

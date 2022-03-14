@@ -8,8 +8,11 @@ using UnityEngine;
 public class RandomThrowUpShotEnemyBullet : MonoBehaviour
 {
     [SerializeField] private GameObject enemyGravityBullet;
+
     [SerializeField] private float enemyBulletGenerationWaitTime;
+
     [SerializeField] private int enemyGravityBulletCount;
+
     void Start()
     {
         StartCoroutine("RandomGravityBulletShot");
@@ -38,7 +41,7 @@ public class RandomThrowUpShotEnemyBullet : MonoBehaviour
         { 
             while(true)
             {
-                EulerZ = Random.value* 360;
+                EulerZ = Random.value * 360;
                 if(EulerZ <= 135 && EulerZ >= 45)
                 {
                     break;
