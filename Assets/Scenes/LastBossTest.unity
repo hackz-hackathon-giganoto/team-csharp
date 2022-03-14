@@ -274,9 +274,11 @@ MonoBehaviour:
   - {fileID: 501404579}
   - {fileID: 309991192}
   bossFirstTrans: {fileID: 1122049788}
-  moveIntervalTime: 0
+  bossMoveMaxCount: 20
   intervalTime: 2
+  moveStopTime: 5
   bossMoveSpeed: 20
+  addUpPower: 3
   rigidBody: {fileID: 12240158}
   bossFirstMoveBulletInstance: {fileID: 12240160}
 --- !u!50 &12240158
@@ -312,7 +314,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a8013635333a74056a816c219b0e18db, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyHitPoint: 1
+  enemyHitPoint: 100
   enemyDestroy: {fileID: 0}
 --- !u!114 &12240160
 MonoBehaviour:
@@ -326,7 +328,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 08467f88985eb476ea0051e11e698544, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  waitInstanceTime: 0.1
   bossFirstBullet: {fileID: 576593605563250077, guid: cdc8d60dd835d438eb5e4f4b7ecc2afb, type: 3}
+  bossFirstMovement: {fileID: 12240157}
 --- !u!1 &57905222
 GameObject:
   m_ObjectHideFlags: 0
