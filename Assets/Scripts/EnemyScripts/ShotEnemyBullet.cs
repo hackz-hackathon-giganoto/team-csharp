@@ -10,6 +10,7 @@ public class ShotEnemyBullet : MonoBehaviour
     [SerializeField] private GameObject enemyBullet;
     [SerializeField] private float enemyBulletCount;
     [SerializeField] private float enemyBulletGenerationWatingTime;
+    [SerializeField] private float circleCount;
 
     void Start()
     {
@@ -33,9 +34,13 @@ public class ShotEnemyBullet : MonoBehaviour
     /// </summary>
     void GenerateBullet()
     {
-        for(float i = 0; i < 360; i += 360/enemyBulletCount)
+        for(float i = 1; i <= circleCount; i++)
         {
-            Instantiate(enemyBullet, this.transform.position, Quaternion.Euler(0, 0, i));
+            for(float j = 0; j < 360; j += 360/enemyBulletCount)
+            {
+                Instantiate(enemyBullet,this.transform.position, Quaternion.Euler(0, 0, j));
+            }
         }
+        
     }
 }
