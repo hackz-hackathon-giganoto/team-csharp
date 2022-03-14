@@ -139,6 +139,7 @@ GameObject:
   - component: {fileID: 12240157}
   - component: {fileID: 12240159}
   - component: {fileID: 12240160}
+  - component: {fileID: 12240161}
   m_Layer: 0
   m_Name: Leucochloridium
   m_TagString: Enemy
@@ -277,10 +278,12 @@ MonoBehaviour:
   bossMoveMaxCount: 20
   intervalTime: 2
   moveStopTime: 5
+  nextBattleWaitTime: 0
   bossMoveSpeed: 20
   addUpPower: 3
   rigidBody: {fileID: 12240158}
   bossFirstMoveBulletInstance: {fileID: 12240160}
+  enemyBulletRotationLoopShot: {fileID: 12240155}
 --- !u!50 &12240158
 Rigidbody2D:
   serializedVersion: 4
@@ -314,8 +317,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a8013635333a74056a816c219b0e18db, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyHitPoint: 100
-  enemyDestroy: {fileID: 0}
+  enemyHitPoint: 10
+  enemyDestroy: {fileID: 12240161}
 --- !u!114 &12240160
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -331,6 +334,19 @@ MonoBehaviour:
   waitInstanceTime: 0.1
   bossFirstBullet: {fileID: 576593605563250077, guid: cdc8d60dd835d438eb5e4f4b7ecc2afb, type: 3}
   bossFirstMovement: {fileID: 12240157}
+--- !u!114 &12240161
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 12240152}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bb3a5f693d28c4f6d85d1959022ebdd8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  generationItem: {fileID: 0}
 --- !u!1 &57905222
 GameObject:
   m_ObjectHideFlags: 0

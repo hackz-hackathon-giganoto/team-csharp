@@ -56,6 +56,11 @@ public class BossFirstMovement : MonoBehaviour
 
     private void Start()
     {
+        CallDirectionDesignation();
+    }
+
+    private void CallDirectionDesignation()
+    {
         isFirstMove = true;
         bossMoveCount = 0;
         StartCoroutine("DirectionDesignation");
@@ -84,7 +89,7 @@ public class BossFirstMovement : MonoBehaviour
                 {
                     Rigidbody2D enemyBulletRigidbody = enemyBullet.GetComponent<Rigidbody2D>();
                     enemyBulletRigidbody.velocity = transform.up * addUpPower;
-                    enemyBulletRigidbody.gravityScale = 0.5f;
+                    enemyBulletRigidbody.gravityScale = 0.3f;
                 }
 
                 yield return new WaitForSeconds(moveStopTime);
