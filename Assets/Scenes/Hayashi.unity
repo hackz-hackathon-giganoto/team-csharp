@@ -1834,6 +1834,8 @@ MonoBehaviour:
   getterPitch: {fileID: 1202354742}
   playerStatus: {fileID: 2024091107}
   playerShot: {fileID: 2024091103}
+  waitTime: 0.01
+  timeRequired: 10
 --- !u!1001 &2033713559
 PrefabInstance:
   m_ObjectHideFlags: 0
