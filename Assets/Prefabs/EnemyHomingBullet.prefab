@@ -10,10 +10,10 @@ GameObject:
   m_Component:
   - component: {fileID: 3063933115091481580}
   - component: {fileID: 3141069785845170212}
-  - component: {fileID: -7628787349507321253}
   - component: {fileID: 8167193496794176788}
   - component: {fileID: 6590431525729938917}
   - component: {fileID: -8084954935894179744}
+  - component: {fileID: 7678969669713026469}
   m_Layer: 0
   m_Name: EnemyHomingBullet
   m_TagString: Untagged
@@ -86,22 +86,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &-7628787349507321253
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1499264814600173674}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 735b0be04e30b5d46a3a8338f4527909, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  homingStopTime: 5
-  homingPlayerBulletSpeed: 5
-  generateHomingBulletWait: 0.5
-  rb2D: {fileID: 8167193496794176788}
 --- !u!50 &8167193496794176788
 Rigidbody2D:
   serializedVersion: 4
@@ -151,3 +135,19 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.5
+--- !u!114 &7678969669713026469
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1499264814600173674}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 112a7c736367d6742a2353a44e771707, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  homingStopTime: 0
+  homingPlayerBulletSpeed: 0
+  generateHomingBulletWait: 0
+  rb2D: {fileID: 0}

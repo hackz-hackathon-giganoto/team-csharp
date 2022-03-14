@@ -8,6 +8,7 @@ using UnityEngine;
 public class ShotEnemyBullet : MonoBehaviour
 {
     [SerializeField] private GameObject enemyBullet;
+
     [SerializeField] private float enemyBulletCount;
     [SerializeField] private float enemyBulletGenerationWatingTime;
     [SerializeField] private float circleCount;

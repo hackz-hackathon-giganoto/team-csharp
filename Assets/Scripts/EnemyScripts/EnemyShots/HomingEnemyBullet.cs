@@ -9,12 +9,16 @@ public class HomingEnemyBullet : MonoBehaviour
     private GameObject playerObject;
     private Vector3 playerPosition;
     private Vector3 bulletPosition;
+    private Vector3 playerDirection;
+
     private float waitTime = 0;
     [SerializeField] private float homingStopTime;
     [SerializeField] private float homingPlayerBulletSpeed;
     [SerializeField] private float generateHomingBulletWait;
+
     [SerializeField] Rigidbody2D rb2D;
-    private Vector3 playerDirection;
+    
+
     void Start()
     {
         playerObject = GameObject.FindWithTag("Player");

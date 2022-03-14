@@ -8,8 +8,11 @@ using UnityEngine;
 public class RandomThrowUpShotEnemyBullet : MonoBehaviour
 {
     [SerializeField] private GameObject enemyGravityBullet;
+
     [SerializeField] private float enemyBulletGenerationWaitTime;
+
     [SerializeField] private int enemyGravityBulletCount;
+
     void Start()
     {
         StartCoroutine("RandomGravityBulletShot");
