@@ -32,6 +32,9 @@ public class BossFirstMovement : MonoBehaviour
     private float moveStopTime;
 
     [SerializeField]
+    private float nextBattleWaitTime;
+
+    [SerializeField]
     private float bossMoveSpeed;
 
     [SerializeField]
@@ -47,6 +50,9 @@ public class BossFirstMovement : MonoBehaviour
 
     [SerializeField]
     BossFirstMoveBulletInstance bossFirstMoveBulletInstance;
+
+    [SerializeField]
+    EnemyBulletRotationLoopShot enemyBulletRotationLoopShot;
 
     private void Start()
     {
@@ -117,5 +123,16 @@ public class BossFirstMovement : MonoBehaviour
         rigidBody.velocity = transform.up * 0;
         this.gameObject.transform.position = bossFirstTrans.position;
         this.gameObject.transform.rotation = bossFirstTrans.rotation;
+
+        enemyBullets = GameObject.FindGameObjectsWithTag("EnemyBullet");
+
+        foreach (GameObject enemyBullet in enemyBullets)
+        {
+            Destroy(enemyBullet);
+        }
+
+        yield return new WaitForSeconds(nextBattleWaitTime);
+
+        enemyBulletRotationLoopShot.CallRotationLoopShotBullet();
     }
 }

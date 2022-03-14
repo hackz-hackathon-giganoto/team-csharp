@@ -29,7 +29,7 @@ public class BossFirstMoveBulletInstance : MonoBehaviour
     /// </summary>
     IEnumerator InstanceBossFirstBullet()
     {
-        while (true)
+        while (bossFirstMovement.isFirstMove)
         {
             Instantiate(bossFirstBullet, this.gameObject.transform.position, Quaternion.identity);
             yield return new WaitForSeconds(waitInstanceTime);
