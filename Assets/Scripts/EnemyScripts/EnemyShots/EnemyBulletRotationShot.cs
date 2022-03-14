@@ -12,9 +12,20 @@ public class EnemyBulletRotationShot : MonoBehaviour
     [SerializeField] private float enemyBulletRotationInterval;
     [SerializeField] private float enemyBulletGenerationWaitingTimeAdd;
     [SerializeField] private float enemyBulletGenerationOnceRotationInterval;
-
+    private float keepCount;
+    public float totalTime;
+    private float totalAddTime;
+    private float totalWaitAddTime;
     void Start()
     {
+        keepCount = enemyBulletGenerationWaitingTime;
+        totalTime = 0;
+        for(int i = 0;i < 360 / enemyBulletRotationInterval;i++)
+        {
+            totalWaitAddTime += keepCount;
+            totalAddTime += enemyBulletGenerationWaitingTimeAdd;
+        }
+        totalTime = enemyBulletRotationCount * (enemyBulletGenerationOnceRotationInterval + ((360 / enemyBulletRotationInterval) * enemyBulletGenerationWaitingTime) + totalAddTime);
         StartCoroutine("ShotBullet");
     }
 

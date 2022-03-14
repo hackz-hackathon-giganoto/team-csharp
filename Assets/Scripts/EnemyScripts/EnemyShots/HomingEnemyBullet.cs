@@ -9,10 +9,6 @@ public class HomingEnemyBullet : MonoBehaviour
     private GameObject playerObject;
     private Vector3 playerPosition;
     private Vector3 bulletPosition;
-    private float bulletPositionX;
-    private float bulletPositionY;
-    private float playerPositionX;
-    private float playerPositionY;
     private float waitTime = 0;
     [SerializeField] private float homingStopTime;
     [SerializeField] private float homingPlayerBulletSpeed;
