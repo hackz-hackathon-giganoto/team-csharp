@@ -41,6 +41,9 @@ public class BossFirstMovement : MonoBehaviour
     private float addUpPower;
 
     [SerializeField]
+    private float bulletGravity;
+
+    [SerializeField]
     private Rigidbody2D rigidBody;
 
     private Vector3 enemyDirection;
@@ -55,6 +58,11 @@ public class BossFirstMovement : MonoBehaviour
     EnemyBulletRotationLoopShot enemyBulletRotationLoopShot;
 
     private void Start()
+    {
+        CallDirectionDesignation();
+    }
+
+    private void CallDirectionDesignation()
     {
         isFirstMove = true;
         bossMoveCount = 0;
@@ -84,7 +92,7 @@ public class BossFirstMovement : MonoBehaviour
                 {
                     Rigidbody2D enemyBulletRigidbody = enemyBullet.GetComponent<Rigidbody2D>();
                     enemyBulletRigidbody.velocity = transform.up * addUpPower;
-                    enemyBulletRigidbody.gravityScale = 0.5f;
+                    enemyBulletRigidbody.gravityScale = bulletGravity;
                 }
 
                 yield return new WaitForSeconds(moveStopTime);
