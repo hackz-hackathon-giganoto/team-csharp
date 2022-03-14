@@ -45,7 +45,6 @@ public class PlayerShot : MonoBehaviour
         StartCoroutine("PlayerShotInterval");
         StartCoroutine("PlayerHomingShotInterval");
     }
-
     /// <summary>
     /// プレイヤーの弾を打つ間隔
     /// </summary>
@@ -58,6 +57,9 @@ public class PlayerShot : MonoBehaviour
             if (getterPitch.pitchHighest < lowestVolume)
             {
                 continue;
+            }
+            else {
+                
             }
 
             if (getterPitch.pitchHighestNumber > highPlayerPitch)
