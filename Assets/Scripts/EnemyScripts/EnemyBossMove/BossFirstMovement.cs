@@ -27,6 +27,9 @@ public class BossFirstMovement : MonoBehaviour
     private float intervalTime;
 
     [SerializeField]
+    private float moveStopTime;
+
+    [SerializeField]
     private float bossMoveSpeed;
 
     [SerializeField]
@@ -62,7 +65,7 @@ public class BossFirstMovement : MonoBehaviour
                 this.gameObject.transform.position = bossFirstTrans.position;
                 this.gameObject.transform.rotation = bossFirstTrans.rotation;
 
-                yield return new WaitForSeconds(10f);
+                yield return new WaitForSeconds(moveStopTime);
             }
 
             yield return new WaitForSeconds(intervalTime);
