@@ -8,10 +8,8 @@ using UnityEngine;
 public class IconPanel : MonoBehaviour
 {
     [SerializeField]private GameObject iconObj;
-    [SerializeField]private int firstCount;
-    
     ///<summary>
-    ///引数分のアイコンを表示
+    ///引数分のアイコンを表示するメソッド
     ///</summary>
     public void SetIcon(int count) {
         for (int i = 0; i < transform.childCount; i++) {
@@ -20,5 +18,12 @@ public class IconPanel : MonoBehaviour
         for (int i = 0; i < count; i++) {
             Instantiate<GameObject>(iconObj, transform);
         }
+    }
+    /// <summary>
+    /// アイコンの表示が一つ消えるメソッド
+    /// </summary>
+    public void DecreseCount(){
+        int childNum = transform.childCount;
+        transform.GetChild(childNum-1).GetComponent<IconAnimation>().VanishIcon();
     }
 }
