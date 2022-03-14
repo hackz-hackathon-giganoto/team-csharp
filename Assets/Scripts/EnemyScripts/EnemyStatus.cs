@@ -24,6 +24,11 @@ public class EnemyStatus : MonoBehaviour
 
         if (enemyHitPoint <= 0)
         {
+            if(this.gameObject.name == "Leucochloridium")
+            {
+                this.gameObject.GetComponent<BossFirstMovement>().isFirstMove = false;
+                return;
+            }
             enemyDestroy.DestroyEnemy();
         }
     }
