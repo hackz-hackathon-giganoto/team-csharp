@@ -8,14 +8,19 @@ using UnityEngine;
 public class StopFirstEnemyBullet : MonoBehaviour
 {
     [SerializeField] Rigidbody2D rb2D;
+
     [SerializeField] private float bulletSpeed;
     [SerializeField] private float waitTime;
-    [SerializeField] private GameObject enemyObject;
-    EnemyBulletRotationShot enemyBulletRotationShotScript;
     [SerializeField] private float minusWaitTime;
-    GameObject[] SubBossBulletCount;
     private float positionX;
     private float positionY;
+
+    EnemyBulletRotationShot enemyBulletRotationShotScript;
+
+    [SerializeField] private GameObject enemyObject;
+    GameObject[] SubBossBulletCount;
+
+
 
     void Start()
     {
