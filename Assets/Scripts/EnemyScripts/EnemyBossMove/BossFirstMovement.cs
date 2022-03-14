@@ -11,9 +11,14 @@ public class BossFirstMovement : MonoBehaviour
     [SerializeField]
     List<GameObject> bossMovePositions;
 
+    [SerializeField]
+    private Transform bossFirstTrans;
+
     private int randomMoveStartNumber;
 
     private int randomMoveEndNumber;
+
+    private int enemyMoveCount;
 
     [SerializeField]
     private float moveIntervalTime;
@@ -29,8 +34,16 @@ public class BossFirstMovement : MonoBehaviour
 
     private Vector3 enemyDirection;
 
+    [System.NonSerialized]
+    public bool isFirstMove;
+
+    [SerializeField]
+    BossFirstMoveBulletInstance bossFirstMoveBulletInstance;
+
     private void Start()
     {
+        isFirstMove = true;
+        enemyMoveCount = 0;
         StartCoroutine("DirectionDesignation");
     }
 
@@ -40,13 +53,24 @@ public class BossFirstMovement : MonoBehaviour
     /// </summary>
     IEnumerator DirectionDesignation()
     {
-        while (true)
+        bossFirstMoveBulletInstance.CallInstanceBossFirstBullet();
+        while (isFirstMove)
         {
+            if(enemyMoveCount == 10)
+            {
+                rigidBody.velocity = transform.up * 0;
+                this.gameObject.transform.position = bossFirstTrans.position;
+                this.gameObject.transform.rotation = bossFirstTrans.rotation;
+
+                yield return new WaitForSeconds(10f);
+            }
+
             yield return new WaitForSeconds(intervalTime);
 
             Random.InitState(System.DateTime.Now.Millisecond);
             randomMoveStartNumber = Random.Range(0, 12);
             this.gameObject.transform.position = bossMovePositions[randomMoveStartNumber].transform.position;
+
             rigidBody.velocity = transform.up * 0;
 
             switch (randomMoveStartNumber / 4)
@@ -64,9 +88,13 @@ public class BossFirstMovement : MonoBehaviour
             enemyDirection = (bossMovePositions[randomMoveStartNumber].transform.position - bossMovePositions[randomMoveEndNumber].transform.position);
             this.gameObject.transform.rotation = Quaternion.FromToRotation(Vector3.up, enemyDirection);
 
-            yield return new WaitForSeconds(moveIntervalTime);
-
             rigidBody.velocity = transform.up * bossMoveSpeed * -1;
+
+            enemyMoveCount++;
         }
+
+        rigidBody.velocity = transform.up * 0;
+        this.gameObject.transform.position = bossFirstTrans.position;
+        this.gameObject.transform.rotation = bossFirstTrans.rotation;
     }
 }
