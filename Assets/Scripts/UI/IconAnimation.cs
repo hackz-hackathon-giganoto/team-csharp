@@ -17,4 +17,13 @@ public class IconAnimation : MonoBehaviour
         Destroy(this.gameObject)
         );
     }
+    /// <summary>
+    /// アイコン出現アニメーションを実行するメソッド
+    /// </summary>
+    public void AppearIcon(){
+        rectTransform.DOScale(
+        new Vector3(0.7f, 0.7f),
+        1.7f
+        ).SetEase(Ease.OutElastic);
+    }
 }

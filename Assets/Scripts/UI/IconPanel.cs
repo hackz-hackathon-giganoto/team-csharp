@@ -2,9 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-    ///<summary>
-    ///アイコンを表示するクラス
-    ///</summary>
+///<summary>
+///アイコンを表示するクラス
+///</summary>
 public class IconPanel : MonoBehaviour
 {
     [SerializeField]private GameObject iconObj;
@@ -20,9 +20,18 @@ public class IconPanel : MonoBehaviour
         }
     }
     /// <summary>
+    /// アイコンの表示が一つ増えるメソッド
+    /// </summary>
+    public void IncreseIcon(){
+        Instantiate<GameObject>(iconObj, transform).transform.localScale = new Vector3(0f,0f,1f);
+        int childNum = transform.childCount;
+        transform.GetChild(childNum-1).GetComponent<IconAnimation>().AppearIcon();
+    }
+
+    /// <summary>
     /// アイコンの表示が一つ消えるメソッド
     /// </summary>
-    public void DecreseCount(){
+    public void DecreseIcon(){
         int childNum = transform.childCount;
         transform.GetChild(childNum-1).GetComponent<IconAnimation>().VanishIcon();
     }
