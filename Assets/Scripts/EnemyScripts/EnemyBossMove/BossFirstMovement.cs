@@ -19,6 +19,9 @@ public class BossFirstMovement : MonoBehaviour
     private float moveIntervalTime;
 
     [SerializeField]
+    private float intervalTime;
+
+    [SerializeField]
     private float bossMoveSpeed;
 
     [SerializeField]
@@ -33,30 +36,37 @@ public class BossFirstMovement : MonoBehaviour
 
     /// <summary>
     /// 方向を指定するスクリプト
-    /// TODO:力を加えるスクリプトもまとめて書いてあるが、あとで変える
     /// TODO:条件式を書いて敵のライフがなくなったとき次の動きに移行するようにする
     /// </summary>
     IEnumerator DirectionDesignation()
     {
-        Random.InitState(System.DateTime.Now.Millisecond);
-        randomMoveStartNumber = Random.Range(0, 12);
-
-        switch (randomMoveStartNumber/4)
+        while (true)
         {
-            case 0:
-                randomMoveEndNumber = Random.Range(8, 12);
-                break;
-            case 1:
-                randomMoveEndNumber = Random.Range(12, 16);
-                break;
-            case 2:
-                randomMoveEndNumber = Random.Range(0, 4);
-                break;
+            yield return new WaitForSeconds(intervalTime);
+
+            Random.InitState(System.DateTime.Now.Millisecond);
+            randomMoveStartNumber = Random.Range(0, 12);
+            this.gameObject.transform.position = bossMovePositions[randomMoveStartNumber].transform.position;
+            rigidBody.velocity = transform.up * 0;
+
+            switch (randomMoveStartNumber / 4)
+            {
+                case 0:
+                    randomMoveEndNumber = Random.Range(8, 12);
+                    break;
+                case 1:
+                    randomMoveEndNumber = Random.Range(12, 16);
+                    break;
+                case 2:
+                    randomMoveEndNumber = Random.Range(0, 4);
+                    break;
+            }
+            enemyDirection = (bossMovePositions[randomMoveStartNumber].transform.position - bossMovePositions[randomMoveEndNumber].transform.position);
+            this.gameObject.transform.rotation = Quaternion.FromToRotation(Vector3.up, enemyDirection);
+
+            yield return new WaitForSeconds(moveIntervalTime);
+
+            rigidBody.velocity = transform.up * bossMoveSpeed * -1;
         }
-        this.gameObject.transform.position = bossMovePositions[randomMoveStartNumber].transform.position;
-        enemyDirection = (bossMovePositions[randomMoveStartNumber].transform.position - bossMovePositions[randomMoveEndNumber].transform.position);
-        this.gameObject.transform.rotation = Quaternion.FromToRotation(Vector3.up, enemyDirection);
-        yield return new WaitForSeconds(moveIntervalTime);
-        rigidBody.velocity = transform.up * bossMoveSpeed * -1;
     }
 }
