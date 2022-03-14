@@ -11,6 +11,8 @@ public class BossFirstMovement : MonoBehaviour
     [SerializeField]
     List<GameObject> bossMovePositions;
 
+    private GameObject[] enemyBullets;
+
     [SerializeField]
     private Transform bossFirstTrans;
 
@@ -18,10 +20,10 @@ public class BossFirstMovement : MonoBehaviour
 
     private int randomMoveEndNumber;
 
-    private int enemyMoveCount;
+    private int bossMoveCount;
 
     [SerializeField]
-    private float moveIntervalTime;
+    private int bossMoveMaxCount;
 
     [SerializeField]
     private float intervalTime;
@@ -31,6 +33,9 @@ public class BossFirstMovement : MonoBehaviour
 
     [SerializeField]
     private float bossMoveSpeed;
+
+    [SerializeField]
+    private float addUpPower;
 
     [SerializeField]
     private Rigidbody2D rigidBody;
@@ -46,7 +51,7 @@ public class BossFirstMovement : MonoBehaviour
     private void Start()
     {
         isFirstMove = true;
-        enemyMoveCount = 0;
+        bossMoveCount = 0;
         StartCoroutine("DirectionDesignation");
     }
 
@@ -59,13 +64,26 @@ public class BossFirstMovement : MonoBehaviour
         bossFirstMoveBulletInstance.CallInstanceBossFirstBullet();
         while (isFirstMove)
         {
-            if(enemyMoveCount == 10)
+            if(bossMoveCount == bossMoveMaxCount)
             {
                 rigidBody.velocity = transform.up * 0;
                 this.gameObject.transform.position = bossFirstTrans.position;
                 this.gameObject.transform.rotation = bossFirstTrans.rotation;
 
+                enemyBullets = GameObject.FindGameObjectsWithTag("EnemyBullet");
+
+
+
+                foreach(GameObject enemyBullet in enemyBullets)
+                {
+                    Rigidbody2D enemyBulletRigidbody = enemyBullet.GetComponent<Rigidbody2D>();
+                    enemyBulletRigidbody.velocity = transform.up * addUpPower;
+                    enemyBulletRigidbody.gravityScale = 0.5f;
+                }
+
                 yield return new WaitForSeconds(moveStopTime);
+
+                bossMoveCount = 0;
             }
 
             yield return new WaitForSeconds(intervalTime);
@@ -93,7 +111,7 @@ public class BossFirstMovement : MonoBehaviour
 
             rigidBody.velocity = transform.up * bossMoveSpeed * -1;
 
-            enemyMoveCount++;
+            bossMoveCount++;
         }
 
         rigidBody.velocity = transform.up * 0;
