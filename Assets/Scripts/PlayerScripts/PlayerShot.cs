@@ -19,8 +19,7 @@ public class PlayerShot : MonoBehaviour
     [SerializeField]
     private float homingShotIntervalTime;
 
-    [SerializeField]
-    private float lowestVolume;
+    public float lowestVolume;
     [SerializeField]
     private float homingPlayerBulletFirstSpeed;
 

@@ -600,6 +600,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bb3a5f693d28c4f6d85d1959022ebdd8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  generationItem: {fileID: 0}
 --- !u!114 &1138592214
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -668,7 +669,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1138592212}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 969a0d9bc51814e949162fbd98d8f663, type: 3}
   m_Name: 
@@ -693,7 +694,6 @@ MonoBehaviour:
   enemyBulletRotationInterval: 20
   enemyBulletGenerationWaitingTimeAdd: -0.1
   enemyBulletGenerationOnceRotationInterval: 0
-  enemyBulletRainBowChange: {fileID: 0}
 --- !u!1 &1202354740
 GameObject:
   m_ObjectHideFlags: 0
@@ -1594,6 +1594,7 @@ GameObject:
   - component: {fileID: 2024091108}
   - component: {fileID: 2024091109}
   - component: {fileID: 2024091110}
+  - component: {fileID: 2024091111}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -1703,7 +1704,6 @@ MonoBehaviour:
   homingPlayerBullet: {fileID: 5439049718126398807, guid: 29d4ceb04b3f745368c73d64b93044b5, type: 3}
   getterPitch: {fileID: 1202354742}
   playerBulletMove: {fileID: 2024091104}
-  text: {fileID: 498171126}
 --- !u!114 &2024091104
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1802,7 +1802,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   firstTranseform: {fileID: 2105864871}
-  spriteRenderer: {fileID: 2024091101}
   waitRespawnTime: 0.5
 --- !u!114 &2024091110
 MonoBehaviour:
@@ -1820,6 +1819,21 @@ MonoBehaviour:
   playerStatus: {fileID: 2024091107}
   getterPitch: {fileID: 1202354742}
   useBombVolume: 5
+--- !u!114 &2024091111
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2024091099}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0ed52b2255d4c43e2aa64a50d8df6a6a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  getterPitch: {fileID: 1202354742}
+  playerStatus: {fileID: 2024091107}
+  playerShot: {fileID: 2024091103}
 --- !u!1001 &2033713559
 PrefabInstance:
   m_ObjectHideFlags: 0
