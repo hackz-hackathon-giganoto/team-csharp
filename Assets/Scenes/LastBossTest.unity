@@ -702,7 +702,7 @@ MonoBehaviour:
   highShotIntervalTime: 0.1
   lowShotIntervalTime: 1
   homingShotIntervalTime: 0.5
-  lowestVolume: 0.3
+  lowestVolume: 0.05
   homingPlayerBulletFirstSpeed: 3
   highPlayerPitch: 30
   lowPlayerPitch: 15

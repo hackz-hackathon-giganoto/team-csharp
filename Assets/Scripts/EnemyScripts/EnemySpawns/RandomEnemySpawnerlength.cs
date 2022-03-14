@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 /// <summary>
-/// 敵を縦でランダムに生成するスクリプト
+/// ?G???c???????_?????????????X?N???v?g
 /// </summary>
 public class RandomEnemySpawnerlength : MonoBehaviour
 {
@@ -14,13 +14,16 @@ public class RandomEnemySpawnerlength : MonoBehaviour
     [SerializeField] private float enemyGenerationWatingTime;
     [SerializeField] private float enemyAppear;
 
+    [SerializeField]
+    GoalPositionManager goalPositionManager;
+
     void Start()
     {
         StartCoroutine("GenerateEnemy");
     }
 
     /// <summary>
-    /// 敵を縦でランダムに生成するコルーチン
+    /// ?G???c???????_?????????????R???[?`??
     /// </summary>
     private IEnumerator GenerateEnemy()
     {
@@ -29,5 +32,7 @@ public class RandomEnemySpawnerlength : MonoBehaviour
             Instantiate(enemy, new Vector3(-2.5f + positionX * Random.value, positionY, positionZ), Quaternion.identity);
             yield return new WaitForSeconds(enemyGenerationWatingTime);
         }
+        goalPositionManager.ChengeMainGoalPosition();
+        Destroy(this.gameObject);
     }
 }
