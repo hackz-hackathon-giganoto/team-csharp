@@ -7,8 +7,7 @@ using UnityEngine;
 /// </summary>
 public class EnemyStatus : MonoBehaviour
 {
-    [SerializeField]
-    private float enemyHitPoint;
+    public float enemyHitPoint;
 
     [SerializeField]
     private EnemyDestroy enemyDestroy;
