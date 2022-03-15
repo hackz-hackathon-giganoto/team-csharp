@@ -320,6 +320,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyHitPoint: 100
   enemyDestroy: {fileID: 12240161}
+  secondBossBattleHP: 1000
 --- !u!114 &12240160
 MonoBehaviour:
   m_ObjectHideFlags: 0

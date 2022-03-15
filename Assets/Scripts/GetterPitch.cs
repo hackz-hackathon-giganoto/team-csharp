@@ -32,6 +32,8 @@ public class GetterPitch : MonoBehaviour
 
     float[] currentValues;
 
+
+
     void Start()
     {
         m_sttPos = m_lineRenderer.GetPosition(0);
@@ -53,6 +55,8 @@ public class GetterPitch : MonoBehaviour
             }
         }
     }
+
+
 
     void FixedUpdate()
     {

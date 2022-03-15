@@ -24,8 +24,13 @@ public class WayStage2Manager : MonoBehaviour
     IEnumerator ManageEnemyMove()
     {
         goalPositionManager.ChengeMainGoalPosition();
-        yield return new WaitForSeconds(25f);
-        foreach(GameObject enemySpawnHorizon in enemySpawnHorizons)
+        yield return new WaitForSeconds(28f);
+        enemyBullets = GameObject.FindGameObjectsWithTag("EnemyBullet");
+        foreach (GameObject enemyBullet in enemyBullets)
+        {
+            Destroy(enemyBullet);
+        }
+        foreach (GameObject enemySpawnHorizon in enemySpawnHorizons)
         {
             enemySpawnHorizon.SetActive(true);
 

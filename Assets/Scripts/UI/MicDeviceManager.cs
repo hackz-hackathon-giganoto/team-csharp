@@ -31,7 +31,7 @@ public class MicDeviceManager : MonoBehaviour
         {
             micDropdown.options.Add(new Dropdown.OptionData { text = Microphone.devices[i] });
         }
-        micDevice =  Microphone.devices[0];
+        micDevice = Microphone.devices[0];
     }
 
     /// <summary>

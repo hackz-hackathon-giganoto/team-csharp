@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 /// <summary>
-/// 敵の弾がプレイヤーを追尾するようになるスクリプト
+/// ?G???e???v???C???[?????????????????????X?N???v?g
 /// </summary>
 public class HomingEnemyBullet : MonoBehaviour
 {
@@ -28,12 +28,16 @@ public class HomingEnemyBullet : MonoBehaviour
     }
 
 /// <summary>
-/// プレイヤーを追尾する弾を生成するコルーチン
+/// ?v???C???[???????????e???????????R???[?`??
 /// </summary>
     private IEnumerator GenerateHomingBullet()
     {
         while (true)
         {
+            if(playerObject == null)
+            {
+                yield break;
+            }
             playerPosition = playerObject.transform.position;
             bulletPosition = this.transform.position;
             playerDirection = (playerObject.transform.position - this.transform.position);
