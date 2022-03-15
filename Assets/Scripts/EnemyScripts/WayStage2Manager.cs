@@ -18,10 +18,10 @@ public class WayStage2Manager : MonoBehaviour
 
     void Start()
     {
-        StartCoroutine(hoge());
+        StartCoroutine(ManageEnemyMove());
     }
 
-    IEnumerator hoge()
+    IEnumerator ManageEnemyMove()
     {
         goalPositionManager.ChengeMainGoalPosition();
         yield return new WaitForSeconds(25f);
