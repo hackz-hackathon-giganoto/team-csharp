@@ -12,14 +12,10 @@ public class GoalPositionManager : MonoBehaviour
     [SerializeField]
     private int goalPositionObjectsNumber;
 
-    [SerializeField]
-    bool hoge;
-
     private int indexNumber;
 
     void Awake()
     {
-        hoge = false;
         indexNumber = 0;
         goalPositionObjects = GameObject.FindGameObjectsWithTag("GoalPosition");
 
