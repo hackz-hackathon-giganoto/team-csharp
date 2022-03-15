@@ -22,6 +22,10 @@ public class HomingEnemyBullet : MonoBehaviour
     void Start()
     {
         playerObject = GameObject.FindWithTag("Player");
+        if (playerObject == null)
+        {
+            Destroy(this.gameObject);
+        }
         playerPosition = playerObject.transform.position;
         bulletPosition = transform.position;
         StartCoroutine("GenerateHomingBullet");
@@ -36,7 +40,7 @@ public class HomingEnemyBullet : MonoBehaviour
         {
             if (playerObject == null)
             {
-                yield break;
+                Destroy(this.gameObject);
             }
             playerPosition = playerObject.transform.position;
             bulletPosition = this.transform.position;
