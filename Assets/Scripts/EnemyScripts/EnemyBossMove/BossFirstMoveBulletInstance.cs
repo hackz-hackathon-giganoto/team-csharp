@@ -7,8 +7,7 @@ using UnityEngine;
 /// </summary>
 public class BossFirstMoveBulletInstance : MonoBehaviour
 {
-    [SerializeField]
-    private float waitInstanceTime;
+    public float waitInstanceTime;
 
     [SerializeField]
     private GameObject bossFirstBullet;

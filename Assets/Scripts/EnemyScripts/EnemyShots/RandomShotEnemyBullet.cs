@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 /// <summary>
-/// 敵の弾をランダムで生成するスクリプト
+/// ?G???e???????_?????????????X?N???v?g
 /// </summary>
 public class RandomShotEnemyBullet : MonoBehaviour
 {
@@ -13,15 +13,12 @@ public class RandomShotEnemyBullet : MonoBehaviour
 
     [SerializeField] private int RandomShotCount;
 
+    [SerializeField]
+    private Transform enemyTransform;
     private int stopRandomShotEnemyBulletCount = 0;
 
-    void Start()
-    {
-        
-    }
-
     /// <summary>
-    /// コルーチンを呼び出す関数
+    /// ?R???[?`?????????o??????
     /// </summary>
     public void CallRandomShot()
     {
@@ -29,7 +26,7 @@ public class RandomShotEnemyBullet : MonoBehaviour
     }
 
     /// <summary>
-    /// 発射する弾を止める関数
+    /// ?????????e???~????????
     /// </summary>
     public void StopRandomEnemyBulletShot()
     {
@@ -37,7 +34,7 @@ public class RandomShotEnemyBullet : MonoBehaviour
     }
 
     /// <summary>
-    /// 敵の弾をランダムで生成するコルーチン
+    /// ?G???e???????_?????????????R???[?`??
     /// </summary>
     private IEnumerator RandomShot()
     {
@@ -57,10 +54,10 @@ public class RandomShotEnemyBullet : MonoBehaviour
     }
 
     /// <summary>
-    /// 敵の弾をランダムで生成する関数
+    /// ?G???e???????_????????????????
     /// </summary>
     void GenerateRandomBullet()
     {
-        Instantiate(enemyBullet, this.transform.position, Quaternion.Euler(0, 0, Random.value * 360));
+        Instantiate(enemyBullet, new Vector3(enemyTransform.position.x,enemyTransform.position.y,1), Quaternion.Euler(0, 0, Random.value * 360));
     }
 }

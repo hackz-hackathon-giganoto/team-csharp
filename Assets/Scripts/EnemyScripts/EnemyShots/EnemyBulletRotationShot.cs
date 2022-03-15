@@ -73,7 +73,7 @@ public class EnemyBulletRotationShot : MonoBehaviour
                 {
                     yield break;
                 }
-                Instantiate(enemyBullet, this.transform.position, Quaternion.Euler(0, 0, j + rotationIntervalAdd));
+                Instantiate(enemyBullet, new Vector3(this.transform.position.x,this.transform.position.y,1), Quaternion.Euler(0, 0, j + rotationIntervalAdd));
                 yield return new WaitForSeconds(enemyBulletGenerationWaitingTime);
             }
             yield return new WaitForSeconds(enemyBulletGenerationOnceRotationInterval);
@@ -93,7 +93,7 @@ public class EnemyBulletRotationShot : MonoBehaviour
                 {
                     yield break;
                 }
-                Instantiate(stopFirstEnemyBullet, this.transform.position, Quaternion.Euler(0, 0, j));
+                Instantiate(stopFirstEnemyBullet, new Vector3(this.transform.position.x, this.transform.position.y, 1), Quaternion.Euler(0, 0, j));
                 yield return new WaitForSeconds(enemyBulletGenerationWaitingTime);
             }
             yield return new WaitForSeconds(enemyBulletGenerationOnceRotationInterval);

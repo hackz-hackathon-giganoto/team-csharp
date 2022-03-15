@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 /// <summary>
-/// 敵の弾を上方向に指定した個数発射するスクリプト
+/// ?G???e???????????w???????????????????X?N???v?g
 /// </summary>
 public class RandomThrowUpShotEnemyBullet : MonoBehaviour
 {
@@ -15,13 +15,8 @@ public class RandomThrowUpShotEnemyBullet : MonoBehaviour
 
     private int stopRandomThrowUpEnemyBulletShotCount = 0;
 
-    void Start()
-    {
-        
-    }
-
     /// <summary>
-    /// 発射する弾を止める関数
+    /// ?????????e???~????????
     /// </summary>
     public void StopRandomThrowUpEnemyBulletShot()
     {
@@ -29,7 +24,7 @@ public class RandomThrowUpShotEnemyBullet : MonoBehaviour
     }
 
     /// <summary>
-    /// コルーチンを呼び出す関数
+    /// ?R???[?`?????????o??????
     /// </summary>
     public void CallRandomThrowUpShot()
     {
@@ -37,7 +32,7 @@ public class RandomThrowUpShotEnemyBullet : MonoBehaviour
     }
 
     /// <summary>
-    /// 敵の弾を上方向に指定した個数発射するための関数
+    /// ?G???e???????????w????????????????????????????
     /// </summary>
     private IEnumerator RandomGravityBulletShot()
     {
@@ -53,7 +48,7 @@ public class RandomThrowUpShotEnemyBullet : MonoBehaviour
     }
 
     /// <summary>
-    /// 敵の弾を上方向に指定した個数発射する関数
+    /// ?G???e???????????w??????????????????????
     /// </summary>
     void GenerateRandomGravityBullet()
     {
@@ -70,7 +65,7 @@ public class RandomThrowUpShotEnemyBullet : MonoBehaviour
                     break;
                 }
             }
-            Instantiate(enemyGravityBullet, this.transform.position, Quaternion.Euler(0, 0, EulerZ)); 
+            Instantiate(enemyGravityBullet, new Vector3(this.transform.position.x,this.transform.position.y,1), Quaternion.Euler(0, 0, EulerZ)); 
         }
     }
      

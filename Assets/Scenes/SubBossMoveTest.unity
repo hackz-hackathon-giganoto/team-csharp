@@ -684,6 +684,11 @@ MonoBehaviour:
   AimPlayerEnemyBullet: {fileID: 2313528763168231625, guid: 2801c7add4129484b87f661aca1ab069, type: 3}
   moveCount: 10
   waitTime: 1
+--- !u!4 &2027369834 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 5770261171309786430, guid: 502f761ca043cbc4da750db68c868279, type: 3}
+  m_PrefabInstance: {fileID: 369607204799226214}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &369607204799226214
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -839,6 +844,10 @@ PrefabInstance:
       propertyPath: moveSpeedx
       value: 0.4
       objectReference: {fileID: 0}
+    - target: {fileID: -2395732099323284845, guid: 502f761ca043cbc4da750db68c868279, type: 3}
+      propertyPath: enemyTransform
+      value: 
+      objectReference: {fileID: 2027369834}
     - target: {fileID: -2395732099323284845, guid: 502f761ca043cbc4da750db68c868279, type: 3}
       propertyPath: RandomShotCount
       value: 10
