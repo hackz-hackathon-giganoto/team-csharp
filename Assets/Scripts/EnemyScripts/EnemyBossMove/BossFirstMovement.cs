@@ -97,6 +97,13 @@ public class BossFirstMovement : MonoBehaviour
 
                 yield return new WaitForSeconds(moveStopTime);
 
+
+                foreach (GameObject enemyBullet in enemyBullets)
+                {
+                    Destroy(enemyBullet);
+                }
+
+                bossFirstMoveBulletInstance.waitInstanceTime /= 1.5f;
                 bossMoveCount = 0;
             }
 

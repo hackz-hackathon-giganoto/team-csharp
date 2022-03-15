@@ -5,10 +5,9 @@ using UnityEngine;
 public class EnemyControl : MonoBehaviour
 {
     [SerializeField]
-    private float goalx;
+    private Transform firstPosition;
 
-    [SerializeField]
-    private float goaly;
+    private GameObject goalPosition;
 
     [SerializeField]
     private float time;
@@ -19,18 +18,19 @@ public class EnemyControl : MonoBehaviour
     float moveSpeedx;
     float moveSpeedy;
     float counter = 0;
-    
+
 
     void Start()
     {
-        time = time * 60;
-        stopTime = stopTime * 60;
-        Vector3 firstPosition = GameObject.Find("Enemy a").transform.position;
-        float startx = firstPosition.x;
-        float starty = firstPosition.y;
+        //time = time * 60;
+        //stopTime = stopTime * 60;
+        goalPosition = GameObject.FindGameObjectWithTag("GoalPosition");
 
-        float movex = startx - goalx;
-        float movey = starty - goaly;
+        float startx = firstPosition.position.x;
+        float starty = firstPosition.position.y;
+
+        float movex = startx - goalPosition.transform.position.x * Random.value * 2;
+        float movey = starty - goalPosition.transform.position.y;
 
         moveSpeedx = movex / time;
         moveSpeedy = movey / time;
@@ -49,6 +49,11 @@ public class EnemyControl : MonoBehaviour
         {
            Vector3 position = new Vector3(moveSpeedx, moveSpeedy, 0);
             transform.Translate(position); 
+        }
+        else if(counter > time * 2 + stopTime)
+        {
+            Debug.Log("hoge");
+            Destroy(this.gameObject);
         }
     }
     
