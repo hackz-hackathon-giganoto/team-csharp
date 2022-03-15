@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class Result : SceneBase
+public class ResultScene : SceneBase
 {
     [SerializeField] Text scoreText;
     [SerializeField] Text grazeText;
