@@ -58,7 +58,7 @@ public class ShotEnemyBullet : MonoBehaviour
     {
         for(float j = 0; j < 360; j += 360/enemyBulletCount)
         {
-            Instantiate(enemyBullet,this.transform.position, Quaternion.Euler(0, 0, j));
+            Instantiate(enemyBullet,new Vector3(this.transform.position.x,this.transform.position.y,1), Quaternion.Euler(0, 0, j));
         }
         
     }

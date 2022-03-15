@@ -3,15 +3,17 @@ using System.Collections.Generic;
 using UnityEngine;
 
 /// <summary>
-/// 敵の弾を呼び出すスクリプト
+/// サブボスが使う弾のON/OFFを切り替えるスクリプト
 /// </summary>
-public class ShotEnemyBulletController : MonoBehaviour
+public class ShotSubBossBulletControler : MonoBehaviour
 {
     [SerializeField] private EnemyBulletRotationShot enemyBulletRotationShotScript;
     [SerializeField] private RandomThrowUpShotEnemyBullet randomThrowUpShotEnemyBulletScript;
     [SerializeField] private ShotEnemyBullet shotEnemyBulletScript;
     [SerializeField] private RandomShotEnemyBullet randomShotEnemyBulletScript;
     [SerializeField] private EnemyStatus enemyStatusScript;
+    [SerializeField] private SubBossBasicMove subBossBasicMoveScript;
+    [SerializeField] private SubBossFirstMove subBossFirstMoveScript;
 
     [SerializeField] private bool normalRotationShot;
     [SerializeField] private bool stopFirstRotationShot;
@@ -24,11 +26,14 @@ public class ShotEnemyBulletController : MonoBehaviour
     [SerializeField] private float randomThrowUpShotTriggerHitPointPercent;
     [SerializeField] private float randomShotTriggerHitPointPercent;
     [SerializeField] private float normalShotTriggerHitPointPercent;
+    [SerializeField] private float subBossBasicMoveTriggerHitPointPercent;
     [SerializeField] private float normalRotationShotFinishHitPointPercent;
     [SerializeField] private float stopFirstRotationShotFinishHitPointPercent;
     [SerializeField] private float randomThrowUpShotFinishHitPointPercent;
     [SerializeField] private float randomShotFinishHitPointPercent;
     [SerializeField] private float normalShotFinishHitPointPercent;
+    [SerializeField] private float subBossBasicMoveFinishHitPointPercent;
+    [SerializeField] private float subBossFirstMoveFinishHitPointPercent;
     private float enemyMaxHitPoint;
     private float enemyHitPoint;
     private float enemyHitPointPercent;
@@ -54,6 +59,8 @@ public class ShotEnemyBulletController : MonoBehaviour
         RandomThrowUpShotJudge();
         RandomShotJudge();
         NormalShotJudge();
+        SubBossBasicMoveJudge();
+        SubBossFirstMoveJudge();
     }
 
     /// <summary>
@@ -61,12 +68,12 @@ public class ShotEnemyBulletController : MonoBehaviour
     /// </summary>
     void NormalRotationShotJudge()
     {
-        if(normalRotationShot && normalRotationShotActiveCount == 0 && normalRotationShotTriggerHitPointPercent >= enemyHitPointPercent)
+        if (normalRotationShot && normalRotationShotActiveCount == 0 && normalRotationShotTriggerHitPointPercent >= enemyHitPointPercent)
         {
             normalRotationShotActiveCount++;
             enemyBulletRotationShotScript.CallEnemyBullet();
         }
-        if(normalRotationShotActiveCount == 1 && normalRotationShotFinishHitPointPercent >= enemyHitPointPercent)
+        if (normalRotationShotActiveCount == 1 && normalRotationShotFinishHitPointPercent >= enemyHitPointPercent)
         {
             normalRotationShotActiveCount++;
             enemyBulletRotationShotScript.StopNormalEnemyBulletShot();
@@ -78,12 +85,12 @@ public class ShotEnemyBulletController : MonoBehaviour
     /// </summary>
     void StopFirstRotationShotJudge()
     {
-        if(stopFirstRotationShot && stopFirstRotationShotActiveCount == 0 && stopFirstRotationShotTriggerHitPointPercent >= enemyHitPointPercent)
+        if (stopFirstRotationShot && stopFirstRotationShotActiveCount == 0 && stopFirstRotationShotTriggerHitPointPercent >= enemyHitPointPercent)
         {
             stopFirstRotationShotActiveCount++;
             enemyBulletRotationShotScript.CallStopFirstEnemyBullet();
         }
-        if(stopFirstRotationShotActiveCount == 1 && stopFirstRotationShotFinishHitPointPercent >= enemyHitPointPercent)
+        if (stopFirstRotationShotActiveCount == 1 && stopFirstRotationShotFinishHitPointPercent >= enemyHitPointPercent)
         {
             stopFirstRotationShotActiveCount++;
             enemyBulletRotationShotScript.StopFirstStopEnemyBulletShot();
@@ -95,12 +102,12 @@ public class ShotEnemyBulletController : MonoBehaviour
     /// </summary>
     void RandomThrowUpShotJudge()
     {
-        if(randomThrowUpShot && randomThrowUpShotActiveCount == 0 && randomThrowUpShotTriggerHitPointPercent >= enemyHitPointPercent)
+        if (randomThrowUpShot && randomThrowUpShotActiveCount == 0 && randomThrowUpShotTriggerHitPointPercent >= enemyHitPointPercent)
         {
             randomThrowUpShotActiveCount++;
             randomThrowUpShotEnemyBulletScript.CallRandomThrowUpShot();
         }
-        if(randomThrowUpShotActiveCount == 1 && randomThrowUpShotFinishHitPointPercent >= enemyHitPointPercent)
+        if (randomThrowUpShotActiveCount == 1 && randomThrowUpShotFinishHitPointPercent >= enemyHitPointPercent)
         {
             randomThrowUpShotActiveCount++;
             randomThrowUpShotEnemyBulletScript.StopRandomThrowUpEnemyBulletShot();
@@ -112,7 +119,7 @@ public class ShotEnemyBulletController : MonoBehaviour
     /// </summary>
     void RandomShotJudge()
     {
-        if(randomShot && randomShotActiveCount == 0 && randomShotTriggerHitPointPercent >= enemyHitPointPercent)
+        if (randomShot && randomShotActiveCount == 0 && randomShotTriggerHitPointPercent >= enemyHitPointPercent)
         {
             randomShotActiveCount++;
             randomShotEnemyBulletScript.CallRandomShot();
@@ -129,15 +136,41 @@ public class ShotEnemyBulletController : MonoBehaviour
     /// </summary>
     void NormalShotJudge()
     {
-        if(normalShot && normalShotActiveCount == 0 && normalShotTriggerHitPointPercent >= enemyHitPointPercent)
+        if (normalShot && normalShotActiveCount == 0 && normalShotTriggerHitPointPercent >= enemyHitPointPercent)
         {
             normalShotActiveCount++;
             shotEnemyBulletScript.CallShot();
         }
-        if(normalShotActiveCount == 1 && normalShotFinishHitPointPercent >= enemyHitPointPercent)
+        if (normalShotActiveCount == 1 && normalShotFinishHitPointPercent >= enemyHitPointPercent)
         {
             normalShotActiveCount++;
             shotEnemyBulletScript.StopNormalEnemyBulletShot();
+        }
+    }
+
+    /// <summary>
+    /// 敵の基本の動きをするかを判定する関数
+    /// </summary>
+    void SubBossBasicMoveJudge()
+    {
+        if(subBossBasicMoveTriggerHitPointPercent >= enemyHitPointPercent)
+        {
+            subBossBasicMoveScript.CallMoveSubBoss();
+        }
+        if(subBossBasicMoveFinishHitPointPercent >= enemyHitPointPercent)
+        {
+            subBossBasicMoveScript.StopSubBoss();
+        }
+    }
+
+    /// <summary>
+    /// 敵の最初の動きを終わらせるかを判定する関数
+    /// </summary>
+    void SubBossFirstMoveJudge()
+    {
+        if(subBossFirstMoveFinishHitPointPercent >= enemyHitPointPercent)
+        {
+            subBossFirstMoveScript.StopSubBossFirstMove();
         }
     }
 }

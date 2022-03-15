@@ -16,21 +16,14 @@ public class StopFirstEnemyBullet : MonoBehaviour
     private float positionY;
 
     [SerializeField] private GameObject enemyObject;
-    GameObject[] SubBossBulletCount;
-
-    EnemyBulletRotationShot enemyBulletRotationShotScript;
 
     void Start()
     {
-        enemyBulletRotationShotScript = enemyObject.GetComponent<EnemyBulletRotationShot>();
-        waitTime += enemyBulletRotationShotScript.totalTime;
-        SubBossBulletCount = GameObject.FindGameObjectsWithTag("SubBossBullet");
-        waitTime -= minusWaitTime * SubBossBulletCount.Length;
         Quaternion quaternion = this.transform.rotation;
         float rotationZ = quaternion.eulerAngles.z;
         rotationZ = rotationZ / 180 * Mathf.PI;
-        positionX = Mathf.Cos(rotationZ) * bulletSpeed;
-        positionY = Mathf.Sin(rotationZ) * bulletSpeed;
+        positionX = Mathf.Cos(rotationZ);
+        positionY = Mathf.Sin(rotationZ);
         StartCoroutine("MoveBullet");
     }
 
@@ -39,11 +32,11 @@ public class StopFirstEnemyBullet : MonoBehaviour
     /// </summary>
     private IEnumerator MoveBullet()
     {
-        this.transform.position += new Vector3(positionX * 200, positionY * 200, 0);
+        this.transform.position += new Vector3(positionX * 2, positionY * 2, 0);
         yield return new WaitForSeconds(waitTime);
         while (true)
         {
-            this.transform.position += new Vector3(positionX, positionY, 0);
+            this.rb2D.velocity = new Vector3(positionX * bulletSpeed, positionY * bulletSpeed, 0);
             yield return null;
         }
     }
