@@ -2,15 +2,16 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.SceneManagement;
 using UnityEngine;
+using DG.Tweening;
 
 public class ButtonController : BaseButtonController
 {
     
-    protected override void OnClick(string objectName)
+    protected override void OnPointerClick(string objectName,RectTransform transform)
     {
         switch (objectName){
             case "StartButton":
-                this.StartButtonClick();
+                this.StartButtonClick(transform);
                 break;
         }
     }
@@ -29,8 +30,17 @@ public class ButtonController : BaseButtonController
         }
     }
 
-    private void StartButtonClick(){
-        SceneManager.LoadScene("Main");
+    private void StartButtonClick(RectTransform transform){
+        transform.DOMoveY(
+            -0.13f,0.25f
+            ).SetEase(Ease.OutQuint).SetRelative().OnComplete(()=> 
+        transform.DOMoveY(
+            0.13f,0.25f
+            ).SetEase(Ease.OutQuint).SetRelative().OnComplete(()=> 
+            Debug.Log("アニメーションしたよ！")
+        //SceneManager.LoadScene("Main")
+        ));
+        
     }
     private void StartButtonEnter(){
         Debug.Log("ポインタがのったよ！");

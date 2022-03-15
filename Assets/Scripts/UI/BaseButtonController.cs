@@ -7,13 +7,13 @@ using UnityEngine.EventSystems;
 public class BaseButtonController : MonoBehaviour {
 
     public BaseButtonController button;
-    public void OnClick()
+    public void OnPointerClick()
     {
         if (button == null)
         {
             throw new System.Exception("Button instance is null!!");
         }
-        button.OnClick(this.gameObject.name);
+        button.OnPointerClick(this.gameObject.name,this.gameObject.GetComponent<RectTransform>());
     }
     public void OnPointerEnter() {
         if (button == null)
@@ -30,7 +30,7 @@ public class BaseButtonController : MonoBehaviour {
         button.OnPointerExit(this.gameObject.name);
     }
 
-    protected virtual void OnClick(string objectName){
+    protected virtual void OnPointerClick(string objectName,RectTransform transform){
         Debug.Log("Base Button");
     }
 
