@@ -5,7 +5,7 @@ using UnityEngine.UI;
 using Cysharp.Threading.Tasks;    
 
 public class Main : SceneBase {
-
+    [SerializeField] ScoreManager scoreManager;
     [SerializeField] GetterPitch getterPitch;
 
 
@@ -20,6 +20,5 @@ public class Main : SceneBase {
         var op = options as Options;
         getterPitch.DeviceName = op.micDevice;
     }
-
-    //public void GoTitle () => SimpleSceneNavigator.Instance.GoForwardAsync<TitleScene> ().Forget();
+    public void GoResult () => SimpleSceneNavigator.Instance.GoForwardAsync<ResultScene> (new ResultScene.Options(scoreManager.Score,scoreManager.Graze)).Forget();
 }

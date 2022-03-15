@@ -11,8 +11,8 @@ using TMPro;
     [SerializeField] TextMeshProUGUI scoreTMP;
     [SerializeField] TextMeshProUGUI grazeTMP;
     [SerializeField,HeaderAttribute("スコア書式(D8で8桁0埋め)")] string option;
-    private int score;
-    private int graze;
+    public int Score{get;private set;}
+    public int Graze{get;private set;}
     public void Awake()
     {
         if(instance == null)
@@ -31,8 +31,8 @@ using TMPro;
     /// </summary>
     public void IncreaseScore(int changeScore)
     {
-        score += changeScore;
-        scoreTMP.text=score.ToString($"{option}");
+        Score += changeScore;
+        scoreTMP.text=Score.ToString($"{option}");
     }
 
     /// <summary>
@@ -40,8 +40,8 @@ using TMPro;
     /// </summary>
     public void IncreaseGreze()
     {
-        graze++;
-        grazeTMP.text=graze.ToString();
+        Graze++;
+        grazeTMP.text=Graze.ToString();
     }
  }
  

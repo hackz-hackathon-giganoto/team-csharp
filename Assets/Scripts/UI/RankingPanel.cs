@@ -1,18 +1,23 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.Linq;
 
 public class RankingPanel : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
+    [SerializeField] PlayfabDataGateway gateway;
+    [SerializeField] string firstUserName;
+    private List<User> rankingUserList;
+    private List<User> localUserList;
+    private User player;
+    public void Initialize(){
+        gateway.Initialize();
+        rankingUserList = gateway.GetUserList();
+        player = new User (0,firstUserName);
     }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+    public void UpdateRankingPanel(){
+        localUserList = rankingUserList;
+        localUserList.Add(player);
+        localUserList.OrderByDescending(u =>u.UserScore);
     }
 }
