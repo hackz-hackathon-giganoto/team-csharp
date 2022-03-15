@@ -7,7 +7,7 @@ using UnityEngine;
 ///</summary>
 public class IconPanel : MonoBehaviour
 {
-    [SerializeField]private GameObject iconObj;
+    [SerializeField]GameObject iconObj;
     ///<summary>
     ///引数分のアイコンを表示するメソッド
     ///</summary>

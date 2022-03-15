@@ -7,15 +7,9 @@ using UnityEngine.UI;
 /// </summary>
 public class VolumeSlider : MonoBehaviour
 {   
-    [SerializeField] GameObject player;
+    [SerializeField] GetterPitch getterPitch;
     [SerializeField] Slider volumeSlider;
     [SerializeField] float MaxVolume;
-    private GetterPitch getterPitch;
-    public void Start()
-    {
-        getterPitch = player.GetComponent<GetterPitch>(); 
-    }
-
     private void FixedUpdate() {
         volumeSlider.value = getterPitch.pitchHighest / MaxVolume;
     }
