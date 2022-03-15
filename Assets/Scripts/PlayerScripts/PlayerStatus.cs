@@ -14,11 +14,17 @@ public class PlayerStatus : MonoBehaviour
     [SerializeField]
     private int firstPlayerBombCount;
 
+    [SerializeField]
+    private int firstPlayerPower;
+
     [NonSerialized]
     public int CurrentPlayerHitPoint;
 
     [NonSerialized]
     public int CurrentPlayerBombCount;
+
+    [NonSerialized]
+    public int CurrentPlayerPower;
 
     [SerializeField]
     private float invincibleTime;
@@ -35,6 +41,7 @@ public class PlayerStatus : MonoBehaviour
     {
         CurrentPlayerHitPoint = firstPlayerHitPoint;
         CurrentPlayerBombCount = firstPlayerBombCount;
+        CurrentPlayerPower = firstPlayerPower;
         isInvincibleTime = false;
     }
 
@@ -67,6 +74,24 @@ public class PlayerStatus : MonoBehaviour
             playerDestroy.DestroyPlayer();
             Debug.Log("Destroy!!");
         }
+    }
+
+    /// <summary>
+    /// ヒットポイントを増やすメソッド
+    /// 引数を設定するとその引数分増やす
+    /// </summary>
+    public void IncreasePlayerPower(int point = 1)
+    {
+        CurrentPlayerPower += point;
+    }
+
+    /// <summary>
+    /// ヒットポイントを増やすメソッド
+    /// 引数を設定するとその引数分増やす
+    /// </summary>
+    public void DecreasePlayerPower(int point = 1)
+    {
+        CurrentPlayerPower -= point;
     }
 
     /// <summary>

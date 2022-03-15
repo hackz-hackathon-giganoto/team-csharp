@@ -10,6 +10,7 @@ TagManager:
   - Wall
   - PlayerBullet
   - GoalPosition
+  - Item
   layers:
   - Default
   - TransparentFX
