@@ -8,11 +8,9 @@ using TMPro;
  public class ScoreManager : MonoBehaviour
  {
     public static ScoreManager instance = null;
-    [SerializeField] GameObject scoreObject;
-    [SerializeField] GameObject grazeObject;
+    [SerializeField] TextMeshProUGUI scoreTMP;
+    [SerializeField] TextMeshProUGUI grazeTMP;
     [SerializeField,HeaderAttribute("スコア書式(D8で8桁0埋め)")] string option;
-    private TextMeshProUGUI scoreTMP;
-    private TextMeshProUGUI grazeTMP;
     private int score;
     private int graze;
     public void Awake()
@@ -26,8 +24,6 @@ using TMPro;
         {
             Destroy(this.gameObject);
         }
-        scoreTMP = scoreObject.GetComponent<TextMeshProUGUI>();
-        grazeTMP = grazeObject.GetComponent<TextMeshProUGUI>();
     }
 
     /// <summary>

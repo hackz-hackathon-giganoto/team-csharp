@@ -5,20 +5,17 @@ using UnityEngine.UI;
 
 public class Result : SceneBase
 {
-    [SerializeField] Text scoreText;
-    [SerializeField] Text grazeText;
+    [SerializeField] Text text;
     public class Options {
-        public Options (int score,int graze) {
+        public Options (int score) {
             this.Score = score;
-            this.Graze = graze;
         }
         public int Score { get; private set; }
-        public int Graze { get; private set; }
     }
 
     public override void OnLoad (object options) {
         var op = options as Options;
-        scoreText.text = op.Score.ToString();
-        grazeText.text = op.Graze.ToString();
+        text.text = op.Score.ToString();
     }
+
 }
