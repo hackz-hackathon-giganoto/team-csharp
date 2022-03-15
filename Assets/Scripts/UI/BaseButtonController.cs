@@ -2,18 +2,18 @@ using System.Collections.Generic;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UniRx;
+using DG.Tweening;
 
 
 public class BaseButtonController : MonoBehaviour {
-
     public BaseButtonController button;
-    public void OnClick()
+    private delegate void OnCompleteDelegate();
+    private OnCompleteDelegate onComplete;
+    public void OnPointerClick()
     {
-        if (button == null)
-        {
-            throw new System.Exception("Button instance is null!!");
-        }
-        button.OnClick(this.gameObject.name);
+        onComplete = (()=>button.OnPointerClick(this.gameObject.name));
+        PlayPushButtonAnim(this.gameObject.GetComponent<RectTransform>());
     }
     public void OnPointerEnter() {
         if (button == null)
@@ -30,7 +30,7 @@ public class BaseButtonController : MonoBehaviour {
         button.OnPointerExit(this.gameObject.name);
     }
 
-    protected virtual void OnClick(string objectName){
+    protected virtual void OnPointerClick(string objectName){
         Debug.Log("Base Button");
     }
 
@@ -39,5 +39,16 @@ public class BaseButtonController : MonoBehaviour {
     }
     protected virtual void OnPointerExit(string objectName){
         Debug.Log("Base Button");
+    }
+
+    private void PlayPushButtonAnim(RectTransform transform){
+        Sequence sequence = DOTween.Sequence().Append(
+        transform.DOMoveY(-0.13f,0.25f))
+            .SetEase(Ease.OutQuint).SetRelative()
+            .Append(transform.DOMoveY(0.13f,0.25f)).SetEase(Ease.OutQuint).SetRelative()
+            .OnComplete(()=> 
+            Debug.Log("アニメーションしたよ！")
+        );
+        onComplete();
     }
 }
