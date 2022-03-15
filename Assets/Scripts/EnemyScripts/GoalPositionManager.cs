@@ -2,6 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// ゴールポストの管理クラス
+/// </summary>
 public class GoalPositionManager : MonoBehaviour
 {
     GameObject[] goalPositionObjects;
@@ -16,13 +19,16 @@ public class GoalPositionManager : MonoBehaviour
         indexNumber = 0;
         goalPositionObjects = GameObject.FindGameObjectsWithTag("GoalPosition");
 
-        foreach(GameObject goalPositionObject in goalPositionObjects)
+        foreach (GameObject goalPositionObject in goalPositionObjects)
         {
             goalPositionObject.SetActive(false);
         }
         ChengeMainGoalPosition();
     }
 
+    /// <summary>
+    /// ゴールポストの切り替えメソッド
+    /// </summary>
     public void ChengeMainGoalPosition()
     {
         if (indexNumber == goalPositionObjectsNumber)

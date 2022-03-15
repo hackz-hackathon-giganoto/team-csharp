@@ -9,6 +9,7 @@ TagManager:
   - EnemyBullet
   - Wall
   - PlayerBullet
+  - GoalPosition
   layers:
   - Default
   - TransparentFX
