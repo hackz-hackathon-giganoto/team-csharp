@@ -14,7 +14,7 @@ public class GoalPositionManager : MonoBehaviour
 
     private int indexNumber;
 
-    void Start()
+    void Awake()
     {
         indexNumber = 0;
         goalPositionObjects = GameObject.FindGameObjectsWithTag("GoalPosition");

@@ -12,11 +12,14 @@ public class MicDeviceManager : MonoBehaviour
     [SerializeField] Dropdown micDropdown;
     private string micDevice;
 
-    public void Awake(){
+    public void Awake()
+    {
         CreateMicDevicesDropDown();
         micDropdown.onValueChanged.AddListener((value) => SelectMicDevice());
         SceneManager.sceneLoaded += SetMicDevice;
     }
+
+
 
     /// <summary>
     /// 音声入力デバイスを取得、ドロップダウンリストに追加

@@ -318,7 +318,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a8013635333a74056a816c219b0e18db, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyHitPoint: 10
+  enemyHitPoint: 100
   enemyDestroy: {fileID: 12240161}
 --- !u!114 &12240160
 MonoBehaviour:
