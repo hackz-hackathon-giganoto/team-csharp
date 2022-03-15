@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 5157208490754000439}
   - component: {fileID: 5157208490754000436}
   - component: {fileID: 5157208490754000437}
+  - component: {fileID: 3421413736595172269}
   m_Layer: 0
   m_Name: VirusC
   m_TagString: Untagged
@@ -98,3 +99,17 @@ MonoBehaviour:
   firstPosition: {fileID: 5157208490754000439}
   time: 120
   stopTime: 60
+--- !u!114 &3421413736595172269
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5157208490754000442}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b630e9edad31941bcb904e0b53117101, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemyBullet: {fileID: 0}
+  waitTime: 1
