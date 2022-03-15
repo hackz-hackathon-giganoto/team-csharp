@@ -797,6 +797,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   firstPlayerHitPoint: 3
   firstPlayerBombCount: 1
+  firstPlayerPower: 1
   invincibleTime: 3
   playerDestroy: {fileID: 368180734}
   playerRespawn: {fileID: 368180733}
@@ -1250,7 +1251,7 @@ MonoBehaviour:
   positionZ: 0
   enemyGenerationWatingTime: 1
   enemyAppear: 10
-  goalPositionManager: {fileID: 0}
+  goalPositionManager: {fileID: 164129574}
 --- !u!4 &1181748727
 Transform:
   m_ObjectHideFlags: 0
@@ -1300,7 +1301,7 @@ MonoBehaviour:
   positionZ: 0
   enemyGenerationWatingTime: 1
   enemyAppear: 10
-  goalPositionManager: {fileID: 0}
+  goalPositionManager: {fileID: 164129574}
 --- !u!4 &1424689978
 Transform:
   m_ObjectHideFlags: 0
