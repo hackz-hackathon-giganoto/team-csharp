@@ -23,7 +23,6 @@ public class GoalPositionManager : MonoBehaviour
         {
             goalPositionObject.SetActive(false);
         }
-        ChengeMainGoalPosition();
     }
 
     /// <summary>

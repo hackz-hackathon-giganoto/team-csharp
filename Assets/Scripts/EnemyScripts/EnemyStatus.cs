@@ -12,7 +12,8 @@ public class EnemyStatus : MonoBehaviour
     [SerializeField]
     private EnemyDestroy enemyDestroy;
 
-    private float secondBossBattleHP = 100;
+    [SerializeField]
+    private float secondBossBattleHP;
 
     private bool isFirstBossButtle;
 

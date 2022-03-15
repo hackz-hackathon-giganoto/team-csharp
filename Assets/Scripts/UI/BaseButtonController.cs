@@ -3,30 +3,32 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UniRx;
+using UniRx.Triggers;
 using DG.Tweening;
 
 
 public class BaseButtonController : MonoBehaviour {
+    // [SerializeField] ObservablePointerClickTrigger eventTrigger;
     public BaseButtonController button;
     private delegate void OnCompleteDelegate();
     private OnCompleteDelegate onComplete;
-    public void OnPointerClick()
-    {
+    /*public void Start() {
+        eventTrigger.OnPointerClickAsObservable()
+            .TakeUntilDestroy(this)
+            .ThrottleFirst(System.TimeSpan.FromSeconds(1))
+            .Subscribe(
+                _=>OnPointerClick()
+            );
+        }
+        */
+    public void OnPointerClick(){
         onComplete = (()=>button.OnPointerClick(this.gameObject.name));
         PlayPushButtonAnim(this.gameObject.GetComponent<RectTransform>());
     }
     public void OnPointerEnter() {
-        if (button == null)
-        {
-            throw new System.Exception("Button instance is null!!");
-        }
         button.OnPointerEnter(this.gameObject.name);
     }
     public void OnPointerExit() {
-        if (button == null)
-        {
-            throw new System.Exception("Button instance is null!!");
-        }
         button.OnPointerExit(this.gameObject.name);
     }
 
@@ -47,8 +49,7 @@ public class BaseButtonController : MonoBehaviour {
             .SetEase(Ease.OutQuint).SetRelative()
             .Append(transform.DOMoveY(0.13f,0.25f)).SetEase(Ease.OutQuint).SetRelative()
             .OnComplete(()=> 
-            Debug.Log("アニメーションしたよ！")
+                onComplete()
         );
-        onComplete();
     }
 }
