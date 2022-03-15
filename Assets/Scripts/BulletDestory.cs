@@ -1,7 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+/// <summary>
+/// バレットを消す
+/// </summary>
 public class BulletDestory : MonoBehaviour
 {
     [SerializeField] private float time;
