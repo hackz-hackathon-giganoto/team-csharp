@@ -11,6 +11,8 @@ public class RandomShotEnemyBullet : MonoBehaviour
 
     [SerializeField] private float enemyBulletGenerationWatingTime;
 
+    [SerializeField] private int RandomShotCount;
+
     private int stopRandomShotEnemyBulletCount = 0;
 
     void Start()
@@ -41,11 +43,15 @@ public class RandomShotEnemyBullet : MonoBehaviour
     {
         while (true)
         {
-            if(stopRandomShotEnemyBulletCount == 1)
+            for(int i = 0; i < RandomShotCount; i++)
+            {
+                if(stopRandomShotEnemyBulletCount == 1)
             {
                 yield break;
             }
             GenerateRandomBullet();
+            }
+            
             yield return new WaitForSeconds(enemyBulletGenerationWatingTime);
         }
     }

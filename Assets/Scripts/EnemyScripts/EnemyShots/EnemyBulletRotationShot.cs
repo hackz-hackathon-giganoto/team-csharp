@@ -12,13 +12,17 @@ public class EnemyBulletRotationShot : MonoBehaviour
 
     [SerializeField] private float enemyBulletGenerationWaitingTime;
     [SerializeField] private float enemyBulletRotationCount;
+    [SerializeField] private float enemyBulletStopFirstRotationCount;
     [SerializeField] private float enemyBulletRotationInterval;
     [SerializeField] private float enemyBulletGenerationWaitingTimeAdd;
     [SerializeField] private float enemyBulletGenerationOnceRotationInterval;
+    [SerializeField] private float rotationIntervalAdd;
+    private float keepIntervalAddCount;
     private float keepCount;
     public float totalTime;
     private float totalAddTime;
     private float totalWaitAddTime;
+
     private int stopFirstStopEnemyBulletShotCount = 0;
     private int stopNomalEnemyBulletShotCount = 0;
 
@@ -32,7 +36,7 @@ public class EnemyBulletRotationShot : MonoBehaviour
             totalAddTime += enemyBulletGenerationWaitingTimeAdd;
         }
         totalTime = enemyBulletRotationCount * (enemyBulletGenerationOnceRotationInterval + ((360 / enemyBulletRotationInterval) * enemyBulletGenerationWaitingTime) + totalAddTime);
-        
+        keepIntervalAddCount = rotationIntervalAdd;
     }
 
     /// <summary>
@@ -61,7 +65,7 @@ public class EnemyBulletRotationShot : MonoBehaviour
     /// </summary>
     private IEnumerator ShotNormalBullet()
     {
-        for(float i = 0; i < enemyBulletRotationCount; i++)
+        for(float i = 0 ; i < enemyBulletRotationCount; i++ , rotationIntervalAdd += keepIntervalAddCount)
         {
             for (float j = 0; j < 360; j += enemyBulletRotationInterval, enemyBulletGenerationWaitingTime += enemyBulletGenerationWaitingTimeAdd)
             {
@@ -69,7 +73,7 @@ public class EnemyBulletRotationShot : MonoBehaviour
                 {
                     yield break;
                 }
-                Instantiate(enemyBullet, this.transform.position, Quaternion.Euler(0, 0, j));
+                Instantiate(enemyBullet, this.transform.position, Quaternion.Euler(0, 0, j + rotationIntervalAdd));
                 yield return new WaitForSeconds(enemyBulletGenerationWaitingTime);
             }
             yield return new WaitForSeconds(enemyBulletGenerationOnceRotationInterval);
@@ -81,7 +85,7 @@ public class EnemyBulletRotationShot : MonoBehaviour
     /// </summary>
     private IEnumerator ShotStopFirstBullet()
     {
-        for (float i = 0; i < enemyBulletRotationCount; i++)
+        for (float i = 0; i < enemyBulletStopFirstRotationCount; i++)
         {
             for (float j = 0; j < 360; j += enemyBulletRotationInterval, enemyBulletGenerationWaitingTime += enemyBulletGenerationWaitingTimeAdd)
             {
