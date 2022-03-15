@@ -32,7 +32,10 @@ public class RandomEnemySpawnerlength : MonoBehaviour
             Instantiate(enemy, new Vector3(-2.5f + positionX * Random.value, positionY, positionZ), Quaternion.identity);
             yield return new WaitForSeconds(enemyGenerationWatingTime);
         }
-        goalPositionManager.ChengeMainGoalPosition();
+        if(goalPositionManager != null)
+        {
+            goalPositionManager.ChengeMainGoalPosition();
+        }
         Destroy(this.gameObject);
     }
 }

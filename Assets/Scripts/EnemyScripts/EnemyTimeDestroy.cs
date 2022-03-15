@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class EnemyTimeDestroy : MonoBehaviour
 {
+    [SerializeField]
+    private float waitTime;
     void Start()
     {
         StartCoroutine("DestroyEnemyInterval");
@@ -11,7 +13,7 @@ public class EnemyTimeDestroy : MonoBehaviour
 
     IEnumerator DestroyEnemyInterval()
     {
-        yield return new WaitForSeconds(10f);
+        yield return new WaitForSeconds(waitTime);
         Destroy(this.gameObject);
     }
 }
