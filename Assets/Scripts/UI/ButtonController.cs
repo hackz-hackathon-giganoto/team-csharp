@@ -6,6 +6,7 @@ using DG.Tweening;
 
 public class ButtonController : BaseButtonController
 {
+    [SerializeField] Title titleScene;
     
     protected override void OnPointerClick(string objectName)
     {
@@ -31,7 +32,7 @@ public class ButtonController : BaseButtonController
     }
 
     private void StartButtonClick(){
-        Debug.Log("ワイも動いたでー");
+        titleScene.GoMain();
     }
     private void StartButtonEnter(){
         Debug.Log("ポインタがのったよ！");

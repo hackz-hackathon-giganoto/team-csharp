@@ -10,12 +10,9 @@ using UnityEngine.SceneManagement;
 public class MicDeviceManager : MonoBehaviour
 {
     [SerializeField] Dropdown micDropdown;
-    private string micDevice;
 
     public void Awake(){
         CreateMicDevicesDropDown();
-        micDropdown.onValueChanged.AddListener((value) => SelectMicDevice());
-        SceneManager.sceneLoaded += SetMicDevice;
     }
 
     /// <summary>
@@ -28,24 +25,5 @@ public class MicDeviceManager : MonoBehaviour
         {
             micDropdown.options.Add(new Dropdown.OptionData { text = Microphone.devices[i] });
         }
-        micDevice =  Microphone.devices[0];
-    }
-
-    /// <summary>
-    /// micDeviceに選択したデバイス名を代入
-    /// </summary>
-    public void SelectMicDevice()
-    {
-        micDevice = micDropdown.captionText.text;
-    }
-    /// <summary>
-    /// Scene移行時pItchManagerタグの付いたオブジェクトにmicDeviceを渡す
-    /// </summary>
-    private void SetMicDevice(Scene next,LoadSceneMode mode){
-        if(next.name != "Main"){
-            return;
-            }
-        GetterPitch pitchManager = GameObject.FindWithTag("pitchManager").GetComponent<GetterPitch>();
-        pitchManager.DeviceName = micDevice;
     }
 }
