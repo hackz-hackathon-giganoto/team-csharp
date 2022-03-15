@@ -2,11 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.SceneManagement;
 using UnityEngine;
+using DG.Tweening;
 
 public class ButtonController : BaseButtonController
 {
     
-    protected override void OnClick(string objectName)
+    protected override void OnPointerClick(string objectName)
     {
         switch (objectName){
             case "StartButton":
@@ -30,7 +31,7 @@ public class ButtonController : BaseButtonController
     }
 
     private void StartButtonClick(){
-        SceneManager.LoadScene("Main");
+        Debug.Log("ワイも動いたでー");
     }
     private void StartButtonEnter(){
         Debug.Log("ポインタがのったよ！");
