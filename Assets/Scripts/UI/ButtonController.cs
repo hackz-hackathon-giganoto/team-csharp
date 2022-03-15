@@ -7,11 +7,11 @@ using DG.Tweening;
 public class ButtonController : BaseButtonController
 {
     
-    protected override void OnPointerClick(string objectName,RectTransform transform)
+    protected override void OnPointerClick(string objectName)
     {
         switch (objectName){
             case "StartButton":
-                this.StartButtonClick(transform);
+                this.StartButtonClick();
                 break;
         }
     }
@@ -30,17 +30,8 @@ public class ButtonController : BaseButtonController
         }
     }
 
-    private void StartButtonClick(RectTransform transform){
-        transform.DOMoveY(
-            -0.13f,0.25f
-            ).SetEase(Ease.OutQuint).SetRelative().OnComplete(()=> 
-        transform.DOMoveY(
-            0.13f,0.25f
-            ).SetEase(Ease.OutQuint).SetRelative().OnComplete(()=> 
-            Debug.Log("アニメーションしたよ！")
-        //SceneManager.LoadScene("Main")
-        ));
-        
+    private void StartButtonClick(){
+        Debug.Log("ワイも動いたでー");
     }
     private void StartButtonEnter(){
         Debug.Log("ポインタがのったよ！");
