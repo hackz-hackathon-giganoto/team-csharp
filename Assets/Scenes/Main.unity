@@ -2507,6 +2507,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f7fe901d3cd3a3044a1c0a1907838634, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  text: {fileID: 0}
+  exitButton: {fileID: 0}
 --- !u!114 &899031041
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5051,7 +5053,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f7f6a2a36bbdc4b63944cd3f95b7bc67, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  main: {fileID: 0}
+  main: {fileID: 1435616070}
 --- !u!114 &1435616069
 MonoBehaviour:
   m_ObjectHideFlags: 0
