@@ -11,7 +11,7 @@ public class ScoreCollider : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player"))
         {
-            other.gameObject.GetComponent<ScoreManager>().IncreaseScore(amountScoreIncrease);
+            GameObject.Find("ScoreManager").GetComponent<ScoreManager>().IncreaseScore(amountScoreIncrease);
             Destroy(this.gameObject);
         }
     }
