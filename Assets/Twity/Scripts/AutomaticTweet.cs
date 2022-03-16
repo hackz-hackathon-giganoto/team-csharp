@@ -8,13 +8,10 @@ using Twity.DataModels.Core;
 /// </summary>
 public class AutomaticTweet : MonoBehaviour
 {
-    [SerializeField]
-    string tweetText;
-
     /// <summary>
     /// 自動でツイートをする
     /// </summary>
-    public void TweetAuto()
+    public void TweetAuto(string tweetText)
     {
         Dictionary<string, string> parameters = new Dictionary<string, string>();
         parameters["status"] = tweetText;

@@ -7,9 +7,9 @@ using DG.Tweening;
 
 public class ResultButtonController : BaseButtonController
 {
-    [SerializeField] ResultScene result;
     [SerializeField] PlayfabDataGateWay playfabGateway;
     [SerializeField] Text playerName;
+    [SerializeField] RankinTwiiter twiiter;
     public int Score{get;set;}
      
     protected override void OnPointerClick(string objectName)
@@ -42,7 +42,7 @@ public class ResultButtonController : BaseButtonController
         playfabGateway.Initialize(playerName.text,Score);
     }
     private void ExitButtonClick(){
-        result.GoTitle();
+        twiiter.Initialize();
     }
     private void ExitButtonEnter(){
         Debug.Log("ポインタがのったよ！");
