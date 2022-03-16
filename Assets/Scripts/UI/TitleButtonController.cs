@@ -4,7 +4,7 @@ using UnityEngine.SceneManagement;
 using UnityEngine;
 using DG.Tweening;
 
-public class ButtonController : BaseButtonController
+public class TitleButtonController : BaseButtonController
 {
     [SerializeField] Title titleScene;
     

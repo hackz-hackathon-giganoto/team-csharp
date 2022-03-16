@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.UI;
 using PlayFab;
 using PlayFab.ClientModels;
 
@@ -10,36 +11,42 @@ using PlayFab.ClientModels;
 ///</summary>
 public class PlayfabDataGateway : MonoBehaviour
 {
-    public void Initialize(){
+    [SerializeField]GameObject text;
+    [SerializeField]GameObject exitButton;
+    private string playerName;
+    private int playerScore;
+    public void Initialize(string name,int score){
+        playerName = name;
+        playerScore = score;
         PlayFabClientAPI.LoginWithCustomID(
         new LoginWithCustomIDRequest { CustomId = "GettingStartedGuide", CreateAccount = true},
-            result => Debug.Log("ログイン成功"),
+            ((result) => SetUserName()),
             ((error) => Debug.Log($"ログイン失敗{error.ErrorMessage}"))
         );
     }
     /// <summary>
     /// プレイヤー名をセットするメソッド
     /// </summary>
-    public void SetUserName(string playerName)
+    public void SetUserName()
     {
         var request = new UpdateUserTitleDisplayNameRequest
         {
             DisplayName = playerName
         };
         PlayFabClientAPI.UpdateUserTitleDisplayName(request, 
-        ((result)=>Debug.Log("プレイヤー名セット成功")),
+        ((result)=>SubmitScore()),
         ((error)=>Debug.Log($"{error.Error}"))
         );
     }
     /// <summary>
     /// スコアを登録するメソッド
     /// </summary>
-    public void SubmitScore(int score)
+    public void SubmitScore()
     {
         var statisticUpdate = new StatisticUpdate
         {
             StatisticName = "HighScore",
-            Value = score,
+            Value = playerScore,
         };
         var request = new UpdatePlayerStatisticsRequest
         {
@@ -49,7 +56,7 @@ public class PlayfabDataGateway : MonoBehaviour
             }
         };
         PlayFabClientAPI.UpdatePlayerStatistics(request,
-        ((result)=>Debug.Log("スコア送信成功")),
+        ((result)=>{text.SetActive(true);exitButton.SetActive(true);}),
         ((error)=> Debug.Log($"{error.Error}"))
         );
     }
@@ -79,5 +86,4 @@ public class PlayfabDataGateway : MonoBehaviour
         );
         return rankingUserList;
     }
-
 }
