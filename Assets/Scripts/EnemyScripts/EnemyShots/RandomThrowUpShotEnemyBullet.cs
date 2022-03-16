@@ -65,7 +65,7 @@ public class RandomThrowUpShotEnemyBullet : MonoBehaviour
                     break;
                 }
             }
-            Instantiate(enemyGravityBullet, this.transform.position, Quaternion.Euler(0, 0, EulerZ)); 
+            Instantiate(enemyGravityBullet, new Vector3(this.transform.position.x,this.transform.position.y,1), Quaternion.Euler(0, 0, EulerZ)); 
         }
     }
      

@@ -10,11 +10,13 @@ GameObject:
   m_Component:
   - component: {fileID: 5770261171309786430}
   - component: {fileID: 6125300182456724461}
-  - component: {fileID: 7505668863857223338}
-  - component: {fileID: 6739106603632753228}
-  - component: {fileID: -5886071679559954252}
   - component: {fileID: -2395732099323284845}
   - component: {fileID: -7852592846795215632}
+  - component: {fileID: 6426131756894785086}
+  - component: {fileID: -6942447143443668253}
+  - component: {fileID: -5217229256326902509}
+  - component: {fileID: -3171597952000929745}
+  - component: {fileID: 3460677131778426168}
   m_Layer: 0
   m_Name: SubBoss
   m_TagString: Untagged
@@ -87,56 +89,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &7505668863857223338
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5927515831512678386}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fd3b3561d167ec847b84d0186185c08c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  enemyBullet: {fileID: 3856148216445526295, guid: 7c810c74afabdd049bb7c3e1f230bf01, type: 3}
-  enemyBulletCount: 0
-  enemyBulletGenerationWatingTime: 0
---- !u!114 &6739106603632753228
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5927515831512678386}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f52acf276c7e7184088c1ebb985e313b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  enemyGravityBullet: {fileID: 3504134023480279050, guid: 74da71389297ef54f962ab659369070f, type: 3}
-  enemyBulletGenerationWaitTime: 0
-  enemyGravityBulletCount: 0
---- !u!114 &-5886071679559954252
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5927515831512678386}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a741a2b99fca8524a9187b9f7b594e60, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  enemyBullet: {fileID: 4085351243843135202, guid: a1aa89bd4b481bd4b8460d6a4b7bee25, type: 3}
-  stopFirstEnemyBullet: {fileID: 3377674105143614100, guid: 86fa2c1ff36dbee49b3693c100fa2f8e, type: 3}
-  enemyBulletGenerationWaitingTime: 0
-  enemyBulletRotationCount: 0
-  enemyBulletRotationInterval: 0
-  enemyBulletGenerationWaitingTimeAdd: 0
-  enemyBulletGenerationOnceRotationInterval: 0
-  totalTime: 0
 --- !u!114 &-2395732099323284845
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -151,6 +103,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyBullet: {fileID: 3856148216445526295, guid: 7c810c74afabdd049bb7c3e1f230bf01, type: 3}
   enemyBulletGenerationWatingTime: 0
+  RandomShotCount: 0
 --- !u!114 &-7852592846795215632
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -165,3 +118,106 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyHitPoint: 100
   enemyDestroy: {fileID: 0}
+--- !u!114 &6426131756894785086
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5927515831512678386}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 73ca9838224c0a84188516b0fdf75103, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemyGravityBullet: {fileID: 0}
+  enemyBulletGenerationWaitTime: 0
+  enemyGravityBulletCount: 0
+--- !u!114 &-6942447143443668253
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5927515831512678386}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1d8b5d78dc9ab0b459efabed6b1656eb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemyBullet: {fileID: 0}
+  enemyBulletCount: 0
+  enemyBulletGenerationWatingTime: 0
+--- !u!114 &-5217229256326902509
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5927515831512678386}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 467abce4f889cbe4a944394aa0eb1920, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemyBulletRotationShotScript: {fileID: 0}
+  randomThrowUpShotEnemyBulletScript: {fileID: 0}
+  shotEnemyBulletScript: {fileID: 0}
+  randomShotEnemyBulletScript: {fileID: 0}
+  enemyStatusScript: {fileID: 0}
+  subBossBasicMoveScript: {fileID: 0}
+  normalRotationShot: 0
+  stopFirstRotationShot: 0
+  randomThrowUpShot: 0
+  randomShot: 0
+  normalShot: 0
+  normalRotationShotTriggerHitPointPercent: 0
+  stopFirstRotationShotTriggerHitPointPercent: 0
+  randomThrowUpShotTriggerHitPointPercent: 0
+  randomShotTriggerHitPointPercent: 0
+  normalShotTriggerHitPointPercent: 0
+  subBossBasicMoveTriggerHitPointPercent: 0
+  normalRotationShotFinishHitPointPercent: 0
+  stopFirstRotationShotFinishHitPointPercent: 0
+  randomThrowUpShotFinishHitPointPercent: 0
+  randomShotFinishHitPointPercent: 0
+  normalShotFinishHitPointPercent: 0
+  subBossBasicMoveFinishHitPointPercent: 0
+--- !u!114 &-3171597952000929745
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5927515831512678386}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8a7762063c672dc4f9489029b2d62a08, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  goalx: 0
+  stopTime: 0
+  moveSpeedx: 0
+  subBoss: {fileID: 0}
+  rb2D: {fileID: 0}
+--- !u!114 &3460677131778426168
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5927515831512678386}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9fbd8c0211e3fe8499e53134200bd4ae, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemyBullet: {fileID: 0}
+  stopFirstEnemyBullet: {fileID: 0}
+  enemyBulletGenerationWaitingTime: 0
+  enemyBulletRotationCount: 0
+  enemyBulletRotationInterval: 0
+  enemyBulletGenerationWaitingTimeAdd: 0
+  enemyBulletGenerationOnceRotationInterval: 0
+  rotationIntervalAdd: 0
+  totalTime: 0

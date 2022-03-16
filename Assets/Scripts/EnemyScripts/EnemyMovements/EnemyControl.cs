@@ -52,7 +52,6 @@ public class EnemyControl : MonoBehaviour
         }
         else if(counter > time * 2 + stopTime)
         {
-            Debug.Log("hoge");
             Destroy(this.gameObject);
         }
     }

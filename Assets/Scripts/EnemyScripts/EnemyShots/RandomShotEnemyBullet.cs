@@ -11,9 +11,10 @@ public class RandomShotEnemyBullet : MonoBehaviour
 
     [SerializeField] private float enemyBulletGenerationWatingTime;
 
+    [SerializeField] private int RandomShotCount;
+
     [SerializeField]
     private Transform enemyTransform;
-
     private int stopRandomShotEnemyBulletCount = 0;
 
     /// <summary>
@@ -39,11 +40,15 @@ public class RandomShotEnemyBullet : MonoBehaviour
     {
         while (true)
         {
-            if(stopRandomShotEnemyBulletCount == 1)
+            for(int i = 0; i < RandomShotCount; i++)
+            {
+                if(stopRandomShotEnemyBulletCount == 1)
             {
                 yield break;
             }
             GenerateRandomBullet();
+            }
+            
             yield return new WaitForSeconds(enemyBulletGenerationWatingTime);
         }
     }
@@ -53,6 +58,6 @@ public class RandomShotEnemyBullet : MonoBehaviour
     /// </summary>
     void GenerateRandomBullet()
     {
-        Instantiate(enemyBullet, enemyTransform.position, Quaternion.Euler(0, 0, Random.value * 360));
+        Instantiate(enemyBullet, new Vector3(enemyTransform.position.x,enemyTransform.position.y,1), Quaternion.Euler(0, 0, Random.value * 360));
     }
 }
