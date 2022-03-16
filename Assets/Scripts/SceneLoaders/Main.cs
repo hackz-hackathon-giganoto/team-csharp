@@ -20,5 +20,5 @@ public class Main : SceneBase {
         var op = options as Options;
         getterPitch.DeviceName = op.micDevice;
     }
-    public void GoResult () => SimpleSceneNavigator.Instance.GoForwardAsync<ResultScene> (new ResultScene.Options(scoreManager.Score,scoreManager.Graze)).Forget();
+    public void GoResult () => SimpleSceneNavigator.Instance.GoForwardAsync<ResultScene> (new ResultScene.Options(scoreManager.Score)).Forget();
 }

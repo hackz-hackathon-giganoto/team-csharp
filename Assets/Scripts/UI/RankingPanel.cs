@@ -10,18 +10,11 @@ public class RankingPanel : MonoBehaviour
     private List<User> rankingUserList;
     private List<User> localUserList;
     private User nowPlayer;
-    //public void Initialize(){
-    public void Awake(){
+    /*public void Awake(){
         gateway.Initialize();
         nowPlayer = new User (0,firstUserName);
     
-    }
-    public void SD(){
-        rankingUserList = gateway.GetUserList();
-    }
-    public void VD(){
-        UpdateRankingPanel(200);
-    }
+    }*/
     public void UpdateRankingPanel(int score){
         nowPlayer.UserScore = score;
         localUserList = rankingUserList;
