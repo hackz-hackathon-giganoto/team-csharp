@@ -48,6 +48,9 @@ public class PlayerStatus : MonoBehaviour
         CurrentPlayerHitPoint = firstPlayerHitPoint;
         CurrentPlayerBombCount = firstPlayerBombCount;
         CurrentPlayerPower = firstPlayerPower;
+
+        iconPanelHP.SetIcon(firstPlayerHitPoint);
+        iconPanelBomb.SetIcon(firstPlayerBombCount);
         isInvincibleTime = false;
     }
 
@@ -58,6 +61,7 @@ public class PlayerStatus : MonoBehaviour
     public void IncreasePlayerHitPoint(int point = 1)
     {
         CurrentPlayerHitPoint += point;
+        iconPanelHP.IncreseIcon();
     }
 
     /// <summary>
@@ -69,6 +73,8 @@ public class PlayerStatus : MonoBehaviour
         if (!isInvincibleTime)
         {
             CurrentPlayerHitPoint -= point;
+
+            iconPanelHP.DecreseIcon();
 
             playerRespawn.RespawnPlayer();
 
@@ -107,6 +113,8 @@ public class PlayerStatus : MonoBehaviour
     public void IncreasePlayerBombCount(int count = 1)
     {
         CurrentPlayerBombCount += count;
+
+        iconPanelBomb.IncreseIcon();
     }
 
     /// <summary>
@@ -116,6 +124,8 @@ public class PlayerStatus : MonoBehaviour
     public void DecreasePlayerBombCount(int count = 1)
     {
         CurrentPlayerBombCount -= count;
+
+        iconPanelBomb.DecreseIcon();
     }
 
     /// <summary>

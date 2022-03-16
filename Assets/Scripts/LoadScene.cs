@@ -6,11 +6,15 @@ using UnityEngine.SceneManagement;
 
 public class LoadScene : MonoBehaviour
 {
+    [SerializeField]
+    Main main;
+
     void FixedUpdate()
     {
         if (Input.GetKeyDown(KeyCode.Q))
         {
             SceneManager.LoadScene(2);
+            main.GoResult();
         }
         if (Input.GetKeyDown(KeyCode.P))
         {

@@ -5,7 +5,7 @@ using System.Linq;
 
 public class RankingPanel : MonoBehaviour
 {
-    [SerializeField] PlayfabDataGateway gateway;
+    [SerializeField] PlayfabDataGateWay gateway;
     [SerializeField] string firstUserName;
     private List<User> rankingUserList;
     private List<User> localUserList;
