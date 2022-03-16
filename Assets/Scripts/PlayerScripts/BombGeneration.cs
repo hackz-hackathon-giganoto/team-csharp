@@ -16,6 +16,9 @@ public class BombGeneration : MonoBehaviour
     PlayerShot playerShot;
 
     [SerializeField]
+    BombTimeText bombTimeText;
+
+    [SerializeField]
     private float waitTime;
 
     [SerializeField]
@@ -45,6 +48,7 @@ public class BombGeneration : MonoBehaviour
                 timeCount -= waitTime;
             }
             yield return new WaitForSeconds(waitTime);
+            bombTimeText.SetBombText(timeCount);
         }
         playerStatus.IncreasePlayerBombCount();
         StartCoroutine("GenerationBomb");

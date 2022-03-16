@@ -11,7 +11,10 @@ public class WayStage2Manager : MonoBehaviour
     GameObject[] enemySpawnDiagonals;
     GameObject[] enemyBullets;
 
-    void Start()
+    [SerializeField]
+    private GameObject subBoss;
+
+    private void Start()
     {
         StartCoroutine(ManageEnemyMove());
     }
@@ -21,25 +24,35 @@ public class WayStage2Manager : MonoBehaviour
         goalPositionManager.ChengeMainGoalPosition();
         yield return new WaitForSeconds(28f);
         enemyBullets = GameObject.FindGameObjectsWithTag("EnemyBullet");
+
         foreach (GameObject enemyBullet in enemyBullets)
         {
             Destroy(enemyBullet);
         }
+
         foreach (GameObject enemySpawnHorizon in enemySpawnHorizons)
         {
             enemySpawnHorizon.SetActive(true);
 
             yield return new WaitForSeconds(3f);
         }
+
         yield return new WaitForSeconds(17f);
+
         enemyBullets = GameObject.FindGameObjectsWithTag("EnemyBullet");
+
         foreach (GameObject enemyBullet in enemyBullets)
         {
             Destroy(enemyBullet);
         }
+
         foreach (GameObject enemySpawnDiagonal in enemySpawnDiagonals)
         {
             enemySpawnDiagonal.SetActive(true);
         }
+
+        yield return new WaitForSeconds(20f);
+        subBoss.SetActive(true);
+
     }
 }

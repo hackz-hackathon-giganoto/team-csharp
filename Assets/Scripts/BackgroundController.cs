@@ -5,7 +5,7 @@ using System.Collections;
 /// </summary>
 public class BackgroundController : MonoBehaviour {
 
-    Vector3 backGroundHighest = new Vector3(0, 21f, 1);
+    Vector3 backGroundHighest = new Vector3(0, 21f, 100);
 
 	void FixedUpdate () {
 		transform.Translate (0, -0.05f, 0);
