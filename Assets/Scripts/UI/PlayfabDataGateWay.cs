@@ -9,7 +9,7 @@ using PlayFab.ClientModels;
 ///<summary>
 ///Playfabのランキングデータを管理するクラス
 ///</summary>
-public class PlayfabDataGateway : MonoBehaviour
+public class PlayfabDataGateWay : MonoBehaviour
 {
     [SerializeField]GameObject text;
     [SerializeField]GameObject exitButton;
@@ -19,7 +19,7 @@ public class PlayfabDataGateway : MonoBehaviour
         playerName = name;
         playerScore = score;
         PlayFabClientAPI.LoginWithCustomID(
-        new LoginWithCustomIDRequest { CustomId = "GettingStartedGuide", CreateAccount = true},
+        new LoginWithCustomIDRequest { CustomId = playerName, CreateAccount = true},
             ((result) => SetUserName()),
             ((error) => Debug.Log($"ログイン失敗{error.ErrorMessage}"))
         );

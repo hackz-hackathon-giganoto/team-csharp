@@ -8,7 +8,7 @@ using DG.Tweening;
 public class ResultButtonController : BaseButtonController
 {
     [SerializeField] ResultScene result;
-    [SerializeField] PlayfabDataGateway playfabGateway;
+    [SerializeField] PlayfabDataGateWay playfabGateway;
     [SerializeField] Text playerName;
     public int Score{get;set;}
      

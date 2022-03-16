@@ -1193,14 +1193,14 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 481552587}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 95f670f217bcb8f43b5fa7b035603300, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  getterPitch: {fileID: 0}
+  getterPitch: {fileID: 595022058}
   volumeSlider: {fileID: 481552590}
-  MaxVolume: 5.5
+  MaxVolume: 3.3
 --- !u!114 &481552590
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4807,7 +4807,7 @@ MonoBehaviour:
   bombIntervalTime: 3
   playerStatus: {fileID: 1397198615}
   getterPitch: {fileID: 595022058}
-  useBombVolume: 5
+  useBombVolume: 3
 --- !u!114 &1397198613
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4858,11 +4858,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   firstPlayerHitPoint: 3
-  firstPlayerBombCount: 1
+  firstPlayerBombCount: 3
   firstPlayerPower: 1
   invincibleTime: 3
   playerDestroy: {fileID: 1397198610}
   playerRespawn: {fileID: 1397198609}
+  iconPanelHP: {fileID: 1839591100}
+  iconPanelBomb: {fileID: 1362259601}
 --- !u!50 &1397198616
 Rigidbody2D:
   serializedVersion: 4
@@ -4979,6 +4981,7 @@ GameObject:
   - component: {fileID: 1435616067}
   - component: {fileID: 1435616069}
   - component: {fileID: 1435616068}
+  - component: {fileID: 1435616070}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -5048,6 +5051,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f7f6a2a36bbdc4b63944cd3f95b7bc67, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  main: {fileID: 0}
 --- !u!114 &1435616069
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5062,6 +5066,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyStatus: {fileID: 1270412330}
   beforeButtleMove: {fileID: 1964012563}
+--- !u!114 &1435616070
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1435616064}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 47324930e59cdd742839424ef72579ab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  scoreManager: {fileID: 2041700894}
+  getterPitch: {fileID: 595022058}
 --- !u!1 &1479378429
 GameObject:
   m_ObjectHideFlags: 0
@@ -6790,6 +6808,17 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2034774963}
   m_CullTransparentMesh: 1
+--- !u!114 &2041700894 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4142650752409181576, guid: 0dc790543a8340f408e3208e9f462980, type: 3}
+  m_PrefabInstance: {fileID: 1583691384}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 38f8af3c320907647ba56d522a6bc2bb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2079725206
 GameObject:
   m_ObjectHideFlags: 0
