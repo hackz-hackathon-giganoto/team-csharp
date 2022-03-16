@@ -98,7 +98,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 431c4a899930ef642ae5cd22d257b855, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeedX: 0.1
+  moveSpeedX: 0.05
   isRight: 0
   isUp: 0
 --- !u!114 &-1370584368500168570
@@ -114,7 +114,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyBullet: {fileID: 1499264814600173674, guid: 3b3d7a7c2df832d44b83569df96458d5, type: 3}
-  enemyBulletGenerationWatingTime: 0.4
+  enemyBulletGenerationWatingTime: 0.6
   enemyTransform: {fileID: 2102248225352738597}
 --- !u!114 &7333163915491396258
 MonoBehaviour:
@@ -141,4 +141,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eff671a5a009b4e489f1f333161673a3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  waitTime: 2
+  waitTime: 5

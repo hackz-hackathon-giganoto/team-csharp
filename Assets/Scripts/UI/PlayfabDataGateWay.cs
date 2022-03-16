@@ -79,5 +79,4 @@ public class PlayfabDataGateway : MonoBehaviour
         );
         return rankingUserList;
     }
-
 }
