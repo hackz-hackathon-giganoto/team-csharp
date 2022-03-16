@@ -57,12 +57,7 @@ public class BossFirstMovement : MonoBehaviour
     [SerializeField]
     EnemyBulletRotationLoopShot enemyBulletRotationLoopShot;
 
-    private void Start()
-    {
-        CallDirectionDesignation();
-    }
-
-    private void CallDirectionDesignation()
+    void Start()
     {
         isFirstMove = true;
         bossMoveCount = 0;

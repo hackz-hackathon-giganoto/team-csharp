@@ -14,6 +14,11 @@ public class GoalPositionManager : MonoBehaviour
 
     private int indexNumber;
 
+    [SerializeField]
+    RandomEnemySpawnerlength randomEnemySpawnerlengthBefore;
+
+    [SerializeField]
+    RandomEnemySpawnerlength randomEnemySpawnerlengthAfter;
     void Awake()
     {
         indexNumber = 0;
@@ -33,6 +38,15 @@ public class GoalPositionManager : MonoBehaviour
         if (indexNumber == goalPositionObjectsNumber)
         {
             return;
+        }
+        if(indexNumber == 0)
+        {
+            randomEnemySpawnerlengthBefore.enabled = true;
+        }
+        if (indexNumber == 1)
+        {
+            randomEnemySpawnerlengthAfter.enabled = true;
+            Destroy(goalPositionObjects[indexNumber - 1]);
         }
         goalPositionObjects[indexNumber].SetActive(true);
         indexNumber++;

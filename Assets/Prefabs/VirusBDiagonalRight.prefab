@@ -120,6 +120,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyBullet: {fileID: 1499264814600173674, guid: 3b3d7a7c2df832d44b83569df96458d5, type: 3}
   enemyBulletGenerationWatingTime: 0.6
+  RandomShotCount: 3
   enemyTransform: {fileID: 2102248225352738597}
 --- !u!114 &7333163915491396258
 MonoBehaviour:

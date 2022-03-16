@@ -35,6 +35,12 @@ public class PlayerStatus : MonoBehaviour
     [SerializeField]
     PlayerRespawn playerRespawn;
 
+    [SerializeField]
+    IconPanel iconPanelHP;
+
+    [SerializeField]
+    IconPanel iconPanelBomb;
+
     private bool isInvincibleTime;
 
     private void Start()
