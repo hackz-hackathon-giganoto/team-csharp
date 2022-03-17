@@ -27,7 +27,7 @@ public class RankinTwiiter : MonoBehaviour {
     var request = new GetLeaderboardRequest{
       StatisticName   = "shiiRanking",
       StartPosition   = 0,
-      MaxResultsCount = 20
+      MaxResultsCount = 1  
     };
 
     Debug.Log($"ランキング(リーダーボード)の取得開始");
@@ -38,7 +38,8 @@ public class RankinTwiiter : MonoBehaviour {
     Debug.Log($"ランキング(リーダーボード)の取得に成功しました");
     int count=0;
     foreach (var entry in result.Leaderboard) {
-      RankingText += $"{entry.Position + 1}位  {entry.DisplayName}:スコア{entry.StatValue}\n\n";
+      rankingText += $"{entry.Position + 1}位  {entry.DisplayName}:スコア{entry.StatValue}\n\n";
+      Debug.Log(rankingText);
       count++;
         if(count ==3)break;
     }

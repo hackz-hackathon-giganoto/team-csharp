@@ -318,7 +318,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a8013635333a74056a816c219b0e18db, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyHitPoint: 1
+  enemyHitPoint: 100
   enemyDestroy: {fileID: 12240161}
   secondBossBattleHP: 300
 --- !u!114 &12240160
@@ -396,12 +396,12 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 36446578}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 95f670f217bcb8f43b5fa7b035603300, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  getterPitch: {fileID: 0}
+  getterPitch: {fileID: 852531539}
   volumeSlider: {fileID: 36446581}
   MaxVolume: 5.5
 --- !u!114 &36446581
@@ -869,8 +869,8 @@ MonoBehaviour:
   invincibleTime: 3
   playerDestroy: {fileID: 126099605}
   playerRespawn: {fileID: 126099604}
-  iconPanelHP: {fileID: 0}
-  iconPanelBomb: {fileID: 0}
+  iconPanelHP: {fileID: 1109148156}
+  iconPanelBomb: {fileID: 1548724710}
 --- !u!50 &126099610
 Rigidbody2D:
   serializedVersion: 4

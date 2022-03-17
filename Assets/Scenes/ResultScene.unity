@@ -394,6 +394,7 @@ GameObject:
   m_Component:
   - component: {fileID: 481675268}
   - component: {fileID: 481675267}
+  - component: {fileID: 481675269}
   m_Layer: 0
   m_Name: ResultSceneManager
   m_TagString: Untagged
@@ -429,6 +430,21 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &481675269
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 481675266}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 457248923395d2f4082f52a184ee80d5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rankingText: 
+  twitter: {fileID: 1372232318}
+  result: {fileID: 481675267}
 --- !u!1 &601576565
 GameObject:
   m_ObjectHideFlags: 0
@@ -927,6 +943,8 @@ GameObject:
   - component: {fileID: 1372232317}
   - component: {fileID: 1372232316}
   - component: {fileID: 1372232315}
+  - component: {fileID: 1372232318}
+  - component: {fileID: 1372232319}
   m_Layer: 0
   m_Name: ButtonController
   m_TagString: Untagged
@@ -961,9 +979,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   button: {fileID: 0}
-  result: {fileID: 481675267}
   playfabGateway: {fileID: 1372232315}
   playerName: {fileID: 17135803}
+  twiiter: {fileID: 481675269}
 --- !u!4 &1372232317
 Transform:
   m_ObjectHideFlags: 0
@@ -978,6 +996,30 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1372232318
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1372232314}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ce4e4b9e94a794cb0accc3d846493507, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1372232319
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1372232314}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 71474712cae20475bbf99ce5c2f6bb34, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &1394708832 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4328135435022508189, guid: 6475c832aa1041e4cb96cd6492ca7894, type: 3}
