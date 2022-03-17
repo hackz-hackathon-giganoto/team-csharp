@@ -8,7 +8,7 @@ using UnityEngine;
 public class Utils : MonoBehaviour
 {
     /// <summary>
-    /// Vector３のX軸の最大値をとってくる関数
+    /// Vector３のX軸の最大値をとってくるメソッド
     /// </summary>
     public static float GetWidest(Vector3[] vecs)
     {
@@ -23,7 +23,7 @@ public class Utils : MonoBehaviour
     }
 
     /// <summary>
-    /// Vector３のX軸の最大値の要素番号をとってくる関数
+    /// Vector３のX軸の最大値の要素番号をとってくるメソッド
     /// </summary>
     public static int GetWidestNumber(Vector3[] vecs)
     {
@@ -43,7 +43,7 @@ public class Utils : MonoBehaviour
     }
 
     /// <summary>
-    /// Vector３のY軸の最大値をとってくる関数
+    /// Vector３のY軸の最大値をとってくるメソッド
     /// </summary>
     public static float GetHighest(Vector3[] vecs)
     {
@@ -58,7 +58,7 @@ public class Utils : MonoBehaviour
     }
 
     /// <summary>
-    /// Vector３のY軸の最大値の要素番号をとってくる関数
+    /// Vector３のY軸の最大値の要素番号をとってくるメソッド
     /// </summary>
     public static int GetHighestNumber(Vector3[] vecs)
     {
@@ -78,7 +78,7 @@ public class Utils : MonoBehaviour
     }
 
     /// <summary>
-    /// Vector３のZ軸の最大値をとってくる関数
+    /// Vector３のZ軸の最大値をとってくるメソッド
     /// </summary>
     public static float GetDeepest(Vector3[] vecs)
     {
@@ -93,7 +93,7 @@ public class Utils : MonoBehaviour
     }
 
     /// <summary>
-    /// Vector３のZ軸の最大値の要素番号をとってくる関数
+    /// Vector３のZ軸の最大値の要素番号をとってくるメソッド
     /// </summary>
     public static int GetDeepestNumber(Vector3[] vecs)
     {
@@ -111,4 +111,6 @@ public class Utils : MonoBehaviour
 
         return currentDeepestNumber;
     }
+
+    //タグの名前のオブジェクトを全削除するメソッドを作りたい
 }

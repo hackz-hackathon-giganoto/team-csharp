@@ -3,7 +3,7 @@ using System.Collections;
 /// <summary>
 /// 背景を動かすスクリプト
 /// </summary>
-public class BackgroundController : MonoBehaviour {
+public class BackGroundController : MonoBehaviour {
 
     Vector3 backGroundHighest = new Vector3(0, 21f, 100);
 
