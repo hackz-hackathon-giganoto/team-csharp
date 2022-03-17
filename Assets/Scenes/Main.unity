@@ -1200,7 +1200,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   getterPitch: {fileID: 595022058}
   volumeSlider: {fileID: 481552590}
-  MaxVolume: 3.3
+  MaxVolume: 5.3
 --- !u!114 &481552590
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4809,7 +4809,7 @@ MonoBehaviour:
   bombIntervalTime: 3
   playerStatus: {fileID: 1397198615}
   getterPitch: {fileID: 595022058}
-  useBombVolume: 3
+  useBombVolume: 5
 --- !u!114 &1397198613
 MonoBehaviour:
   m_ObjectHideFlags: 0

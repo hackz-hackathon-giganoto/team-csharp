@@ -10,9 +10,9 @@ public class EventHandler : MonoBehaviour
 {
     void Start()
     {
-        Twity.Oauth.consumerKey = "yDWNJ8EfwFkURkhB6Rj2MVa3P";
-        Twity.Oauth.consumerSecret = "f0gmkvlpE9n8kaGgVVvazch5Mfb4uhYK0GPie7BOcDf0tkCG4e";
-        Twity.Oauth.accessToken = "1500114075610906625-imAXUKaijDnDrDQ4ZG71k6hAJLYZK0";
-        Twity.Oauth.accessTokenSecret = "j3bD925nfosTFxE8Qtox3ijrCLPk1tdBU1NgAmtwmdJqJ";
+        Twity.Oauth.consumerKey = "elhOFaWsttCW9JZS2EJs7iejt";
+        Twity.Oauth.consumerSecret = "v9Kjqo9erLtqssGmfF3IuTSzlsKlMHQQzIKFZMQ26LfYiLd84m";
+        Twity.Oauth.accessToken = "1500114075610906625-hTIWx7118QkgQo99q45PVZW7sCBqUL";
+        Twity.Oauth.accessTokenSecret = "2r8aDPqVGSHKCGCq9emH9oTkyGjW9ViCsmijtk81LpVfM";
     }
 }
