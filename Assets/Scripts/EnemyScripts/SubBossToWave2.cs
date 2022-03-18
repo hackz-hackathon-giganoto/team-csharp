@@ -8,14 +8,14 @@ public class SubBossToWave2 : MonoBehaviour
     EnemyStatus enemyStatus;
 
     [SerializeField]
-    BossBeforeButtleMove beforeButtleMove;
+    BossFirstPositionMove beforeButtleMove;
 
     void FixedUpdate()
     {
         if (enemyStatus.enemyHitPoint < 1)
         {
             Debug.Log("hoge");
-            beforeButtleMove.CallMoveBossButtleBefore();
+            //beforeButtleMove.CallMoveBossButtleBefore();
             return;
         }
     }
