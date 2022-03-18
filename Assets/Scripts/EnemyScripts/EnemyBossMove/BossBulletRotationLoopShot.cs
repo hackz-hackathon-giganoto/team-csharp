@@ -4,13 +4,20 @@ using UnityEngine;
 /// <summary>
 /// 敵の弾を円状に生成するスクリプト（ループ）
 /// </summary>
-public class EnemyBulletRotationLoopShot : MonoBehaviour
+public class BossBulletRotationLoopShot : MonoBehaviour
 {
-    [SerializeField] private GameObject enemyBullet;
-    [SerializeField] private float enemyBulletGenerationWaitingTime;
-    [SerializeField] private float enemyBulletRotationInterval;
-    [SerializeField] private float enemyBulletGenerationWaitingTimeAdd;
-    [SerializeField] private float enemyBulletGenerationOnceRotationInterval;
+    [SerializeField]
+    private GameObject enemyBullet;
+
+    [SerializeField]
+    private float enemyBulletGenerationWaitingTime;
+    [SerializeField]
+    private float enemyBulletRotationInterval;
+    [SerializeField]
+    private float enemyBulletGenerationWaitingTimeAdd;
+    [SerializeField]
+    private float enemyBulletGenerationOnceRotationInterval;
+
     private Vector3 instancePosition;
 
     bool addEnemyAngle;
