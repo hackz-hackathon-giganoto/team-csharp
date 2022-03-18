@@ -55,7 +55,7 @@ public class BossFirstMovement : MonoBehaviour
     BossFirstMoveBulletInstance bossFirstMoveBulletInstance;
 
     [SerializeField]
-    EnemyBulletRotationLoopShot enemyBulletRotationLoopShot;
+    BossBulletRotationLoopShot enemyBulletRotationLoopShot;
 
     void Start()
     {
