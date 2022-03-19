@@ -3,13 +3,14 @@ using System.Collections.Generic;
 using UnityEngine;
 
 /// <summary>
-/// 敵の弾を生成するスクリプト
+/// 謨ｵ縺ｮ蠑ｾ繧呈桃菴懊☆繧九せ繧ｯ繝ｪ繝励ヨ
 /// </summary>
 public class EnemyBulletController : MonoBehaviour
 {
     private float positionX;
     private float positionY;
-    [SerializeField] private float enemyBulletSpeed;
+    [SerializeField]
+    private float enemyBulletSpeed;
 
     void Start()
     {

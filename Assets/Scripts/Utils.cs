@@ -112,5 +112,14 @@ public class Utils : MonoBehaviour
         return currentDeepestNumber;
     }
 
-    //タグの名前のオブジェクトを全削除するメソッドを作りたい
+    /// <summary>
+    /// 引数で指定されたタグの名前のオブジェクトを探して全削除するメソッド
+    /// </summary>
+    public static void DestroyGameObjectsWithTag(string tag)
+    {
+        foreach (GameObject found in GameObject.FindGameObjectsWithTag(tag))
+        {
+            Destroy(found);
+        }
+    }
 }

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 /// <summary>
-/// ƒTƒuƒ{ƒX‚ªg‚¤’e‚ÌON/OFF‚ğØ‚è‘Ö‚¦‚éƒXƒNƒŠƒvƒg
+/// ?T?u?{?X???g???e??ON/OFF?????????????X?N???v?g
 /// </summary>
 public class ShotSubBossBulletControler : MonoBehaviour
 {
@@ -64,41 +64,41 @@ public class ShotSubBossBulletControler : MonoBehaviour
     }
 
     /// <summary>
-    /// “G‚Ì‰~ó‚É”­Ë‚³‚ê‚é’e‚ª”­Ë‚³‚ê‚é‚©‚ğ”»’è‚·‚éŠÖ”
+    /// ?G???~???????????????e????????????????????????????
     /// </summary>
     void NormalRotationShotJudge()
     {
         if (normalRotationShot && normalRotationShotActiveCount == 0 && normalRotationShotTriggerHitPointPercent >= enemyHitPointPercent)
         {
             normalRotationShotActiveCount++;
-            enemyBulletRotationShotScript.CallEnemyBullet();
+            enemyBulletRotationShotScript.CallFirstShotPattern();
         }
         if (normalRotationShotActiveCount == 1 && normalRotationShotFinishHitPointPercent >= enemyHitPointPercent)
         {
             normalRotationShotActiveCount++;
-            enemyBulletRotationShotScript.StopNormalEnemyBulletShot();
+            enemyBulletRotationShotScript.StopFirstShotPattern();
         }
     }
 
     /// <summary>
-    /// “G‚Ì‰~ó‚É”­Ë‚³‚ê‚é’e‚ª”­Ë‚³‚ê‚é‚©‚ğ”»’è‚·‚éŠÖ”
+    /// ?G???~???????????????e????????????????????????????
     /// </summary>
     void StopFirstRotationShotJudge()
     {
         if (stopFirstRotationShot && stopFirstRotationShotActiveCount == 0 && stopFirstRotationShotTriggerHitPointPercent >= enemyHitPointPercent)
         {
             stopFirstRotationShotActiveCount++;
-            enemyBulletRotationShotScript.CallStopFirstEnemyBullet();
+            enemyBulletRotationShotScript.CallSecondShotPattern();
         }
         if (stopFirstRotationShotActiveCount == 1 && stopFirstRotationShotFinishHitPointPercent >= enemyHitPointPercent)
         {
             stopFirstRotationShotActiveCount++;
-            enemyBulletRotationShotScript.StopFirstStopEnemyBulletShot();
+            enemyBulletRotationShotScript.StopSecondShotPattern();
         }
     }
 
     /// <summary>
-    /// “G‚Ì’e‚ªã•ûŒü‚É‘Å‚¿ã‚°‚ç‚ê‚é‚©‚ğ”»’è‚·‚éŠÖ”
+    /// ?G???e????????????????????????????????????????
     /// </summary>
     void RandomThrowUpShotJudge()
     {
@@ -115,7 +115,7 @@ public class ShotSubBossBulletControler : MonoBehaviour
     }
 
     /// <summary>
-    /// “G‚Ì’e‚ªƒ‰ƒ“ƒ_ƒ€‚É”­Ë‚³‚ê‚é‚©‚ğ”»’è‚·‚éŠÖ”
+    /// ?G???e???????_??????????????????????????????
     /// </summary>
     void RandomShotJudge()
     {
@@ -132,7 +132,7 @@ public class ShotSubBossBulletControler : MonoBehaviour
     }
 
     /// <summary>
-    /// “G‚Ì’e‚ªˆê’èŠÔŠu‚Å”­Ë‚³‚ê‚é‚©‚ğ”»’è‚·‚éŠÖ”
+    /// ?G???e?????????u????????????????????????????
     /// </summary>
     void NormalShotJudge()
     {
@@ -149,7 +149,7 @@ public class ShotSubBossBulletControler : MonoBehaviour
     }
 
     /// <summary>
-    /// “G‚ÌŠî–{‚Ì“®‚«‚ğ‚·‚é‚©‚ğ”»’è‚·‚éŠÖ”
+    /// ?G?????{????????????????????????????
     /// </summary>
     void SubBossBasicMoveJudge()
     {
@@ -164,7 +164,7 @@ public class ShotSubBossBulletControler : MonoBehaviour
     }
 
     /// <summary>
-    /// “G‚ÌÅ‰‚Ì“®‚«‚ğI‚í‚ç‚¹‚é‚©‚ğ”»’è‚·‚éŠÖ”
+    /// ?G???????????????I????????????????????????
     /// </summary>
     void SubBossFirstMoveJudge()
     {

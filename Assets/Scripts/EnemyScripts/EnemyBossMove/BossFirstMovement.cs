@@ -2,14 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-
 /// <summary>
 /// ボスの最初の動きのスクリプト
 /// </summary>
 public class BossFirstMovement : MonoBehaviour
 {
     [SerializeField]
-    List<GameObject> bossMovePositions;
+    private List<GameObject> bossMovePositions;
 
     private GameObject[] enemyBullets;
 
@@ -52,10 +51,10 @@ public class BossFirstMovement : MonoBehaviour
     public bool isFirstMove;
 
     [SerializeField]
-    BossFirstMoveBulletInstance bossFirstMoveBulletInstance;
+    private BossFirstMoveBulletInstance bossFirstMoveBulletInstance;
 
     [SerializeField]
-    BossBulletRotationLoopShot enemyBulletRotationLoopShot;
+    private BossBulletRotationLoopShot enemyBulletRotationLoopShot;
 
     void Start()
     {

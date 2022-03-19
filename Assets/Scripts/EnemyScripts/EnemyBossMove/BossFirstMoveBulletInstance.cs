@@ -13,7 +13,7 @@ public class BossFirstMoveBulletInstance : MonoBehaviour
     private GameObject bossFirstBullet;
 
     [SerializeField]
-    BossFirstMovement bossFirstMovement;
+    private BossFirstMovement bossFirstMovement;
 
     /// <summary>
     /// 外からコルーチンを実行するメソッド
