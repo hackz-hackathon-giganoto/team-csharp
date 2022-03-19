@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 /// <summary>
-/// 弾が初めに止まってまた動き出すようにするスクリプト
+/// ?????????????????????????
 /// </summary>
 public class StopFirstEnemyBullet : MonoBehaviour
 {
@@ -28,7 +28,7 @@ public class StopFirstEnemyBullet : MonoBehaviour
     }
 
     /// <summary>
-    /// 弾を動かすコルーチン
+    /// ??????????
     /// </summary>
     private IEnumerator MoveBullet()
     {

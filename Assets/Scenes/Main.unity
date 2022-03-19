@@ -1066,6 +1066,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: EnemyStopFirstBullet
       objectReference: {fileID: 0}
+    - target: {fileID: 3377674105143614100, guid: 86fa2c1ff36dbee49b3693c100fa2f8e, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6238583740526202564, guid: 86fa2c1ff36dbee49b3693c100fa2f8e, type: 3}
       propertyPath: m_RootOrder
       value: 2
@@ -6596,8 +6600,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 164aba84d784343fbac015315a6f9405, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bossFirstMovement: {fileID: 1964012558}
   firstPosition: {fileID: 390600203}
+  moveTime: 0
 --- !u!1 &1998457166
 GameObject:
   m_ObjectHideFlags: 0

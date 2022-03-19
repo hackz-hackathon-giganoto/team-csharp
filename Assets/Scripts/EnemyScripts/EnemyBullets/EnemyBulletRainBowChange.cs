@@ -7,40 +7,43 @@ using UnityEngine;
 /// </summary>
 public class EnemyBulletRainBowChange : MonoBehaviour
 {
+    [SerializeField]
+    private Renderer rend;
+
     /// <summary>
     /// 色を変えるメソッド
     /// TODO:色変わらない…
     /// </summary>
-    public void ChangeEnemyBullet(Renderer renderer)
+    public void Start()
     {
         switch (Time.time % 9)
         {
             case 0:
-                renderer.material.color = Color.red;
+                rend.material.color = Color.red;
                 break;
             case 1:
-                renderer.material.color = Color.blue;
+                rend.material.color = Color.blue;
                 break;
             case 2:
-                renderer.material.color = Color.green;
+                rend.material.color = Color.green;
                 break;
             case 3:
-                renderer.material.color = Color.cyan;
+                rend.material.color = Color.cyan;
                 break;
             case 4:
-                renderer.material.color = Color.yellow;
+                rend.material.color = Color.yellow;
                 break;
             case 5:
-                renderer.material.color = Color.magenta;
+                rend.material.color = Color.magenta;
                 break;
             case 6:
-                renderer.material.color = Color.grey;
+                rend.material.color = Color.grey;
                 break;
             case 7:
-                renderer.material.color = Color.white;
+                rend.material.color = Color.white;
                 break;
             case 8:
-                renderer.material.color = Color.black;
+                rend.material.color = Color.black;
                 break;
         }
     }

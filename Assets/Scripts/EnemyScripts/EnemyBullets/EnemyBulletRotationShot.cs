@@ -3,100 +3,116 @@ using System.Collections.Generic;
 using UnityEngine;
 
 /// <summary>
-/// “G‚Ì’e‚ª‰~ó‚Éo‚éƒXƒNƒŠƒvƒg
+/// æ•µã®å¼¾ãŒå††çŠ¶ã«å‡ºã‚‹ã‚¹ã‚¯ãƒªãƒ—ãƒˆ
 /// </summary>
 public class EnemyBulletRotationShot : MonoBehaviour
 {
-    [SerializeField] private GameObject enemyBullet;
-    [SerializeField] private GameObject stopFirstEnemyBullet;
+    [SerializeField]
+    private GameObject firstEnemyBullet;
+    [SerializeField]
+    private GameObject secondEnemyBullet;
 
-    [SerializeField] private float enemyBulletGenerationWaitingTime;
-    [SerializeField] private float enemyBulletRotationCount;
-    [SerializeField] private float enemyBulletStopFirstRotationCount;
-    [SerializeField] private float enemyBulletRotationInterval;
-    [SerializeField] private float enemyBulletGenerationWaitingTimeAdd;
-    [SerializeField] private float enemyBulletGenerationOnceRotationInterval;
-    [SerializeField] private float rotationIntervalAdd;
-    private float keepIntervalAddCount;
-    private float keepCount;
-    public float totalTime;
-    private float totalAddTime;
-    private float totalWaitAddTime;
+    [SerializeField]
+    private float generationIntervalSeconds;
+    [SerializeField]
+    private float rotationInterval;
+    [SerializeField]
+    private float generationIntervalSecondsAcceleration;
+    [SerializeField]
+    private float generationRotationIntervalSeconds;
+    [SerializeField]
+    private float rotationSpeed;
 
-    private int stopFirstStopEnemyBulletShotCount = 0;
-    private int stopNomalEnemyBulletShotCount = 0;
+    private float rotationAcceleration;
+
+    [SerializeField]
+    private int firstRotationCount;
+    [SerializeField]
+    private int secondRotationCount; 
+
+    private bool stopFirstShotPattern;
+    private bool stopSecondShotPattern;
 
     void Start()
     {
-        keepCount = enemyBulletGenerationWaitingTime;
-        totalTime = 0;
-        for(int i = 0;i < 360 / enemyBulletRotationInterval;i++)
-        {
-            totalWaitAddTime += keepCount;
-            totalAddTime += enemyBulletGenerationWaitingTimeAdd;
-        }
-        totalTime = enemyBulletRotationCount * (enemyBulletGenerationOnceRotationInterval + ((360 / enemyBulletRotationInterval) * enemyBulletGenerationWaitingTime) + totalAddTime);
-        keepIntervalAddCount = rotationIntervalAdd;
+        rotationAcceleration = rotationSpeed;
+
+        stopFirstShotPattern = false;
+        stopSecondShotPattern = false;
     }
 
     /// <summary>
-    /// ƒRƒ‹[ƒ`ƒ“‚ðŒÄ‚Ño‚·ŠÖ”
+    /// ã‚³ãƒ«ãƒ¼ãƒãƒ³ã‚’å‘¼ã³å‡ºã™é–¢æ•°
     /// </summary>
-    public void CallEnemyBullet()
+    public void CallFirstShotPattern()
     {
-        StartCoroutine("ShotNormalBullet");
+        StartCoroutine(FirstShotPattern());
     }
-    public void CallStopFirstEnemyBullet()
+    public void CallSecondShotPattern()
     {
-        StartCoroutine("ShotStopFirstBullet");
+        StartCoroutine(SecondShotPattern());
     }
-    public void StopFirstStopEnemyBulletShot()
+    public void StopFirstShotPattern()
     {
-        stopFirstStopEnemyBulletShotCount++;
+        stopFirstShotPattern = true;
     }
-    public void StopNormalEnemyBulletShot()
+    public void StopSecondShotPattern()
     {
-        stopNomalEnemyBulletShotCount++;
+        stopSecondShotPattern = true;
     }
 
 
     /// <summary>
-    /// “G‚Ì’e‚ðo‚·ƒRƒ‹[ƒ`ƒ“
+    /// æ•µã®å¼¾ã‚’å‡ºã™ã‚³ãƒ«ãƒ¼ãƒãƒ³
     /// </summary>
-    private IEnumerator ShotNormalBullet()
+    private IEnumerator FirstShotPattern()
     {
-        for(float i = 0 ; i < enemyBulletRotationCount; i++ , rotationIntervalAdd += keepIntervalAddCount)
+        for(int i = 0 ; i < firstRotationCount; i++)
         {
-            for (float j = 0; j < 360; j += enemyBulletRotationInterval, enemyBulletGenerationWaitingTime += enemyBulletGenerationWaitingTimeAdd)
+            for (float j = 0; j < 360; j += rotationInterval)
             {
-                if(stopNomalEnemyBulletShotCount == 1)
+                if(stopFirstShotPattern)
                 {
                     yield break;
                 }
-                Instantiate(enemyBullet, new Vector3(this.transform.position.x,this.transform.position.y,1), Quaternion.Euler(0, 0, j + rotationIntervalAdd));
-                yield return new WaitForSeconds(enemyBulletGenerationWaitingTime);
+                Instantiate(
+                    firstEnemyBullet,
+                    new Vector3(this.transform.position.x,this.transform.position.y,1),
+                    Quaternion.Euler(0, 0, j + rotationSpeed)
+                );
+                yield return new WaitForSeconds(generationIntervalSeconds);
             }
-            yield return new WaitForSeconds(enemyBulletGenerationOnceRotationInterval);
+            yield return new WaitForSeconds(generationRotationIntervalSeconds);
+
+            rotationSpeed += rotationAcceleration;
+
+            generationIntervalSeconds -= generationIntervalSecondsAcceleration;
         }
     }
 
     /// <summary>
-    /// “G‚Ì’e‚ðo‚·ƒRƒ‹[ƒ`ƒ“
+    /// æ•µã®å¼¾ã‚’å‡ºã™ã‚³ãƒ«ãƒ¼ãƒãƒ³
     /// </summary>
-    private IEnumerator ShotStopFirstBullet()
+    private IEnumerator SecondShotPattern()
     {
-        for (float i = 0; i < enemyBulletStopFirstRotationCount; i++)
+        for (int i = 0; i < secondRotationCount; i++)
         {
-            for (float j = 0; j < 360; j += enemyBulletRotationInterval, enemyBulletGenerationWaitingTime += enemyBulletGenerationWaitingTimeAdd)
+            for (float j = 0; j < 360; j += rotationInterval)
             {
-                if(stopFirstStopEnemyBulletShotCount == 1)
+                if(stopSecondShotPattern)
                 {
                     yield break;
                 }
-                Instantiate(stopFirstEnemyBullet, new Vector3(this.transform.position.x, this.transform.position.y, 1), Quaternion.Euler(0, 0, j));
-                yield return new WaitForSeconds(enemyBulletGenerationWaitingTime);
+                Instantiate(
+                    secondEnemyBullet,
+                    new Vector3(this.transform.position.x, this.transform.position.y, 1),
+                    Quaternion.Euler(0, 0, j)
+                );
+                yield return new WaitForSeconds(generationIntervalSeconds);
+
+                generationIntervalSeconds -= generationIntervalSecondsAcceleration;
             }
-            yield return new WaitForSeconds(enemyBulletGenerationOnceRotationInterval);
+            yield return new WaitForSeconds(generationRotationIntervalSeconds);
         }
     }
 }
