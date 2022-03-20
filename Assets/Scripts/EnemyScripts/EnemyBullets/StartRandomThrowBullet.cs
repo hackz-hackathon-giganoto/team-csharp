@@ -9,6 +9,6 @@ public class StartRandomThrowBullet : MonoBehaviour
 
     void Start()
     {
-        randomThrowUpShotEnemyBullet.CallRandomThrowUpShot();
+        randomThrowUpShotEnemyBullet.CallShotRandomGravityBullet();
     }
 }

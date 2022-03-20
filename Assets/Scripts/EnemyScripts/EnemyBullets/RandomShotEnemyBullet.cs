@@ -26,6 +26,7 @@ public class RandomShotEnemyBullet : MonoBehaviour
     /// </summary>
     public void CallRandomEnemyShot()
     {
+        stopRandomEnemyShot = false;
         StartCoroutine(ShotRandomEnemyBullet());
     }
 

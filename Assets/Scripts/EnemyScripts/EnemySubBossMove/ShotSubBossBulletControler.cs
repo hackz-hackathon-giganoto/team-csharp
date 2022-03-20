@@ -105,7 +105,7 @@ public class ShotSubBossBulletControler : MonoBehaviour
         if (randomThrowUpShot && randomThrowUpShotActiveCount == 0 && randomThrowUpShotTriggerHitPointPercent >= enemyHitPointPercent)
         {
             randomThrowUpShotActiveCount++;
-            randomThrowUpShotEnemyBulletScript.CallRandomThrowUpShot();
+            randomThrowUpShotEnemyBulletScript.CallShotRandomGravityBullet();
         }
         if (randomThrowUpShotActiveCount == 1 && randomThrowUpShotFinishHitPointPercent >= enemyHitPointPercent)
         {
