@@ -3,19 +3,16 @@ using System.Collections.Generic;
 using UnityEngine;
 
 /// <summary>
-/// ?????????????????????????
+/// 正直動かしてみてもよくわかんなかったので放置
 /// </summary>
 public class StopFirstEnemyBullet : MonoBehaviour
 {
     [SerializeField] Rigidbody2D rb2D;
 
     [SerializeField] private float bulletSpeed;
-    [SerializeField] private float waitTime;    
-    [SerializeField] private float minusWaitTime;    
+    [SerializeField] private float waitSeconds; 
     private float positionX;
     private float positionY;
-
-    [SerializeField] private GameObject enemyObject;
 
     void Start()
     {
@@ -28,12 +25,12 @@ public class StopFirstEnemyBullet : MonoBehaviour
     }
 
     /// <summary>
-    /// ??????????
+    /// 
     /// </summary>
     private IEnumerator MoveBullet()
     {
         this.transform.position += new Vector3(positionX * 2, positionY * 2, 0);
-        yield return new WaitForSeconds(waitTime);
+        yield return new WaitForSeconds(waitSeconds);
         while (true)
         {
             this.rb2D.velocity = new Vector3(positionX * bulletSpeed, positionY * bulletSpeed, 0);

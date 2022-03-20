@@ -9,7 +9,7 @@ public class ShotSubBossBulletControler : MonoBehaviour
 {
     [SerializeField] private EnemyBulletRotationShot enemyBulletRotationShotScript;
     [SerializeField] private RandomThrowUpShotEnemyBullet randomThrowUpShotEnemyBulletScript;
-    [SerializeField] private ShotEnemyBullet shotEnemyBulletScript;
+    [SerializeField] private ShotRoundEnemyBullet shotEnemyBulletScript;
     [SerializeField] private RandomShotEnemyBullet randomShotEnemyBulletScript;
     [SerializeField] private EnemyStatus enemyStatusScript;
     [SerializeField] private SubBossBasicMove subBossBasicMoveScript;
@@ -105,7 +105,7 @@ public class ShotSubBossBulletControler : MonoBehaviour
         if (randomThrowUpShot && randomThrowUpShotActiveCount == 0 && randomThrowUpShotTriggerHitPointPercent >= enemyHitPointPercent)
         {
             randomThrowUpShotActiveCount++;
-            randomThrowUpShotEnemyBulletScript.CallRandomThrowUpShot();
+            randomThrowUpShotEnemyBulletScript.CallShotRandomGravityBullet();
         }
         if (randomThrowUpShotActiveCount == 1 && randomThrowUpShotFinishHitPointPercent >= enemyHitPointPercent)
         {
@@ -122,12 +122,12 @@ public class ShotSubBossBulletControler : MonoBehaviour
         if (randomShot && randomShotActiveCount == 0 && randomShotTriggerHitPointPercent >= enemyHitPointPercent)
         {
             randomShotActiveCount++;
-            randomShotEnemyBulletScript.CallRandomShot();
+            randomShotEnemyBulletScript.CallRandomEnemyShot();
         }
         if (randomShotActiveCount == 1 && randomShotFinishHitPointPercent >= enemyHitPointPercent)
         {
             randomShotActiveCount++;
-            randomShotEnemyBulletScript.StopRandomEnemyBulletShot();
+            randomShotEnemyBulletScript.StopRandomEnemyShot();
         }
     }
 
@@ -139,12 +139,12 @@ public class ShotSubBossBulletControler : MonoBehaviour
         if (normalShot && normalShotActiveCount == 0 && normalShotTriggerHitPointPercent >= enemyHitPointPercent)
         {
             normalShotActiveCount++;
-            shotEnemyBulletScript.CallShot();
+            shotEnemyBulletScript.CallRoundEnemyShot();
         }
         if (normalShotActiveCount == 1 && normalShotFinishHitPointPercent >= enemyHitPointPercent)
         {
             normalShotActiveCount++;
-            shotEnemyBulletScript.StopNormalEnemyBulletShot();
+            shotEnemyBulletScript.StopRoundEnemyShot();
         }
     }
 

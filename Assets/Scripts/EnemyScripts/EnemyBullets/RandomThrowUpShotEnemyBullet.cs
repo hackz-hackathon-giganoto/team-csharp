@@ -3,68 +3,70 @@ using System.Collections.Generic;
 using UnityEngine;
 
 /// <summary>
-/// ?G???e???????????w???????????????????X?N???v?g
+/// ランダムな上方向に向かって弾を発射するクラス
 /// </summary>
 public class RandomThrowUpShotEnemyBullet : MonoBehaviour
 {
-    [SerializeField] private GameObject enemyGravityBullet;
+    [SerializeField]
+    private GameObject enemyGravityBullet;
 
-    [SerializeField] private float enemyBulletGenerationWaitTime;
+    [SerializeField]
+    private float enemyBulletGenerationSeconds;
 
-    [SerializeField] private int enemyGravityBulletCount;
+    [SerializeField]
+    private int enemyGravityBulletCount;
 
-    private int stopRandomThrowUpEnemyBulletShotCount = 0;
+    private float minAngle = 45f;
+
+    private float maxAngle = 135f;
+
+    private bool stopRandomThrowUpEnemyShot;
+
 
     /// <summary>
-    /// ?????????e???~????????
+    /// 外からRandomThrowUpEnemyBulletShotを停止するメソッド
     /// </summary>
     public void StopRandomThrowUpEnemyBulletShot()
     {
-        stopRandomThrowUpEnemyBulletShotCount = 1;
+        stopRandomThrowUpEnemyShot = true;
     }
 
     /// <summary>
-    /// ?R???[?`?????????o??????
+    /// 外からShotRandomGravityBulletを呼び出すメソッド
     /// </summary>
-    public void CallRandomThrowUpShot()
+    public void CallShotRandomGravityBullet()
     {
-        StartCoroutine("RandomGravityBulletShot");
+        stopRandomThrowUpEnemyShot = false;
+        StartCoroutine(ShotRandomGravityBullet());
     }
 
     /// <summary>
-    /// ?G???e???????????w????????????????????????????
+    /// GravityBulletを間隔をあけて生成するメソッド
     /// </summary>
-    private IEnumerator RandomGravityBulletShot()
+    private IEnumerator ShotRandomGravityBullet()
     {
         while (true)
         {   
-            if(stopRandomThrowUpEnemyBulletShotCount == 1)
+            if(stopRandomThrowUpEnemyShot)
             {
                 yield break;
             }
             GenerateRandomGravityBullet();
-            yield return new WaitForSeconds(enemyBulletGenerationWaitTime);
+            yield return new WaitForSeconds(enemyBulletGenerationSeconds);
         }
     }
 
     /// <summary>
-    /// ?G???e???????????w??????????????????????
+    /// ランダムな上方向に弾を生成するスクリプト
     /// </summary>
     void GenerateRandomGravityBullet()
     {
         float EulerZ;
         
-
         for (int i = 0; i < enemyGravityBulletCount; i++)
         { 
-            while(true)
-            {
-                EulerZ = Random.value * 360;
-                if(EulerZ <= 135 && EulerZ >= 45)
-                {
-                    break;
-                }
-            }
+            EulerZ = Random.Range(minAngle, maxAngle);
+
             Instantiate(enemyGravityBullet, new Vector3(this.transform.position.x,this.transform.position.y,1), Quaternion.Euler(0, 0, EulerZ)); 
         }
     }
