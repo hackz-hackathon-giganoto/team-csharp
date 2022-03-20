@@ -13,7 +13,6 @@ GameObject:
   - component: {fileID: -7026757633192390595}
   - component: {fileID: 3804155421442657650}
   - component: {fileID: -7328549149641460985}
-  - component: {fileID: 7278863625239285962}
   - component: {fileID: 7585844253752387182}
   - component: {fileID: 6991693282268367615}
   - component: {fileID: 4063597822960365386}
@@ -131,21 +130,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyGravityBullet: {fileID: 3504134023480279050, guid: 74da71389297ef54f962ab659369070f, type: 3}
-  enemyBulletGenerationWaitTime: 1
+  enemyBulletGenerationSeconds: 0
   enemyGravityBulletCount: 5
---- !u!114 &7278863625239285962
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7045867865181050552}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 20be20e6573ce4b3a815cbe8121e88a3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  randomThrowUpShotEnemyBullet: {fileID: -7328549149641460985}
 --- !u!114 &7585844253752387182
 MonoBehaviour:
   m_ObjectHideFlags: 0
