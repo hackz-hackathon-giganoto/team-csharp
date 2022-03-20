@@ -3,63 +3,65 @@ using System.Collections.Generic;
 using UnityEngine;
 
 /// <summary>
-/// “G‚Ì’e‚ğ¶¬‚·‚éƒXƒNƒŠƒvƒg
+/// å††å½¢ã«å¼¾ã‚’æ‰“ã¤ã‚¯ãƒ©ã‚¹
 /// </summary>
-public class ShotEnemyBullet : MonoBehaviour
+public class ShotRoundEnemyBullet : MonoBehaviour
 {
-    [SerializeField] private GameObject enemyBullet;
+    [SerializeField]
+    private GameObject enemyBullet;
 
-    [SerializeField] private float enemyBulletCount;
-    [SerializeField] private float enemyBulletGenerationWatingTime;
+    [SerializeField]
+    private float enemyBulletGenerationCount;
+    [SerializeField]
+    private float enemyBulletGenerationIntervalSeconds;
 
-    private int stopShotEnemyBulletCount = 0;
+    private bool stopShotEnemyBullet;
 
-    void Start()
+    /// <summary>
+    /// å¤–ã‹ã‚‰RoundEnemyShotã‚’å‘¼ã³å‡ºã™
+    /// </summary>
+    public void CallRoundEnemyShot()
     {
-        
+        StartCoroutine(RoundEnemyShot());
     }
 
     /// <summary>
-    /// ƒRƒ‹[ƒ`ƒ“‚ğŒÄ‚Ño‚·ŠÖ”
+    /// å¤–ã‹ã‚‰RoundEnemyShotã‚’å‘¼ã³å‡ºã™
     /// </summary>
-    public void CallShot()
+    public void StopRoundEnemyShot()
     {
-        StartCoroutine("Shot");
+        stopShotEnemyBullet = true;
     }
 
     /// <summary>
-    /// ”­Ë‚·‚é’e‚ğ~‚ß‚éŠÖ”
+    /// å††å½¢ã«å¼¾ã‚’ç™ºå°„ã™ã‚‹é–“éš”ã®ã‚³ãƒ«ãƒ¼ãƒãƒ³
     /// </summary>
-    public void StopNormalEnemyBulletShot()
-    {
-        stopShotEnemyBulletCount = 1;
-    }
-
-    /// <summary>
-    /// “G‚Ì’e‚ğ¶¬‚·‚éƒRƒ‹[ƒ`ƒ“
-    /// </summary>
-    private IEnumerator Shot()
+    private IEnumerator RoundEnemyShot()
     {
         while (true)
         {
-            if(stopShotEnemyBulletCount == 1)
+            if(stopShotEnemyBullet)
             {
                 yield break;
             }
-            GenerateBullet();
-            yield return new WaitForSeconds(enemyBulletGenerationWatingTime);
+
+            GenerateRoundBullet();
+            yield return new WaitForSeconds(enemyBulletGenerationIntervalSeconds);
         }
     }
 
     /// <summary>
-    /// “G‚Ì’e‚ğ¶¬‚·‚éŠÖ”
+    /// å††å½¢ã«å¼¾ã‚’ç™ºå°„ã™ã‚‹ãƒ¡ã‚½ãƒƒãƒ‰
     /// </summary>
-    void GenerateBullet()
+    private void GenerateRoundBullet()
     {
-        for(float j = 0; j < 360; j += 360/enemyBulletCount)
+        for(float j = 0; j < 360; j += 360/enemyBulletGenerationCount)
         {
-            Instantiate(enemyBullet,new Vector3(this.transform.position.x,this.transform.position.y,1), Quaternion.Euler(0, 0, j));
-        }
-        
+            Instantiate(
+                enemyBullet,
+                new Vector3(this.transform.position.x,this.transform.position.y,1),
+                Quaternion.Euler(0, 0, j)
+            );
+        }  
     }
 }

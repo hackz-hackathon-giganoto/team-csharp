@@ -9,7 +9,7 @@ public class ShotEnemyBulletController : MonoBehaviour
 {
     [SerializeField] private EnemyBulletRotationShot enemyBulletRotationShotScript;
     [SerializeField] private RandomThrowUpShotEnemyBullet randomThrowUpShotEnemyBulletScript;
-    [SerializeField] private ShotEnemyBullet shotEnemyBulletScript;
+    [SerializeField] private ShotRoundEnemyBullet shotEnemyBulletScript;
     [SerializeField] private RandomShotEnemyBullet randomShotEnemyBulletScript;
     [SerializeField] private EnemyStatus enemyStatusScript;
 
@@ -132,12 +132,12 @@ public class ShotEnemyBulletController : MonoBehaviour
         if(normalShot && normalShotActiveCount == 0 && normalShotTriggerHitPointPercent >= enemyHitPointPercent)
         {
             normalShotActiveCount++;
-            shotEnemyBulletScript.CallShot();
+            shotEnemyBulletScript.CallRoundEnemyShot();
         }
         if(normalShotActiveCount == 1 && normalShotFinishHitPointPercent >= enemyHitPointPercent)
         {
             normalShotActiveCount++;
-            shotEnemyBulletScript.StopNormalEnemyBulletShot();
+            shotEnemyBulletScript.StopRoundEnemyShot();
         }
     }
 }
