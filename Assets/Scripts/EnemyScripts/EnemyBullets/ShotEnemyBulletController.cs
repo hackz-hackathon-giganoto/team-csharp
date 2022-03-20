@@ -115,12 +115,12 @@ public class ShotEnemyBulletController : MonoBehaviour
         if(randomShot && randomShotActiveCount == 0 && randomShotTriggerHitPointPercent >= enemyHitPointPercent)
         {
             randomShotActiveCount++;
-            randomShotEnemyBulletScript.CallRandomShot();
+            randomShotEnemyBulletScript.CallRandomEnemyShot();
         }
         if (randomShotActiveCount == 1 && randomShotFinishHitPointPercent >= enemyHitPointPercent)
         {
             randomShotActiveCount++;
-            randomShotEnemyBulletScript.StopRandomEnemyBulletShot();
+            randomShotEnemyBulletScript.StopRandomEnemyShot();
         }
     }
 

@@ -1,63 +1,63 @@
-using System.Collections;
+ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 /// <summary>
-/// ?G???e???????_?????????????X?N???v?g
+/// 敵の弾をランダムで生成するクラス
 /// </summary>
 public class RandomShotEnemyBullet : MonoBehaviour
 {
-    [SerializeField] private GameObject enemyBullet;
+    [SerializeField]
+    private GameObject enemyBullet;
 
-    [SerializeField] private float enemyBulletGenerationWatingTime;
+    [SerializeField]
+    private float enemyBulletGenerationIntervalSeconds;
 
-    [SerializeField] private int RandomShotCount;
+    [SerializeField]
+    private int randomShotCount;
 
     [SerializeField]
     private Transform enemyTransform;
-    private int stopRandomShotEnemyBulletCount = 0;
+
+    private bool stopRandomEnemyShot;
 
     /// <summary>
-    /// ?R???[?`?????????o??????
+    /// 外からコルーチンを呼び出すメソッド
     /// </summary>
-    public void CallRandomShot()
+    public void CallRandomEnemyShot()
     {
-        StartCoroutine("RandomShot");
+        StartCoroutine(ShotRandomEnemyBullet());
     }
 
     /// <summary>
-    /// ?????????e???~????????
+    /// ShotRandomEnemyBulletを外側から停止する
     /// </summary>
-    public void StopRandomEnemyBulletShot()
+    public void StopRandomEnemyShot()
     {
-        stopRandomShotEnemyBulletCount = 1;
+        stopRandomEnemyShot = true;
     }
 
     /// <summary>
-    /// ?G???e???????_?????????????R???[?`??
+    /// ランダムな方向に弾を発射するメソッド
     /// </summary>
-    private IEnumerator RandomShot()
+    private IEnumerator ShotRandomEnemyBullet()
     {
         while (true)
         {
-            for(int i = 0; i < RandomShotCount; i++)
+            for(int i = 0; i < randomShotCount; i++)
             {
-                if(stopRandomShotEnemyBulletCount == 1)
-            {
-                yield break;
-            }
-            GenerateRandomBullet();
-            }
-            
-            yield return new WaitForSeconds(enemyBulletGenerationWatingTime);
-        }
-    }
+                if(stopRandomEnemyShot)
+                {
+                    yield break;
+                }
 
-    /// <summary>
-    /// ?G???e???????_????????????????
-    /// </summary>
-    void GenerateRandomBullet()
-    {
-        Instantiate(enemyBullet, new Vector3(enemyTransform.position.x,enemyTransform.position.y,1), Quaternion.Euler(0, 0, Random.value * 360));
+                Instantiate(
+                    enemyBullet,
+                    new Vector3(enemyTransform.position.x, enemyTransform.position.y, 1),
+                    Quaternion.Euler(0, 0, Random.value * 360)
+                );
+            }
+            yield return new WaitForSeconds(enemyBulletGenerationIntervalSeconds);
+        }
     }
 }
