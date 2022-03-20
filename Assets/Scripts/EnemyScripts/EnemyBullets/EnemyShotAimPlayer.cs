@@ -2,12 +2,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// 自機狙いの弾の管理クラス
+/// </summary>
 public class EnemyShotAimPlayer : MonoBehaviour
 {
     [SerializeField]
     private float bulletSpeed;
     [SerializeField]
-    private float intervalTime;
+    private float intervalSeconds;
 
     [SerializeField]
     private GameObject enemyBullet;
@@ -35,7 +38,7 @@ public class EnemyShotAimPlayer : MonoBehaviour
     {
         while (true)
         {
-            yield return new WaitForSeconds(intervalTime);
+            yield return new WaitForSeconds(intervalSeconds);
             var enemyShot = Instantiate(enemyBullet, transform.position, Quaternion.identity);
             enemyShot.GetComponent<Rigidbody2D>().velocity = transform.up * bulletSpeed;
         }
