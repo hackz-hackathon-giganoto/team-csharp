@@ -3,31 +3,38 @@ using System.Collections.Generic;
 using UnityEngine;
 
 /// <summary>
-/// 敵を横にランダムで生成するスクリプト
+/// Y霆ｸ繧偵Λ繝ｳ繝繝縺ｧ蜃ｺ迴ｾ縺吶ｋ繧ｹ繧ｯ繝ｪ繝励ヨ 
 /// </summary>
-public class RandomEnemySpawnerside : MonoBehaviour
+public class RandomEnemySpawnerSide : MonoBehaviour
 {
-    [SerializeField]private GameObject enemy;
-    [SerializeField] private float PositionX;
-    [SerializeField] private float PositionY;
-    [SerializeField] private float PositionZ;
-    [SerializeField] private float enemyGenerationWatingTime;
-    [SerializeField] private float enemyAppear;
+    [SerializeField]
+    private GameObject enemyObject;
+    [SerializeField]
+    private float PositionX;
+    [SerializeField]
+    private float enemyGenerationIntervalSeconds;
+
+    [SerializeField]
+    private int enemyGenerationCount;
+
+    private int maxPositionY = 5;
+
+    private int minPositionY = -5;
 
     void Start()
     {
-        StartCoroutine("GenerateEnemy");
+        StartCoroutine(GenerateEnemy());
     }
 
     /// <summary>
-    /// 敵を横にランダムで生成するコルーチン
+    /// 謨ｵ繧貞�ｺ迴ｾ縺輔○繧九さ繝ｫ繝ｼ繝√Φ
     /// </summary>
     private IEnumerator GenerateEnemy()
     {
-        for(int i = 0; i < enemyAppear; i++)
+        for(int i = 0; i < enemyGenerationCount; i++)
         {
-            Instantiate(enemy, new Vector3(PositionX, PositionY * Random.value, PositionZ), Quaternion.identity);
-            yield return new WaitForSeconds(enemyGenerationWatingTime);
+            Instantiate(enemyObject, new Vector3(PositionX, Random.Range(minPositionY, maxPositionY), 0), Quaternion.identity);
+            yield return new WaitForSeconds(enemyGenerationIntervalSeconds);
         }
     }
 }

@@ -14,7 +14,7 @@ public class RandomEnemySpawnerLength : MonoBehaviour
     [SerializeField]
     private float enemyGenerationIntervalSeconds;
     [SerializeField]
-    private float enemyGenerationCount;
+    private int enemyGenerationCount;
 
     private int maxPositionX = 4;
 
