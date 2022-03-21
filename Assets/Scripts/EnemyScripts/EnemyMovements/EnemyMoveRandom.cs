@@ -5,7 +5,6 @@ using UnityEngine;
 /// <summary>
 /// エネミーをランダムに落下させる
 /// </summary>
-
 public class EnemyMoveRandom : MonoBehaviour
 {
     [SerializeField]

@@ -3,31 +3,36 @@ using System.Collections.Generic;
 using UnityEngine;
 
 /// <summary>
-/// “G‚ð’èˆÊ’u‚É¶¬‚·‚éƒXƒNƒŠƒvƒg
+/// æŒ‡å®šã®ä½ç½®ã«æ•µã‚’å‡ºç¾ã•ã›ã‚‹ã‚¯ãƒ©ã‚¹
 /// </summary>
 public class EnemySpawner : MonoBehaviour
-{
-    [SerializeField] private GameObject enemy;
-    [SerializeField] private float positionX;
-    [SerializeField] private float positionY;
-    [SerializeField] private float positionZ;
-    [SerializeField] private float enemyGenerationWatingTime;
-    [SerializeField] private float enemyAppear;
+{  
+    [SerializeField]
+    private GameObject enemyObject;
+    [SerializeField]
+    private float positionX;
+    [SerializeField]
+    private float positionY;
+
+    [SerializeField]
+    private float enemyGenerationIntervalSeconds;
+    [SerializeField]
+    private float enemyGenerationCount;
 
     void Start()
     {
-        StartCoroutine("GenerateEnemy");
+        StartCoroutine(GenerateEnemy());
     }
 
     /// <summary>
-    /// “G‚ð’èˆÊ’u‚É¶¬‚·‚éƒRƒ‹[ƒ`ƒ“
+    /// æ•µã‚’å‡ºç¾ã•ã›ã‚‹ã‚³ãƒ«ãƒ¼ãƒãƒ³
     /// </summary>
     private IEnumerator GenerateEnemy()
     {
-        for (int i = 0; i < enemyAppear; i++)
+        for (int i = 0; i < enemyGenerationCount; i++)
         {
-            Instantiate(enemy, new Vector3(positionX, positionY, positionZ), Quaternion.identity);
-            yield return new WaitForSeconds(enemyGenerationWatingTime);
+            Instantiate(enemyObject, new Vector3(positionX, positionY, 0), Quaternion.identity);
+            yield return new WaitForSeconds(enemyGenerationIntervalSeconds);
         }
         yield  break;
     }
