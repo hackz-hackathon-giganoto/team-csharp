@@ -26,6 +26,7 @@ public class SubBossBasicMove : MonoBehaviour
     /// </summary>
     public void CallMoveSubBoss()
     {
+        isArrived = false;
         StartCoroutine(MoveSubBoss());
     }
 
