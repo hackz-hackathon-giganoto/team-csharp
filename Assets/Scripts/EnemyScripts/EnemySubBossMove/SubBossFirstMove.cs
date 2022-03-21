@@ -3,69 +3,57 @@ using System.Collections.Generic;
 using UnityEngine;
 
 /// <summary>
-/// サブボスが出現したときに初めにする動き
+/// ?????????????????
 /// </summary>
 public class SubBossFirstMove : MonoBehaviour
 {
-    [SerializeField] private GameObject AimPlayerEnemyBullet;
+    [SerializeField]
+    private GameObject aimPlayerEnemyBullet;
 
-    [SerializeField] private float moveCount;
-    [SerializeField] private float waitTime;
-    private float changeXPosition;
-    private float changeJudge;
-    private float stopSubBossFirstMoveCount = 0;
+    [SerializeField]
+    private float intervalSeconds;
 
-    void Start()
-    {
-         
-    }
+    private float changePositionX;
 
-    
-    void Update()
-    {
-        
-    }
+    private bool finishFirstMove;
+
+    private float maxPositionX = 4f;
+
+    private float maxPositionY = 4f;
+
     /// <summary>
-    /// サブボスの最初の動きを始める関数
+    /// ??????????????????????????????????????????????
     /// </summary>
     public void CallSubBossFirstMove()
     {
-       StartCoroutine("FirstMove");
+        finishFirstMove = false;
+        StartCoroutine(FirstSubBossMove());
     }
 
     /// <summary>
-    /// サブボスの最初の動きを止める関数
+    /// FirstSubBossMove???????????
     /// </summary>
     public void StopSubBossFirstMove()
     {
-        stopSubBossFirstMoveCount = 1;
+        finishFirstMove = true;
     }
 
     /// <summary>
-    /// サブボスの最初の動きを構成するコルーチン
+    /// ??????????????????????????????????????
     /// </summary>
-    private IEnumerator FirstMove()
+    private IEnumerator FirstSubBossMove()
     {
-        while(true)
-        {
-            if(stopSubBossFirstMoveCount == 1)
-            {
-                this.transform.position = new Vector3(-4, 3, 0);
-                yield break;
-            }
-            changeJudge = Random.value * 2;
-            if(changeJudge < 1)
-            {
-                changeXPosition = -1;
-            }
-            else
-            {
-                changeXPosition = 1;
-            }
+        while(!finishFirstMove)
+        {  
+            changePositionX = (Random.value < 0.5f) ? 1 : -1;
 
-            this.transform.position = new Vector3(Random.value * 4 * changeXPosition, Random.value * 4, 0);
-            Instantiate(AimPlayerEnemyBullet, this.transform.position, Quaternion.identity);
-            yield return new WaitForSeconds(waitTime);
+            this.transform.position = new Vector3(Random.Range(0 , maxPositionX)* changePositionX, Random.Range(0 , maxPositionY), 0);
+
+            Instantiate(aimPlayerEnemyBullet, this.transform.position, Quaternion.identity);
+
+            yield return new WaitForSeconds(intervalSeconds);
         }
+
+        this.transform.position = new Vector3(-4, 3, 0);
     }
 }
