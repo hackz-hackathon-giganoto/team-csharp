@@ -9,32 +9,26 @@ using UnityEngine;
 public class EnemyMoveRandom : MonoBehaviour
 {
     [SerializeField]
-    private float movementDuration;
+    private float moveDuration;
 
     float moveSpeedx;
     float moveSpeedy;
 
     void Start()
     {
-        movementDuration = movementDuration * 60;
-        float rnd = Random.Range(-4, 4);
-        Vector3 firstPosition = GameObject.Find("Enemy b").transform.position;
-        float startx = firstPosition.x;
-        float starty = firstPosition.y;
+        moveDuration *= 60;
 
-        float movex = startx - rnd;
-        float movey = starty + 3;
+        float movex = this.gameObject.transform.position.x - Random.Range(-4, 4);
+        float movey = this.gameObject.transform.position.y + 3;
 
-        moveSpeedx = movex / movementDuration;
-        moveSpeedy = movey / movementDuration;
+        moveSpeedx = movex / moveDuration;
+        moveSpeedy = movey / moveDuration;
     }
 
 
-        void FixedUpdate()
+    void FixedUpdate()
     {
-        
         Vector3 position = new Vector3(moveSpeedx * -1, moveSpeedy * -1, 0);
-        transform.Translate(position);
-              
+        transform.Translate(position); 
     }
 }
