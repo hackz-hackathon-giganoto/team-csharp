@@ -2,7 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyControl : MonoBehaviour
+/// <summary>
+/// 動き出して、しばらく止まったらまた動き出すクラス
+/// </summary>
+public class EnemyMovePause : MonoBehaviour
 {
     [SerializeField]
     private Transform firstPosition;
@@ -10,47 +13,42 @@ public class EnemyControl : MonoBehaviour
     private GameObject goalPosition;
 
     [SerializeField]
-    private float time;
+    private float moveFrame;
 
     [SerializeField]
-    private float stopTime;
+    private float stopFrame;
 
     float moveSpeedx;
     float moveSpeedy;
-    float counter = 0;
+    float frameCounter = 0;
 
 
     void Start()
     {
-        //time = time * 60;
-        //stopTime = stopTime * 60;
         goalPosition = GameObject.FindGameObjectWithTag("GoalPosition");
 
-        float startx = firstPosition.position.x;
-        float starty = firstPosition.position.y;
+        float movex = firstPosition.position.x - goalPosition.transform.position.x * Random.value * 2;
+        float movey = firstPosition.position.y - goalPosition.transform.position.y;
 
-        float movex = startx - goalPosition.transform.position.x * Random.value * 2;
-        float movey = starty - goalPosition.transform.position.y;
-
-        moveSpeedx = movex / time;
-        moveSpeedy = movey / time;
+        moveSpeedx = movex / moveFrame;
+        moveSpeedy = movey / moveFrame;
     }
     
 
     void FixedUpdate()
     {
-        counter += 1;
-        if (counter <= time)
+        frameCounter += 1;
+        if (frameCounter <= moveFrame)
         {
             Vector3 position = new Vector3(moveSpeedx * -1, moveSpeedy * -1, 0);
             transform.Translate(position);
         }        
-        else if (time + stopTime <= counter && counter <= time*2 + stopTime )
+        else if (moveFrame + stopFrame <= frameCounter && frameCounter <= moveFrame*2 + stopFrame )
         {
            Vector3 position = new Vector3(moveSpeedx, moveSpeedy, 0);
             transform.Translate(position); 
         }
-        else if(counter > time * 2 + stopTime)
+        else if(frameCounter > moveFrame * 2 + stopFrame)
         {
             Destroy(this.gameObject);
         }

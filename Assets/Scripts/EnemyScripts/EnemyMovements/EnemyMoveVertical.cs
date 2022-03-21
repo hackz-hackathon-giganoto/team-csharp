@@ -20,7 +20,6 @@ public class EnemyMoveVertical : MonoBehaviour
             moveSpeed *= -1;
         }
     }
-    
 
     void FixedUpdate()
     {
