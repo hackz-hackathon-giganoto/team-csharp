@@ -15,10 +15,10 @@ public class GoalPositionManager : MonoBehaviour
     private int indexNumber;
 
     [SerializeField]
-    RandomEnemySpawnerlength randomEnemySpawnerlengthBefore;
+    RandomEnemySpawnerLength randomEnemySpawnerlengthBefore;
 
     [SerializeField]
-    RandomEnemySpawnerlength randomEnemySpawnerlengthAfter;
+    RandomEnemySpawnerLength randomEnemySpawnerlengthAfter;
     void Awake()
     {
         indexNumber = 0;
