@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+
 /// <summary>
 /// 敵の斜め方向のみの移動をさせるクラス
 /// </summary>
@@ -14,6 +15,7 @@ public class EnemyMoveDiagonal : MonoBehaviour
 
     [SerializeField]
     private bool isUp;
+
     float moveSpeedY;
 
     void Start()
