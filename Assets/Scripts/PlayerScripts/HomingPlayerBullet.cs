@@ -11,18 +11,21 @@ public class HomingPlayerBullet : MonoBehaviour
 
     private GameObject enemyObject;
 
+    [SerializeField]
     private Rigidbody2D rigid2D;
 
-    private float homingPlayerBulletSpeed = 5f;
+    [SerializeField]
+    private float homingShotStartWaitSeconds;
 
-    private float startHomingShotWaitingTime = 0.5f;
+    [SerializeField]
+    private float homingBulletSpeed;
 
-    private float playerHomingShotInterval = 0.2f; 
+    [SerializeField]
+    private float homingShotInterval; 
 
     void Start()
     {
-        rigid2D = GetComponent<Rigidbody2D>();
-        StartCoroutine("WaitPlayerShotHomingBullet");
+        StartCoroutine(WaitPlayerShotHomingBullet());
     }
 
 
@@ -33,19 +36,17 @@ public class HomingPlayerBullet : MonoBehaviour
     {
         while (true)
         {
-            this.rigid2D.velocity = transform.up * homingPlayerBulletSpeed;
+            this.rigid2D.velocity = transform.up * homingBulletSpeed;
 
             if (enemyObject == null)
             {
                 enemyObject = GameObject.FindGameObjectWithTag("Enemy");
             }
 
-            if (enemyObject != null)
-            {
-                enemyDirection = (enemyObject.transform.position - this.transform.position);
-                this.transform.rotation = Quaternion.FromToRotation(Vector3.up, enemyDirection);
-            }
-            yield return new WaitForSeconds(playerHomingShotInterval);
+            enemyDirection = (enemyObject.transform.position - this.transform.position);
+            this.transform.rotation = Quaternion.FromToRotation(Vector3.up, enemyDirection);
+
+            yield return new WaitForSeconds(homingShotInterval);
         }
     }
 
@@ -54,7 +55,7 @@ public class HomingPlayerBullet : MonoBehaviour
     /// </summary>
     IEnumerator WaitPlayerShotHomingBullet()
     {
-        yield return new WaitForSeconds(startHomingShotWaitingTime);
-        StartCoroutine("ShotPlayerHomingBullet");
+        yield return new WaitForSeconds(homingShotStartWaitSeconds);
+        StartCoroutine(ShotPlayerHomingBullet());
     }
 }
