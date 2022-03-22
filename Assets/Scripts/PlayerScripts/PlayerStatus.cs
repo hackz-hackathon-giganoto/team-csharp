@@ -76,7 +76,7 @@ public class PlayerStatus : MonoBehaviour
 
             iconPanelHP.DecreseIcon();
 
-            playerRespawn.RespawnPlayer();
+            playerRespawn.CallRespawnPlayer();
 
             StartCoroutine("PlaeyrInvincibleTime");
         }

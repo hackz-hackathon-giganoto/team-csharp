@@ -8,8 +8,8 @@ using UnityEngine.UI;
 /// </summary>
 public class PlayerShot : MonoBehaviour
 {
+    public float lowestVolume;
 
-    private float currentShotIntervalTime;
     [SerializeField]
     private float normalShotIntervalTime;
     [SerializeField]
@@ -19,30 +19,31 @@ public class PlayerShot : MonoBehaviour
     [SerializeField]
     private float homingShotIntervalTime;
 
-    public float lowestVolume;
     [SerializeField]
     private float homingPlayerBulletFirstSpeed;
+
+    private float currentShotIntervalTime;
 
     [SerializeField]
     private int highPlayerPitch;
     [SerializeField]
     private int lowPlayerPitch;
 
-
     [SerializeField]
     private GameObject homingPlayerBullet;
 
     [SerializeField]
-    GetterPitch getterPitch;
+    private GetterPitch getterPitch;
 
     [SerializeField]
-    PlayerBulletMove playerBulletMove;
+    private PlayerBulletMove playerBulletMove;
 
     void Start()
     {
         currentShotIntervalTime = normalShotIntervalTime;
-        StartCoroutine("PlayerShotInterval");
-        StartCoroutine("PlayerHomingShotInterval");
+
+        StartCoroutine(PlayerShotInterval());
+        StartCoroutine(PlayerHomingShotInterval());
     }
     /// <summary>
     /// プレイヤーの弾を打つ間隔
@@ -56,9 +57,6 @@ public class PlayerShot : MonoBehaviour
             if (getterPitch.pitchHighest < lowestVolume)
             {
                 continue;
-            }
-            else {
-                
             }
 
             if (getterPitch.pitchHighestNumber > highPlayerPitch)
