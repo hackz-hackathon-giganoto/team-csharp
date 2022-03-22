@@ -22,7 +22,7 @@ public class PlayerBulletMove : MonoBehaviour
     private GameObject lowPitchPlayerBullet;
 
     [SerializeField]
-    int bulletCount;
+    private int bulletCount;
 
     /// <summary>
     /// 普通の弾を生成、発射するメソッド
