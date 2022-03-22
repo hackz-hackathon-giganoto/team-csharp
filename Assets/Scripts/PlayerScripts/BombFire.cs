@@ -1,16 +1,17 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using MyUtils;
 
 /// <summary>
-/// ボムの処理
+/// ボムの処理クラス
 /// </summary>
 public class BombFire : MonoBehaviour
 {
     private bool isBombStandby;
 
     [SerializeField]
-    private float bombIntervalTime;
+    private float bombIntervalSeconds;
 
     [SerializeField]
     private PlayerStatus playerStatus;
@@ -19,7 +20,7 @@ public class BombFire : MonoBehaviour
     GetterPitch getterPitch;
 
     [SerializeField]
-    private float useBombVolume;
+    private float volumeUseBomb;
 
     void Start()
     {
@@ -28,10 +29,9 @@ public class BombFire : MonoBehaviour
 
     void FixedUpdate()
     {
-        if (getterPitch.pitchHighest > useBombVolume && !isBombStandby && playerStatus.CurrentPlayerBombCount != 0)
+        if (getterPitch.pitchHighest > volumeUseBomb && !isBombStandby && playerStatus.CurrentPlayerBombCount != 0)
         {
             UseBomb();
-            Debug.Log("Bomb!!");
         }
     }
 
@@ -41,20 +41,16 @@ public class BombFire : MonoBehaviour
     /// </summary>
     void UseBomb()
     {
-        GameObject[] bullets = GameObject.FindGameObjectsWithTag("EnemyBullet");
         GameObject[] enemys = GameObject.FindGameObjectsWithTag("Enemy");
 
-        foreach (GameObject bullet in bullets)
-        {
-            Destroy(bullet);
-        }
+        Utils.DestroyGameObjectsWithTag("EnemyBullet");
 
         foreach(GameObject enemy in enemys)
         {
             enemy.GetComponent<EnemyStatus>().DecreaseEnemyHitPoint(5f);
         }
         playerStatus.DecreasePlayerBombCount();
-        StartCoroutine("BombStandbyTime");
+        StartCoroutine(BombStandbyTime());
     }
 
     /// <summary>
@@ -63,7 +59,7 @@ public class BombFire : MonoBehaviour
     IEnumerator BombStandbyTime()
     {
         isBombStandby = true;
-        yield return new WaitForSeconds(bombIntervalTime);
+        yield return new WaitForSeconds(bombIntervalSeconds);
         isBombStandby = false;
     }
 }

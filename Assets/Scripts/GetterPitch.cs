@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using MyUtils;
 
 /// <summary>
 /// ピッチの高さを取得するクラス
