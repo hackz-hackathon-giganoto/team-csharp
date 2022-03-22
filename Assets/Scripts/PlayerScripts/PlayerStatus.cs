@@ -8,15 +8,6 @@ using UnityEngine;
 /// </summary>
 public class PlayerStatus : MonoBehaviour
 {
-    [SerializeField]
-    private int firstPlayerHitPoint;
-
-    [SerializeField]
-    private int firstPlayerBombCount;
-
-    [SerializeField]
-    private int firstPlayerPower;
-
     [NonSerialized]
     public int CurrentPlayerHitPoint;
 
@@ -27,7 +18,16 @@ public class PlayerStatus : MonoBehaviour
     public int CurrentPlayerPower;
 
     [SerializeField]
-    private float invincibleTime;
+    private int firstPlayerHitPoint;
+
+    [SerializeField]
+    private int firstPlayerBombCount;
+
+    [SerializeField]
+    private int firstPlayerPower;
+
+    [SerializeField]
+    private float invincibleSeconds;
 
     [SerializeField]
     PlayerDestroy playerDestroy;
@@ -135,7 +135,7 @@ public class PlayerStatus : MonoBehaviour
     {
         isInvincibleTime = true;
 
-        yield return new WaitForSeconds(invincibleTime);
+        yield return new WaitForSeconds(invincibleSeconds);
 
         isInvincibleTime = false;
     }

@@ -42,7 +42,7 @@ public class BombGeneration : MonoBehaviour
         while (secondsCountDown > 0)
         {
             Debug.Log(secondsCountDown);
-            if(getterPitch.pitchHighest < playerShot.lowestVolume)
+            if(getterPitch.pitchHighest < playerShot.LowestVolume)
             {
                 secondsCountDown -= playerSilenceSeconds;
             }

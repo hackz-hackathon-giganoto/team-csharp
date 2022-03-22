@@ -8,7 +8,7 @@ using UnityEngine.UI;
 /// </summary>
 public class PlayerShot : MonoBehaviour
 {
-    public float lowestVolume;
+    public float LowestVolume;
 
     [SerializeField]
     private float normalShotIntervalTime;
@@ -54,7 +54,7 @@ public class PlayerShot : MonoBehaviour
         {
             yield return new WaitForSeconds(currentShotIntervalTime);
 
-            if (getterPitch.pitchHighest < lowestVolume)
+            if (getterPitch.pitchHighest < LowestVolume)
             {
                 continue;
             }
@@ -86,7 +86,7 @@ public class PlayerShot : MonoBehaviour
         {
             yield return new WaitForSeconds(homingShotIntervalTime);
 
-            if (getterPitch.pitchHighest < lowestVolume)
+            if (getterPitch.pitchHighest < LowestVolume)
             {
                 continue;
             }
