@@ -13,7 +13,7 @@ public class PlayerBulletCollision : MonoBehaviour
     [SerializeField]
     private GameObject lowPitchPlayerBulletAttackRangeField;
 
-    private float waitDestroyTime = 0.029999999f;
+    private float waitDestroySecond = 0.029999999f;//こうしないとあまりうまく動かなかったのでこうしてる
 
     /// <summary>
     /// エネミーの弾の衝突後外に出た時の処理処理
@@ -33,7 +33,7 @@ public class PlayerBulletCollision : MonoBehaviour
             {
                 lowPitchPlayerBulletAttackRangeField.SetActive(true);
             }
-            StartCoroutine("WaitDestroy");
+            StartCoroutine(WaitDestroy());
             other.gameObject.GetComponent<EnemyStatus>().DecreaseEnemyHitPoint(amountDamageDone);
         }
     }
@@ -43,7 +43,7 @@ public class PlayerBulletCollision : MonoBehaviour
     /// </summary>
     private IEnumerator WaitDestroy()
     {
-        yield return new WaitForSeconds(waitDestroyTime);
+        yield return new WaitForSeconds(waitDestroySecond);
 
         Destroy(this.gameObject);
     }

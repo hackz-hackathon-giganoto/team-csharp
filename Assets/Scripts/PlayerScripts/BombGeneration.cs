@@ -19,17 +19,16 @@ public class BombGeneration : MonoBehaviour
     BombTimeText bombTimeText;
 
     [SerializeField]
-    private float waitTime;
-
-    [SerializeField]
-    private float timeRequired;
+    private float playerSilenceSeconds;
 
     [NonSerialized]
-    public float timeCount;
+    public float secondsCountDown;
+
+    private float timeRequired;
 
     private void Start()
     {
-        StartCoroutine("GenerationBomb");
+        StartCoroutine(GenerationBomb());
     }
 
     /// <summary>
@@ -39,18 +38,18 @@ public class BombGeneration : MonoBehaviour
     /// </summary>
     IEnumerator GenerationBomb()
     {
-        timeCount = timeRequired;
-        while (timeCount > 0)
+        secondsCountDown = timeRequired;
+        while (secondsCountDown > 0)
         {
-            Debug.Log(timeCount);
-            if(getterPitch.pitchHighest < playerShot.lowestVolume)
+            Debug.Log(secondsCountDown);
+            if(getterPitch.pitchHighest < playerShot.LowestVolume)
             {
-                timeCount -= waitTime;
+                secondsCountDown -= playerSilenceSeconds;
             }
-            yield return new WaitForSeconds(waitTime);
-            bombTimeText.SetBombText(timeCount);
+            yield return new WaitForSeconds(playerSilenceSeconds);
+            bombTimeText.SetBombText(secondsCountDown);
         }
         playerStatus.IncreasePlayerBombCount();
-        StartCoroutine("GenerationBomb");
+        StartCoroutine(GenerationBomb());
     }
 }

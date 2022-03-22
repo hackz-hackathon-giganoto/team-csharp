@@ -7,20 +7,19 @@ using UnityEngine;
 /// </summary>
 public class LowPitchPlayerBulletBigger : MonoBehaviour
 {
-    Vector3 changeSize;
+    private Vector3 changeSize;
+
+    private Transform bulletFirstTransform;
+
+    [SerializeField]
+    private float finalPosition;
+
+    [SerializeField]
+    private float finalSize;
+
+    private float aliquotBiggerSize;
 
     private float amountIncrease;
-
-    Transform bulletFirstTransform;
-
-    float aliquotBiggerSize;
-
-    [SerializeField]
-    float finalPosition;
-
-    [SerializeField]
-    float finalSize;
-
 
     void Start()
     {

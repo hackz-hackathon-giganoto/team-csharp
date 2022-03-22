@@ -55,14 +55,6 @@ public class PlayerCotroller : MonoBehaviour
     /// </summary>
     void MoveSlowPlayer()
     {
-        if (Input.GetKey(KeyCode.LeftShift))
-        {
-            playerNowSpeed = playerSlowSpeed;
-        }
-        else
-        {
-            playerNowSpeed = playerSpeed;
-        }
+        playerNowSpeed = (Input.GetKey(KeyCode.LeftShift)) ? playerSlowSpeed : playerSpeed;
     }
-
 }

@@ -8,18 +8,17 @@ using UnityEngine;
 public class PlayerRespawn : MonoBehaviour
 {
     [SerializeField]
-    Transform firstTranseform;
+    private Transform firstTranseform;
 
     [SerializeField]
-    private float waitRespawnTime;
+    private float waitRespawnSeconds;
 
     /// <summary>
     /// リスポーンメソッド
     /// </summary>
-    public void RespawnPlayer()
+    public void CallRespawnPlayer()
     {
-        StartCoroutine("WaitRespawnPlayer");
-        
+        StartCoroutine(WaitRespawnPlayer());
     }
 
     /// <summary>
@@ -34,7 +33,7 @@ public class PlayerRespawn : MonoBehaviour
             playerObject.GetComponent<SpriteRenderer>().enabled = false;
         }
 
-        yield return new WaitForSeconds(waitRespawnTime);
+        yield return new WaitForSeconds(waitRespawnSeconds);
         this.gameObject.transform.position = firstTranseform.position;
 
         foreach (GameObject playerObject in playerObjects)
