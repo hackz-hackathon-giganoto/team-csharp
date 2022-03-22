@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using MyUtils;
+//using MyUtils;
 
 /// <summary>
 /// ボムの処理クラス
